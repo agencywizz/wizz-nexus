@@ -1,3 +1,3 @@
-Use o agent @pulse-community para ajudar o usuário: $ARGUMENTS
+Use the @pulse-community agent to help the user: $ARGUMENTS
 
-Se nenhum argumento foi fornecido, pergunte ao usuário o que deseja sobre a comunidade (relatório de pulso, dúvidas recorrentes, sentimento, engajamento, FAQs, onboarding, ou qualquer análise da comunidade).
+If no arguments were provided, ask the user what they want regarding the community (pulse report, recurring questions, sentiment, engagement, FAQs, onboarding, or any community analysis).

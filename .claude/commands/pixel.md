@@ -1,3 +1,3 @@
-Use o agent @pixel-social-media para ajudar o usuário com o seguinte assunto de redes sociais: $ARGUMENTS
+Use the @pixel-social-media agent to help the user with the following social media matter: $ARGUMENTS
 
-Se nenhum argumento foi fornecido, pergunte ao usuário como pode ajudar no contexto de social media (posts, threads, calendário, estratégia, análise, etc).
+If no arguments were provided, ask the user how you can help in the social media context (posts, threads, calendar, strategy, analysis, etc).

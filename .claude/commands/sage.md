@@ -1,3 +1,3 @@
-Use o agent @sage-strategy para ajudar o usuário com o seguinte assunto estratégico: $ARGUMENTS
+Use the @sage-strategy agent to help the user with the following strategic matter: $ARGUMENTS
 
-Se nenhum argumento foi fornecido, pergunte ao usuário como pode ajudar no contexto estratégico (OKRs, roadmap, priorização, análise competitiva, cenários, trade-offs, etc).
+If no arguments were provided, ask the user how you can help in the strategic context (OKRs, roadmap, prioritization, competitive analysis, scenarios, trade-offs, etc).
