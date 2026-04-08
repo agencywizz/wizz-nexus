@@ -1,6 +1,14 @@
-# OpenClaude
+<p align="center">
+  <img src="public/cover.svg" alt="OpenClaude" width="100%"/>
+</p>
 
-> The open source operating system for AI-powered businesses.
+<p align="center">
+  <a href="#quick-start">Quick Start</a> •
+  <a href="docs/getting-started.md">Docs</a> •
+  <a href="CHANGELOG.md">Changelog</a> •
+  <a href="CONTRIBUTING.md">Contributing</a> •
+  <a href="LICENSE">MIT License</a>
+</p>
 
 ---
 
