@@ -40,6 +40,57 @@ OpenClaude is a multi-agent workspace built on top of Claude Code. It turns a si
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="public/print-overview.png" alt="Overview Dashboard" width="100%"/>
+  <br/><sub>Overview — unified metrics from all agents</sub>
+</p>
+
+<p align="center">
+  <img src="public/print-chat.png" alt="Chat Terminal" width="100%"/>
+  <br/><sub>Chat — embedded Claude Code terminal in the browser</sub>
+</p>
+
+<p align="center">
+  <img src="public/print-integrations.png" alt="Integrations" width="100%"/>
+  <br/><sub>Integrations — connect all your services</sub>
+</p>
+
+<p align="center">
+  <img src="public/print-costs.png" alt="Costs" width="100%"/>
+  <br/><sub>Costs — token usage and cost tracking per routine</sub>
+</p>
+
+---
+
+## Integrations
+
+Connect your existing tools via MCP servers, API clients, or OAuth:
+
+| Integration | Type | What it does |
+|---|---|---|
+| **Google Calendar** | MCP | Read/create/update events, find free time |
+| **Gmail** | MCP | Read, draft, send emails, triage inbox |
+| **GitHub** | MCP + CLI | PRs, issues, releases, code search |
+| **Linear** | MCP | Issues, sprints, project tracking |
+| **Discord** | API | Community messages, channels, moderation |
+| **Telegram** | MCP + Bot | Notifications, messages, commands |
+| **Stripe** | API | Charges, subscriptions, MRR, customers |
+| **Omie** | API | ERP — clients, invoices, financials, stock |
+| **Fathom** | API | Meeting recordings, transcripts, summaries |
+| **Todoist** | CLI | Task management, priorities, projects |
+| **YouTube** | OAuth | Channel stats, videos, engagement |
+| **Instagram** | OAuth | Profile, posts, engagement, insights |
+| **LinkedIn** | OAuth | Profile, org stats |
+| **Canva** | MCP | Design and presentations |
+| **Notion** | MCP | Knowledge base, pages, databases |
+| **Obsidian** | CLI | Vault management, notes, search |
+
+Social media accounts (YouTube, Instagram, LinkedIn) are connected via OAuth through the dashboard or `make social-auth`.
+
+---
+
 ## Prerequisites
 
 | Tool | Required | Install |
