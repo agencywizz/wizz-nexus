@@ -315,31 +315,18 @@ def main():
     print(f"  {BOLD}Checking prerequisites...{RESET}")
     check_prerequisites()
 
-    # Step 1 — Who are you?
-    print(f"  {BOLD}Step 1/4 — Who are you?{RESET}")
+    # Who are you?
+    print(f"  {BOLD}About you{RESET}")
     owner_name = ask("Your name", "")
     company_name = ask("Company name", "")
     timezone = ask("Timezone", "America/Sao_Paulo")
     language = ask("Language", "en")
+    dashboard_port = int(ask("Dashboard port", "8080"))
     print()
 
-    # Step 2 — Agents
-    print(f"  {BOLD}Step 2/4 — Which agents do you want?{RESET}")
-    default_agents = ["ops", "finance", "projects", "community"]
-    agents = ask_multi("Select agents:", AGENTS, default_agents)
-    print()
-
-    # Step 3 — Integrations
-    print(f"  {BOLD}Step 3/4 — Integrations{RESET}")
-    print(f"  {DIM}Configure API keys in .env after setup.{RESET}")
-    integrations = ask_multi("Select integrations:", INTEGRATIONS, [])
-    print()
-
-    # Step 4 — Dashboard
-    print(f"  {BOLD}Step 4/4 — Dashboard{RESET}")
-    enable_dashboard = ask_bool("Enable web dashboard?", True)
-    dashboard_port = int(ask("Dashboard port", "8080")) if enable_dashboard else 8080
-    print()
+    # All agents and integrations enabled by default
+    agents = [a["key"] for a in AGENTS]
+    integrations = []  # configured via .env later
 
     # Build config
     from datetime import date
@@ -356,8 +343,7 @@ def main():
         "dashboard_port": dashboard_port,
     }
 
-    # Step 5 — Generate
-    print(f"  {BOLD}Creating workspace... — Creating workspace...{RESET}")
+    print(f"  {BOLD}Creating workspace...{RESET}")
 
     # workspace.yaml
     config_dir = WORKSPACE / "config"
@@ -380,12 +366,11 @@ def main():
     create_folders(config)
 
     # Dashboard build
-    if enable_dashboard:
-        frontend_dir = WORKSPACE / "dashboard" / "frontend"
-        if (frontend_dir / "package.json").exists():
-            print(f"  {DIM}Building dashboard frontend...{RESET}")
-            os.system(f"cd {frontend_dir} && npm install --silent && npm run build --silent 2>/dev/null")
-            print(f"  {GREEN}✓{RESET} Built dashboard frontend")
+    frontend_dir = WORKSPACE / "dashboard" / "frontend"
+    if (frontend_dir / "package.json").exists():
+        print(f"  {DIM}Building dashboard frontend...{RESET}")
+        os.system(f"cd {frontend_dir} && npm install --silent && npm run build --silent 2>/dev/null")
+        print(f"  {GREEN}✓{RESET} Built dashboard frontend")
 
     # Data dir for SQLite
     (WORKSPACE / "dashboard" / "data").mkdir(parents=True, exist_ok=True)
