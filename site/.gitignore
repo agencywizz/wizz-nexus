@@ -44,6 +44,10 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
+# Generated at build time
+public/docs/
+public/docs-index.json
+
 # Replit
 .cache/
 .local/

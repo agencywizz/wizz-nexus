@@ -64,7 +64,7 @@ export default function Home() {
   }, []);
 
   const GITHUB_URL = "https://github.com/EvolutionAPI/open-claude";
-  const DOCS_URL = "http://localhost:8080/docs";
+  const DOCS_URL = "/docs";
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -127,7 +127,7 @@ export default function Home() {
 
           <div className="hidden md:flex items-center gap-4">
             <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium" data-testid="link-github">GitHub</a>
-            <a href={DOCS_URL} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium" data-testid="link-docs">Docs</a>
+            <a href={DOCS_URL} className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium" data-testid="link-docs">Docs</a>
             <Button
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-[0_0_15px_rgba(0,255,167,0.3)]"
               onClick={() => scrollTo("quickstart")}
@@ -153,7 +153,7 @@ export default function Home() {
             >
               <div className="flex flex-col gap-4 px-6 py-6">
                 <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="text-foreground font-medium" onClick={() => setMobileMenuOpen(false)}>GitHub</a>
-                <a href={DOCS_URL} target="_blank" rel="noreferrer" className="text-foreground font-medium" onClick={() => setMobileMenuOpen(false)}>Docs</a>
+                <a href={DOCS_URL} className="text-foreground font-medium" onClick={() => setMobileMenuOpen(false)}>Docs</a>
                 <Button
                   className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold w-full"
                   onClick={() => scrollTo("quickstart")}
@@ -501,7 +501,7 @@ export default function Home() {
               <h4 className="font-bold mb-2">Links</h4>
               <div className="flex flex-wrap gap-6">
                 <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-github">GitHub</a>
-                <a href={DOCS_URL} target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-docs">Documentation</a>
+                <a href={DOCS_URL} className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-docs">Documentation</a>
                 <a href={`${GITHUB_URL}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-contributing">Contributing</a>
                 <a href={`${GITHUB_URL}/blob/main/CHANGELOG.md`} target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-changelog">Changelog</a>
               </div>
