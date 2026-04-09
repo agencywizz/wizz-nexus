@@ -68,15 +68,6 @@ def _set_mining_status(status):
 def _get_palace_stats():
     """Get stats from mempalace if available."""
     try:
-        from mempalace.miner import status as mp_status
-        raw = mp_status(str(PALACE_DIR))
-        # mp_status prints to stdout; try to parse structured data instead
-        # Fallback: use ChromaDB directly
-        raise ImportError("use fallback")
-    except Exception:
-        pass
-
-    try:
         import chromadb
         db_path = PALACE_DIR / "chroma"
         if not db_path.exists():
@@ -154,6 +145,11 @@ def install():
         )
         if result.returncode == 0:
             PALACE_DIR.mkdir(parents=True, exist_ok=True)
+            # Auto-init the palace so MCP and CLI work immediately
+            subprocess.run(
+                [sys.executable, "-m", "mempalace", "init", str(PALACE_DIR)],
+                capture_output=True, timeout=30,
+            )
             return jsonify({"status": "installed"})
         return jsonify({"status": "error", "detail": result.stderr}), 500
     except subprocess.TimeoutExpired:

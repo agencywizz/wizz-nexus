@@ -51,6 +51,7 @@ dashboard/data/*.db
 dashboard/data/*.db-shm
 dashboard/data/*.db-wal
 dashboard/data/.secret_key
+dashboard/data/mempalace/
 dashboard/frontend/node_modules/
 dashboard/frontend/dist/
 
@@ -79,5 +80,20 @@ config/routines.yaml
 .claude/todos/
 .claude/TASKS.md
 
-# ── Others ───────────────────────
-site/
+# ── Site (landing page) ──────────
+site/node_modules/
+site/dist/
+site/.git/
+site/artifacts/
+site/attached_assets/
+site/.agents/
+site/.canvas/
+site/.local/
+site/.replit
+site/.replitignore
+site/.npmrc
+site/pnpm-lock.yaml
+site/pnpm-workspace.yaml
+site/replit.md
+site/scripts/
+site/lib/

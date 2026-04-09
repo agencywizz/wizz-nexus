@@ -1,0 +1,36 @@
+wing: claude_cowork_workspace
+rooms:
+- name: memory
+  description: Files from memory/
+- name: adws
+  description: Files from ADWs/
+- name: configuration
+  description: Files from config/
+- name: workspace
+  description: Files from workspace/
+- name: documentation
+  description: Files from docs/
+- name: dashboard
+  description: Files from dashboard/
+- name: public
+  description: Files from public/
+- name: social_auth
+  description: Files from social-auth/
+- name: site
+  description: Files from site/
+- name: team
+  description: Files from people/
+- name: costs
+  description: Files from finance/
+- name: meetings
+  description: Files from meetings/
+- name: planning
+  description: Files from strategy/
+- name: frontend
+  description: Files from frontend/
+- name: backend
+  description: Files from backend/
+- name: scripts
+  description: Files from scripts/
+- name: general
+  description: Files that don't fit other rooms
