@@ -24,7 +24,7 @@
 
 ### Skills
 
-- [ ] 🔥 **Evolution product skills** — dedicated skills for Evolution API, Evolution Go, and Evo CRM (deploy, config, monitoring, troubleshooting, docs)
+- [x] 🔥 **Evolution product skills** — `int-evolution-api` (33 commands), `int-evolution-go` (24 commands), `int-evo-crm` (48 commands) for managing instances, messages, contacts, conversations, pipelines via REST API.
 - [x] **Version indicator & update alerts** — show current version in dashboard sidebar, alert when new GitHub releases are available.
 
 ### Developer Experience
