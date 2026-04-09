@@ -18,7 +18,7 @@ onboarding
 
 ### 1. Agent Tour
 
-A quick overview of all 9 agents and what they do:
+A quick overview of all 16 agents and what they do:
 
 - **Clawdia** — your operational hub (calendar, emails, tasks)
 - **Flux** — financial intelligence (Stripe, Omie, reports)
@@ -29,6 +29,13 @@ A quick overview of all 9 agents and what they do:
 - **Kai** — personal wellness (health, habits)
 - **Nex** — sales pipeline (proposals, qualification)
 - **Mentor** — education (Evo Academy, courses)
+- **Oracle** — workspace knowledge (docs, how-to, config)
+- **Mako** — marketing (campaigns, SEO, brand, content)
+- **Aria** — HR / people (recruiting, onboarding, performance)
+- **Zara** — customer success (triage, escalation, health)
+- **Lex** — legal / compliance (contracts, NDA, risk)
+- **Nova** — product (specs, roadmaps, metrics, research)
+- **Dex** — data / BI (analysis, SQL, dashboards)
 
 ### 2. Dashboard Introduction
 
@@ -65,7 +72,7 @@ Once you've completed the tour, you're ready to:
 - Set up your daily routines (`create a routine`)
 - Configure the scheduler (`make scheduler`)
 - Start using agents for daily work
-- Explore the 126 available skills
+- Explore the 130+ available skills
 
 ## Re-running Setup
 

@@ -16,8 +16,8 @@ OpenClaude is a file-based, git-friendly framework. Everything is markdown, YAML
 │   └───┬────┴───┬───┴───┬───┴────┬───┴────┬───┘  │
 │       │        │       │        │        │       │
 │   ┌───┴────────┴───────┴────────┴────────┴───┐   │
-│   │              Skills (~80)                 │   │
-│   │   fin- / social- / int- / prod- / mkt-   │   │
+│   │             Skills (~130)                 │   │
+│   │ fin- / social- / int- / hr- / legal- /.. │   │
 │   └──────────────────────────────────────────┘   │
 │                        │                         │
 │   ┌──────────────────────────────────────────┐   │
@@ -62,7 +62,7 @@ Skills are domain-specific instructions that teach Claude how to perform specifi
 | `pulse-` | Community | 4 |
 | `sage-` | Strategy | 3 |
 
-> **Note:** `evo-` skills (~45) are maintained in the separate [EVO-METHOD](https://github.com/EvolutionAPI/EVO-METHOD) project. They are gitignored from this repo but work normally if installed locally. The repo ships ~80 non-evo skills.
+> **Note:** `evo-` skills (~45) are maintained in the separate [EVO-METHOD](https://github.com/EvolutionAPI/EVO-METHOD) project. They are gitignored from this repo but work normally if installed locally. The repo ships ~130 non-evo skills.
 
 ### Routines (`ADWs/routines/`)
 

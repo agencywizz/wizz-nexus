@@ -45,7 +45,7 @@ It turns a single Claude Code installation into a team of 16 specialized agents 
 ## Key Features
 
 - **16 Core Agents + Custom** — Ops, Finance, Projects, Community, Social, Strategy, Sales, Courses, Personal, Knowledge, Marketing, HR, Customer Success, Legal, Product, Data — plus user-created `custom-*` agents (gitignored)
-- **~180 Skills** — organized by domain prefix (`social-`, `fin-`, `int-`, `prod-`, `mkt-`, `gog-`, `obs-`, `discord-`, `pulse-`, `sage-`, `hr-`, `legal-`, `ops-`, `cs-`, `data-`, `pm-`)
+- **~130 Skills + Custom** — organized by domain prefix (`social-`, `fin-`, `int-`, `prod-`, `mkt-`, `gog-`, `obs-`, `discord-`, `pulse-`, `sage-`, `hr-`, `legal-`, `ops-`, `cs-`, `data-`, `pm-`)
 - **7 Core + 20 Custom Routines** — daily, weekly, and monthly ADWs managed by a scheduler (core routines ship with the repo; custom routines are user-created and gitignored)
 - **Web Dashboard** — React + Flask app with auth, roles, web terminal, service management
 - **17 Integrations** — Google Calendar, Gmail, Linear, GitHub, Discord, Telegram, Stripe, Omie, Fathom, Todoist, YouTube, Instagram, LinkedIn, Evolution API, Evolution Go, Evo CRM, and more
@@ -58,11 +58,14 @@ It turns a single Claude Code installation into a team of 16 specialized agents 
 
 ## Screenshots
 
-| Overview | Chat |
-|---|---|
-| ![Overview](public/print-overview.png) | ![Chat](public/print-agents.png) |
-| **Integrations** | **Costs** |
-| ![Integrations](public/print-integrations.png) | ![Costs](public/print-costs.png) |
+<p align="center">
+  <img src="public/print-overview.png" alt="Overview" width="49%" />
+  <img src="public/print-agents.png" alt="Agents" width="49%" />
+</p>
+<p align="center">
+  <img src="public/print-integrations.png" alt="Integrations" width="49%" />
+  <img src="public/print-costs.png" alt="Costs" width="49%" />
+</p>
 
 ---
 
@@ -283,7 +286,7 @@ open-claude/
 ├── .claude/
 │   ├── agents/          — 16 agent system prompts
 │   ├── commands/        — 16 slash commands
-│   ├── skills/          — ~180 skills by prefix
+│   ├── skills/          — ~130 skills by prefix (+ custom)
 │   └── templates/html/  — 2 core + custom HTML templates
 ├── ADWs/
 │   ├── runner.py        — execution engine (logs + metrics + notifications)

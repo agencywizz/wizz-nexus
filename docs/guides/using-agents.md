@@ -1,6 +1,6 @@
 # Using Agents
 
-OpenClaude ships with 9 specialized agents, each owning a specific domain. You don't need to memorize commands — just describe what you need and Claude routes to the right agent.
+OpenClaude ships with 16 specialized agents, each owning a specific domain. You don't need to memorize commands — just describe what you need and Claude routes to the right agent.
 
 ## Getting Started
 
@@ -76,7 +76,7 @@ You don't have to use slash commands. Claude reads your intent and picks the rig
 | "check my health data" | Kai |
 | "create a course module" | Mentor |
 
-## All 9 Agents
+## All 16 Agents
 
 | Agent | Command | Domain |
 |---|---|---|
@@ -89,6 +89,13 @@ You don't have to use slash commands. Claude reads your intent and picks the rig
 | **Kai** | `/kai` | Personal — health, habits, routine |
 | **Nex** | `/nex` | Sales — pipeline, proposals |
 | **Mentor** | `/mentor` | Courses — Evo Academy, modules |
+| **Oracle** | `/oracle` | Knowledge — workspace docs, how-to, config |
+| **Mako** | `/mako` | Marketing — campaigns, SEO, brand |
+| **Aria** | `/aria` | HR / People — recruiting, onboarding, performance |
+| **Zara** | `/zara` | Customer Success — triage, escalation, health |
+| **Lex** | `/lex` | Legal — contracts, compliance, NDA, risk |
+| **Nova** | `/nova` | Product — specs, roadmaps, metrics |
+| **Dex** | `/dex` | Data / BI — analysis, SQL, dashboards |
 
 ## Tips
 

@@ -29,7 +29,7 @@ Each agent owns a domain (finance, projects, community, social media, strategy, 
 |---------|------------|
 | You ask, it answers | Agents run routines on schedule |
 | Forgets between sessions | Persistent memory across sessions |
-| One conversation thread | 9 agents with isolated domains |
+| One conversation thread | 16 agents with isolated domains |
 | No integrations | 18+ integrations (Google, GitHub, Stripe, Discord, etc.) |
 | Text output | HTML reports, dashboards, structured data |
 | Manual every time | Automated daily/weekly/monthly workflows |
@@ -38,7 +38,7 @@ Each agent owns a domain (finance, projects, community, social media, strategy, 
 
 ### Agents
 
-Nine specialized agents, each with a system prompt, slash command, persistent memory, and domain-specific skills:
+16 specialized agents, each with a system prompt, slash command, persistent memory, and domain-specific skills:
 
 | Agent | Domain | Command |
 |-------|--------|---------|
@@ -51,10 +51,17 @@ Nine specialized agents, each with a system prompt, slash command, persistent me
 | Nex | Sales — pipeline, proposals, qualification | `/nex` |
 | Mentor | Courses — learning paths, modules | `/mentor` |
 | Kai | Personal — health, habits, routine | `/kai` |
+| Oracle | Knowledge — workspace docs, how-to, config | `/oracle` |
+| Mako | Marketing — campaigns, SEO, brand, content | `/mako` |
+| Aria | HR / People — recruiting, onboarding, performance | `/aria` |
+| Zara | Customer Success — triage, escalation, health | `/zara` |
+| Lex | Legal — contracts, compliance, NDA, risk | `/lex` |
+| Nova | Product — specs, roadmaps, metrics, research | `/nova` |
+| Dex | Data / BI — analysis, SQL, dashboards | `/dex` |
 
 ### Skills
 
-~80 reusable capabilities organized by prefix (`fin-`, `social-`, `int-`, `prod-`, etc.). Skills are markdown files that teach agents how to perform specific tasks — no plugins, no code.
+~130 reusable capabilities organized by prefix (`fin-`, `social-`, `int-`, `prod-`, `hr-`, `legal-`, `ops-`, `cs-`, `data-`, `pm-`, `mkt-`, etc.). Skills are markdown files that teach agents how to perform specific tasks — no plugins, no code.
 
 ### Routines
 

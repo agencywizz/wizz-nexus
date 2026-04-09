@@ -178,16 +178,16 @@ export default function Home() {
               The open source operating system for <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-300">AI-powered businesses</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-              An unofficial open source toolkit compatible with Claude Code. 9 specialized agents, 67 skills, automated routines, and a web dashboard — all in one command.
+              An unofficial open source toolkit compatible with Claude Code. 16 specialized agents, 130+ skills, automated routines, channels, and a web dashboard — all in one command.
             </p>
 
             {/* Social proof numbers */}
             <div className="flex flex-wrap justify-center gap-4 mb-10">
               {[
                 { value: "17,000+", label: "Community members" },
-                { value: "9", label: "AI Agents" },
-                { value: "67", label: "Skills" },
-                { value: "17", label: "Integrations" },
+                { value: "16", label: "AI Agents" },
+                { value: "130+", label: "Skills" },
+                { value: "18", label: "Integrations" },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-sm">
                   <span className="font-bold text-primary">{stat.value}</span>
@@ -278,14 +278,15 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { icon: Bot, title: "9 Specialized Agents", desc: "Ops, Finance, Projects, Community, Social, Strategy, Sales, Courses, Personal" },
-                { icon: BrainCircuit, title: "67 Skills", desc: "Organized by domain: financial, social, marketing, integrations, productivity" },
+                { icon: Bot, title: "16 Specialized Agents", desc: "Ops, Finance, Projects, Community, Social, Strategy, Sales, Courses, Personal, Marketing, HR, CS, Legal, Product, Data, Knowledge" },
+                { icon: BrainCircuit, title: "130+ Skills", desc: "Organized by domain: financial, social, marketing, HR, legal, ops, data, integrations, productivity" },
                 { icon: Clock, title: "Automated Routines", desc: "Morning briefing to monthly close, running on schedule automatically" },
                 { icon: LayoutDashboard, title: "Web Dashboard", desc: "React + Flask with auth, roles, terminal, reports, service management" },
-                { icon: Workflow, title: "17 Integrations", desc: "Gmail, Calendar, GitHub, Linear, Discord, Stripe, Evolution API, Evolution Go, Evo CRM, and more" },
+                { icon: Workflow, title: "18 Integrations", desc: "Gmail, Calendar, GitHub, Linear, Discord, Stripe, Evolution API, Evolution Go, Evo CRM, and more" },
+                { icon: MessageSquare, title: "Channels", desc: "Bidirectional chat via Telegram, Discord, and iMessage — talk to Claude from your phone" },
                 { icon: Database, title: "Persistent Memory", desc: "Two-tier system that remembers context across conversations and sessions" },
-                { icon: Activity, title: "Full Observability", desc: "Token usage, cost tracking, JSONL logs per routine and agent" },
-                { icon: Zap, title: "Setup in 2 Minutes", desc: "make setup \u2192 make dashboard-app \u2192 done. Everything configures itself." },
+                { icon: Activity, title: "Agent Teams", desc: "Parallel multi-agent execution for faster consolidation routines (experimental)" },
+                { icon: Zap, title: "Scheduled Tasks", desc: "One-off actions at a specific date/time — schedule a skill, prompt, or script" },
                 { icon: Code, title: "100% Open Source", desc: "MIT License, fork it, customize it, own your entire AI infrastructure." },
               ].map((feature, i) => (
                 <Card key={i} className="bg-card border-border hover:border-primary/30 transition-colors">
@@ -364,7 +365,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 mb-12">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet your new team</h2>
-              <p className="text-muted-foreground text-lg">9 specialized agents ready to handle your operations.</p>
+              <p className="text-muted-foreground text-lg">16 specialized agents ready to handle your operations.</p>
             </FadeIn>
           </div>
 
@@ -380,6 +381,13 @@ export default function Home() {
                 { name: "Nex", cmd: "/nex", role: "Sales", desc: "pipeline, proposals", color: "text-yellow-400" },
                 { name: "Mentor", cmd: "/mentor", role: "Courses", desc: "learning paths", color: "text-indigo-400" },
                 { name: "Kai", cmd: "/kai", role: "Personal", desc: "health, habits", color: "text-rose-400" },
+                { name: "Oracle", cmd: "/oracle", role: "Knowledge", desc: "docs, how-to, config", color: "text-amber-400" },
+                { name: "Mako", cmd: "/mako", role: "Marketing", desc: "campaigns, SEO, brand", color: "text-orange-500" },
+                { name: "Aria", cmd: "/aria", role: "HR", desc: "recruiting, onboarding", color: "text-pink-500" },
+                { name: "Zara", cmd: "/zara", role: "CS", desc: "triage, escalation", color: "text-teal-400" },
+                { name: "Lex", cmd: "/lex", role: "Legal", desc: "contracts, compliance", color: "text-violet-400" },
+                { name: "Nova", cmd: "/nova", role: "Product", desc: "specs, roadmaps", color: "text-yellow-300" },
+                { name: "Dex", cmd: "/dex", role: "Data", desc: "analysis, dashboards", color: "text-sky-400" },
               ].map((agent, i) => (
                 <div key={i} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors" data-testid={`agent-card-${agent.name.toLowerCase()}`}>
                   <div className="flex items-center justify-between mb-4">

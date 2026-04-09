@@ -1,39 +1,39 @@
-# Channels Reference — Construindo Channels Customizados
+# Channels Reference — Building Custom Channels
 
-Referência técnica para construir um MCP server que empurra webhooks, alertas e mensagens de chat para uma sessão Claude Code.
+Technical reference for building an MCP server that pushes webhooks, alerts, and chat messages into a Claude Code session.
 
-> Para usar channels já prontos (Telegram, Discord, iMessage), veja o [Guia de Channels](channels.md).
+> To use existing channels (Telegram, Discord, iMessage), see the [Channels Guide](channels.md).
 
-## Visão Geral
+## Overview
 
-Um channel é um MCP server que roda na mesma máquina que o Claude Code. O Claude Code o inicia como subprocesso e comunica via stdio. Seu channel é a ponte entre sistemas externos e a sessão:
+A channel is an MCP server that runs on the same machine as Claude Code. Claude Code spawns it as a subprocess and communicates over stdio. Your channel server bridges external systems and the session:
 
-- **Chat platforms** (Telegram, Discord): seu plugin roda localmente e faz polling da API da plataforma. Quando alguém envia uma DM para o bot, o plugin recebe e encaminha para Claude.
-- **Webhooks** (CI, monitoring): seu server escuta em uma porta HTTP local. Sistemas externos fazem POST nessa porta, e seu server empurra o payload para Claude.
+- **Chat platforms** (Telegram, Discord): your plugin runs locally and polls the platform's API. When someone DMs the bot, the plugin receives the message and forwards it to Claude.
+- **Webhooks** (CI, monitoring): your server listens on a local HTTP port. External systems POST to that port, and your server pushes the payload to Claude.
 
-## Requisitos
+## Requirements
 
 - [`@modelcontextprotocol/sdk`](https://www.npmjs.com/package/@modelcontextprotocol/sdk) (MCP SDK)
-- Runtime Node.js-compatível: [Bun](https://bun.sh), [Node](https://nodejs.org) ou [Deno](https://deno.com)
+- Node.js-compatible runtime: [Bun](https://bun.sh), [Node](https://nodejs.org), or [Deno](https://deno.com)
 
-Seu server precisa:
+Your server must:
 
-1. Declarar a capability `claude/channel` para que Claude Code registre um listener de notificações
-2. Emitir eventos `notifications/claude/channel` quando algo acontecer
-3. Conectar via [stdio transport](https://modelcontextprotocol.io/docs/concepts/transports#standard-io)
+1. Declare the `claude/channel` capability so Claude Code registers a notification listener
+2. Emit `notifications/claude/channel` events when something happens
+3. Connect via [stdio transport](https://modelcontextprotocol.io/docs/concepts/transports#standard-io)
 
-## Exemplo: Webhook Receiver
+## Example: Webhook Receiver
 
-Um server single-file que escuta HTTP requests e encaminha para a sessão Claude Code.
+A single-file server that listens for HTTP requests and forwards them into your Claude Code session.
 
-### 1. Criar o Projeto
+### 1. Create the Project
 
 ```bash
 mkdir webhook-channel && cd webhook-channel
 bun add @modelcontextprotocol/sdk
 ```
 
-### 2. Escrever o Server
+### 2. Write the Server
 
 ```ts
 // webhook.ts
@@ -68,7 +68,7 @@ Bun.serve({
 })
 ```
 
-### 3. Registrar no MCP Config
+### 3. Register in MCP Config
 
 ```json
 // .mcp.json
@@ -79,17 +79,17 @@ Bun.serve({
 }
 ```
 
-### 4. Testar
+### 4. Test
 
 ```bash
-# Terminal 1: iniciar Claude Code com flag de desenvolvimento
+# Terminal 1: start Claude Code with development flag
 claude --dangerously-load-development-channels server:webhook
 
-# Terminal 2: simular um webhook
+# Terminal 2: simulate a webhook
 curl -X POST localhost:8788 -d "build failed on main: https://ci.example.com/run/1234"
 ```
 
-O payload chega como:
+The payload arrives as:
 
 ```
 <channel source="webhook" path="/" method="POST">build failed on main: https://ci.example.com/run/1234</channel>
@@ -97,21 +97,21 @@ O payload chega como:
 
 ## Server Options
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| `capabilities.experimental['claude/channel']` | `object` | **Obrigatório.** Sempre `{}`. Registra o listener de notificações |
-| `capabilities.experimental['claude/channel/permission']` | `object` | Opcional. Declara que o channel pode receber permission relay |
-| `capabilities.tools` | `object` | Apenas bidirecional. Sempre `{}`. Habilita tool discovery |
-| `instructions` | `string` | Recomendado. Adicionado ao system prompt do Claude |
+| Field | Type | Description |
+|-------|------|-------------|
+| `capabilities.experimental['claude/channel']` | `object` | **Required.** Always `{}`. Registers the notification listener |
+| `capabilities.experimental['claude/channel/permission']` | `object` | Optional. Declares that the channel can receive permission relay |
+| `capabilities.tools` | `object` | Two-way only. Always `{}`. Enables tool discovery |
+| `instructions` | `string` | Recommended. Added to Claude's system prompt |
 
 ## Notification Format
 
-Emitir `notifications/claude/channel` com dois params:
+Emit `notifications/claude/channel` with two params:
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| `content` | `string` | O corpo do evento. Entregue como body da tag `<channel>` |
-| `meta` | `Record<string, string>` | Opcional. Cada entry vira um atributo na tag `<channel>` |
+| Field | Type | Description |
+|-------|------|-------------|
+| `content` | `string` | The event body. Delivered as the body of the `<channel>` tag |
+| `meta` | `Record<string, string>` | Optional. Each entry becomes an attribute on the `<channel>` tag |
 
 ```ts
 await mcp.notification({
@@ -123,7 +123,7 @@ await mcp.notification({
 })
 ```
 
-Resultado no contexto do Claude:
+Result in Claude's context:
 
 ```
 <channel source="your-channel" severity="high" run_id="1234">
@@ -131,11 +131,11 @@ build failed on main
 </channel>
 ```
 
-**Nota sobre meta keys:** apenas letras, dígitos e underscores. Keys com hífens são silenciosamente descartadas.
+**Note on meta keys:** only letters, digits, and underscores. Keys with hyphens are silently dropped.
 
-## Expose a Reply Tool (Bidirecional)
+## Expose a Reply Tool (Two-Way)
 
-Para channels bidirecionais (chat bridges), exponha um MCP tool padrão:
+For bidirectional channels (chat bridges), expose a standard MCP tool:
 
 ```ts
 import { ListToolsRequestSchema, CallToolRequestSchema } from '@modelcontextprotocol/sdk/types.js'
@@ -160,7 +160,6 @@ mcp.setRequestHandler(ListToolsRequestSchema, async () => ({
 mcp.setRequestHandler(CallToolRequestSchema, async req => {
   if (req.params.name === 'reply') {
     const { chat_id, text } = req.params.arguments as { chat_id: string; text: string }
-    // Enviar para a plataforma de chat
     await sendToYourPlatform(chat_id, text)
     return { content: [{ type: 'text', text: 'sent' }] }
   }
@@ -168,58 +167,58 @@ mcp.setRequestHandler(CallToolRequestSchema, async req => {
 })
 ```
 
-Atualize as `instructions` para que Claude saiba usar o tool:
+Update `instructions` so Claude knows to use the tool:
 
 ```ts
 instructions: 'Messages arrive as <channel source="..." chat_id="...">. Reply with the reply tool, passing the chat_id from the tag.'
 ```
 
-## Gate Inbound Messages (Segurança)
+## Gate Inbound Messages (Security)
 
-Um channel sem gate é um vetor de prompt injection. Sempre verifique o remetente contra uma allowlist **antes** de emitir:
+An ungated channel is a prompt injection vector. Always check the sender against an allowlist **before** emitting:
 
 ```ts
 const allowed = new Set(loadAllowlist())
 
-// No handler de mensagens:
+// In your message handler:
 if (!allowed.has(message.from.id)) {
-  return  // descarte silenciosamente
+  return  // drop silently
 }
 await mcp.notification({ ... })
 ```
 
-**Importante:** faça gate no ID do remetente (`message.from.id`), não no chat/room (`message.chat.id`). Em grupos, qualquer pessoa no room poderia injetar mensagens.
+**Important:** Gate on the sender's ID (`message.from.id`), not the chat/room (`message.chat.id`). In group chats, anyone in the room could inject messages.
 
 ## Permission Relay
 
-> Requer Claude Code v2.1.81+
+> Requires Claude Code v2.1.81+
 
-Channels bidirecionais podem encaminhar prompts de permissão para aprovação remota.
+Bidirectional channels can forward permission prompts for remote approval.
 
-### Como Funciona
+### How It Works
 
-1. Claude Code gera um request ID e notifica seu server
-2. Seu server encaminha o prompt para o chat
-3. O usuário remoto responde com `yes <id>` ou `no <id>`
-4. Seu handler parseia a resposta e emite um verdict
+1. Claude Code generates a request ID and notifies your server
+2. Your server forwards the prompt to the chat platform
+3. The remote user replies with `yes <id>` or `no <id>`
+4. Your handler parses the reply and emits a verdict
 
-O dialog local do terminal permanece aberto — a primeira resposta (local ou remota) é aplicada.
+The local terminal dialog stays open — the first response (local or remote) is applied.
 
-### Implementação
+### Implementation
 
-**1. Declarar a capability:**
+**1. Declare the capability:**
 
 ```ts
 capabilities: {
   experimental: {
     'claude/channel': {},
-    'claude/channel/permission': {},  // opt-in para relay
+    'claude/channel/permission': {},  // opt in to relay
   },
   tools: {},
 },
 ```
 
-**2. Handler para incoming request:**
+**2. Handle incoming request:**
 
 ```ts
 import { z } from 'zod'
@@ -242,12 +241,12 @@ mcp.setNotificationHandler(PermissionRequestSchema, async ({ params }) => {
 })
 ```
 
-**3. Interceptar verdict no inbound handler:**
+**3. Intercept verdict in inbound handler:**
 
 ```ts
 const PERMISSION_REPLY_RE = /^\s*(y|yes|n|no)\s+([a-km-z]{5})\s*$/i
 
-// No handler de mensagens inbound:
+// In your inbound message handler:
 const m = PERMISSION_REPLY_RE.exec(message.text)
 if (m) {
   await mcp.notification({
@@ -257,45 +256,45 @@ if (m) {
       behavior: m[1].toLowerCase().startsWith('y') ? 'allow' : 'deny',
     },
   })
-  return  // não encaminhe como chat
+  return  // don't forward as chat
 }
 ```
 
 ### Permission Request Fields
 
-| Campo | Descrição |
-|-------|-----------|
-| `request_id` | 5 letras minúsculas (sem `l`). Inclua no prompt para ser ecoado na resposta |
-| `tool_name` | Nome do tool (ex: `Bash`, `Write`) |
-| `description` | Resumo legível do que o tool call faz |
-| `input_preview` | Argumentos do tool como JSON, truncado em 200 chars |
+| Field | Description |
+|-------|-------------|
+| `request_id` | 5 lowercase letters (no `l`). Include in the prompt to be echoed in the reply |
+| `tool_name` | Tool name (e.g., `Bash`, `Write`) |
+| `description` | Human-readable summary of what the tool call does |
+| `input_preview` | Tool arguments as JSON, truncated to 200 chars |
 
-## Empacotar como Plugin
+## Package as a Plugin
 
-Para tornar seu channel instalável e compartilhável:
+To make your channel installable and shareable:
 
-1. Empacote como [plugin](https://code.claude.com/docs/en/plugins)
-2. Publique em um [marketplace](https://code.claude.com/docs/en/plugin-marketplaces)
-3. Usuários instalam com `/plugin install` e habilitam com `--channels plugin:<name>@<marketplace>`
+1. Package it as a [plugin](https://code.claude.com/docs/en/plugins)
+2. Publish to a [marketplace](https://code.claude.com/docs/en/plugin-marketplaces)
+3. Users install with `/plugin install` and enable with `--channels plugin:<name>@<marketplace>`
 
-Channels publicados em marketplaces próprios ainda precisam de `--dangerously-load-development-channels` até serem adicionados à allowlist oficial ou à `allowedChannelPlugins` da organização.
+Channels published to custom marketplaces still require `--dangerously-load-development-channels` until added to the official allowlist or the organization's `allowedChannelPlugins`.
 
-## Testar Durante o Research Preview
+## Testing During the Research Preview
 
-Custom channels não estão na allowlist aprovada. Use a flag de desenvolvimento:
+Custom channels are not on the approved allowlist. Use the development flag:
 
 ```bash
-# Plugin em desenvolvimento
+# Plugin in development
 claude --dangerously-load-development-channels plugin:yourplugin@yourmarketplace
 
-# Server direto do .mcp.json
+# Bare .mcp.json server
 claude --dangerously-load-development-channels server:webhook
 ```
 
-O bypass é por-entry. A policy `channelsEnabled` da organização ainda se aplica.
+The bypass is per-entry. The `channelsEnabled` organization policy still applies.
 
-## Referências
+## References
 
-- [Guia de Channels](channels.md) — setup dos channels oficiais (Telegram, Discord, iMessage)
-- [Implementações funcionais](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins) — código completo com pairing, reply tools e file attachments
-- [MCP](https://modelcontextprotocol.io) — protocolo base que channel servers implementam
+- [Channels Guide](channels.md) — setup for official channels (Telegram, Discord, iMessage)
+- [Working implementations](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins) — complete server code with pairing, reply tools, and file attachments
+- [MCP](https://modelcontextprotocol.io) — the underlying protocol that channel servers implement

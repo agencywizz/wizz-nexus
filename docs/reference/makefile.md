@@ -62,7 +62,7 @@ make telegram               # Start Telegram bot in background (screen session)
 make telegram-stop          # Stop the Telegram bot
 make telegram-attach        # Attach to Telegram terminal (Ctrl+A D to detach)
 
-# Discord channel (chat bidirecional, diferente da integração API do @pulse)
+# Discord channel (bidirectional chat, separate from the @pulse API integration)
 make discord-channel        # Start Discord channel in background (screen session)
 make discord-channel-stop   # Stop the Discord channel
 make discord-channel-attach # Attach to Discord channel terminal (Ctrl+A D to detach)

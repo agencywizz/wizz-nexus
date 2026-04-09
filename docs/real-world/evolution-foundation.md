@@ -8,7 +8,7 @@ The CEO runs operations, development coordination, community management, financi
 
 ## The Setup
 
-Evolution Foundation runs OpenClaude with all 9 agents active:
+Evolution Foundation runs OpenClaude with all 16 agents active:
 
 - **Clawdia** — daily ops, email, calendar, task management
 - **Flux** — Stripe revenue tracking, ERP integration (Omie), financial reports
@@ -19,6 +19,13 @@ Evolution Foundation runs OpenClaude with all 9 agents active:
 - **Nex** — sales pipeline and proposals
 - **Mentor** — Evo Academy course planning
 - **Kai** — personal health and habit tracking
+- **Oracle** — workspace knowledge, docs, configuration
+- **Mako** — marketing campaigns, SEO, brand reviews
+- **Aria** — HR, recruiting pipeline, onboarding
+- **Zara** — customer success, ticket triage, escalation
+- **Lex** — legal, contracts, compliance checks
+- **Nova** — product specs, roadmaps, metrics
+- **Dex** — data analysis, dashboards, SQL queries
 
 Connected integrations: Google Calendar, Gmail, GitHub, Linear, Discord, Telegram, Stripe, Omie, Fathom, Todoist, YouTube, Instagram, LinkedIn, and the Evolution Licensing API.
 
@@ -89,4 +96,4 @@ After running OpenClaude for daily operations:
 - **Community issues caught early** — sentiment shifts and recurring questions surface in hours, not weeks
 - **Consistent reporting** — every day produces the same structured outputs, regardless of how busy the day was
 
-The key insight: the value isn't in any single routine. It's in the compounding effect of having every domain monitored, every day, with memory that carries forward. Problems don't slip through cracks when 9 agents are watching 9 domains on schedule.
+The key insight: the value isn't in any single routine. It's in the compounding effect of having every domain monitored, every day, with memory that carries forward. Problems don't slip through cracks when 16 agents are watching their domains on schedule.
