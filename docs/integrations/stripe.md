@@ -62,7 +62,7 @@ The Stripe integration provides data for these metrics:
 
 ## Stripe + Omie
 
-For a complete financial picture, EvoNexus combines Stripe data (revenue, subscriptions) with Omie ERP data (expenses, invoices, accounts payable/receivable). The `fin-daily-pulse` skill queries both sources.
+For a complete financial picture, WizzOS combines Stripe data (revenue, subscriptions) with Omie ERP data (expenses, invoices, accounts payable/receivable). The `fin-daily-pulse` skill queries both sources.
 
 If you only use Stripe (no Omie), the financial routines still work -- they show revenue metrics and skip the expense/ERP sections.
 

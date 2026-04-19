@@ -37,7 +37,7 @@ const CATEGORY_META: Record<string, { icon: LucideIcon; color: string; colorMute
   'discord': { icon: MessageSquare, color: '#7C8AFF', colorMuted: 'rgba(124,138,255,0.12)', glowColor: 'rgba(124,138,255,0.15)', label: 'Discord' },
   'pulse': { icon: Heart, color: '#2DD4BF', colorMuted: 'rgba(45,212,191,0.12)', glowColor: 'rgba(45,212,191,0.15)', label: 'Community' },
   'sage': { icon: Compass, color: '#FBBF24', colorMuted: 'rgba(251,191,36,0.12)', glowColor: 'rgba(251,191,36,0.15)', label: 'Strategy' },
-  'evo': { icon: BarChart3, color: '#00FFA7', colorMuted: 'rgba(0,255,167,0.12)', glowColor: 'rgba(0,255,167,0.15)', label: 'Evo Method' },
+  'evo': { icon: BarChart3, color: '#FF4500', colorMuted: 'rgba(255,69,0,0.12)', glowColor: 'rgba(255,69,0,0.15)', label: 'Evo Method' },
 }
 
 const DEFAULT_CATEGORY = { icon: Zap, color: '#8b949e', colorMuted: 'rgba(139,148,158,0.12)', glowColor: 'rgba(139,148,158,0.15)', label: 'Other' }
@@ -71,11 +71,11 @@ function SkeletonStat() {
 
 function StatCard({ label, value, icon: Icon }: { label: string; value: string | number; icon: LucideIcon }) {
   return (
-    <div className="group relative bg-[#161b22] border border-[#21262d] rounded-2xl p-5 transition-all duration-300 hover:border-[#00FFA7]/40 hover:shadow-[0_0_24px_rgba(0,255,167,0.06)]">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00FFA7]/20 to-transparent rounded-t-2xl" />
+    <div className="group relative bg-[#161b22] border border-[#21262d] rounded-2xl p-5 transition-all duration-300 hover:border-[#FF4500]/40 hover:shadow-[0_0_24px_rgba(255,69,0,0.06)]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF4500]/20 to-transparent rounded-t-2xl" />
       <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-          <Icon size={18} className="text-[#00FFA7]" />
+        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#FF4500]/8 border border-[#FF4500]/15">
+          <Icon size={18} className="text-[#FF4500]" />
         </div>
       </div>
       <p className="text-3xl font-bold text-[#e6edf3] tracking-tight">{value}</p>
@@ -196,7 +196,7 @@ export default function Skills() {
             placeholder="Search skills..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-[#161b22] border border-[#21262d] rounded-xl pl-9 pr-4 py-2.5 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 focus:shadow-[0_0_12px_rgba(0,255,167,0.08)] transition-all"
+            className="w-full bg-[#161b22] border border-[#21262d] rounded-xl pl-9 pr-4 py-2.5 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 focus:shadow-[0_0_12px_rgba(255,69,0,0.08)] transition-all"
           />
         </div>
         <div className="flex items-center gap-2 flex-wrap">
@@ -204,7 +204,7 @@ export default function Skills() {
             onClick={() => setSelectedCategory(null)}
             className={`text-xs px-3 py-1.5 rounded-full border transition-all duration-200 ${
               !selectedCategory
-                ? 'bg-[#00FFA7]/10 text-[#00FFA7] border-[#00FFA7]/30'
+                ? 'bg-[#FF4500]/10 text-[#FF4500] border-[#FF4500]/30'
                 : 'bg-transparent text-[#667085] border-[#21262d] hover:border-[#667085]/50'
             }`}
           >

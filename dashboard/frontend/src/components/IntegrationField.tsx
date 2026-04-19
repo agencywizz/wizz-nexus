@@ -67,7 +67,7 @@ export default function IntegrationField({
             sensitive ? 'pr-10' : '',
             hasError && required && !value
               ? 'border-red-500/50 focus:border-red-500/70 focus:ring-red-500/30'
-              : 'border-[#21262d] focus:border-[#00FFA7]/40 focus:ring-[#00FFA7]/20',
+              : 'border-[#21262d] focus:border-[#FF4500]/40 focus:ring-[#FF4500]/20',
           ].join(' ')}
           placeholder={sensitive ? '••••••••••••' : ''}
         />

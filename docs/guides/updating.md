@@ -1,4 +1,4 @@
-# Updating EvoNexus
+# Updating WizzOS
 
 ## Check your current version
 
@@ -37,7 +37,7 @@ python app.py &
 
 ## Update via Docker
 
-If you're running EvoNexus with Docker Compose:
+If you're running WizzOS with Docker Compose:
 
 ```bash
 cd /path/to/your/workspace
@@ -86,7 +86,7 @@ Returns:
   "current": "0.3.2",
   "latest": "0.4.0",
   "update_available": true,
-  "release_url": "https://github.com/EvolutionAPI/evo-nexus/releases/tag/v0.4.0",
+  "release_url": "https://github.com/EvolutionAPI/wizz-os/releases/tag/v0.4.0",
   "release_notes": "..."
 }
 ```
@@ -94,4 +94,4 @@ Returns:
 ## Changelog
 
 See all releases and changelogs on GitHub:
-https://github.com/EvolutionAPI/evo-nexus/releases
+https://github.com/EvolutionAPI/wizz-os/releases

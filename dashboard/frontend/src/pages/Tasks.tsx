@@ -22,7 +22,7 @@ interface Task {
 const STATUS_STYLES: Record<string, { bg: string; text: string; dot: string }> = {
   pending: { bg: 'bg-yellow-500/10 border-yellow-500/20', text: 'text-yellow-400', dot: 'bg-yellow-400' },
   running: { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-400', dot: 'bg-blue-400 animate-pulse' },
-  completed: { bg: 'bg-[#00FFA7]/10 border-[#00FFA7]/20', text: 'text-[#00FFA7]', dot: 'bg-[#00FFA7]' },
+  completed: { bg: 'bg-[#FF4500]/10 border-[#FF4500]/20', text: 'text-[#FF4500]', dot: 'bg-[#FF4500]' },
   failed: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-400', dot: 'bg-red-400' },
   cancelled: { bg: 'bg-[#667085]/10 border-[#667085]/20', text: 'text-[#667085]', dot: 'bg-[#667085]' },
 }
@@ -181,7 +181,7 @@ export default function Tasks() {
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#161b22] border border-[#21262d] flex items-center justify-center">
-            <CalendarClock size={20} className="text-[#00FFA7]" />
+            <CalendarClock size={20} className="text-[#FF4500]" />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-[#e6edf3]">Scheduled Tasks</h1>
@@ -191,13 +191,13 @@ export default function Tasks() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => { setLoading(true); fetchTasks() }}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg border border-[#21262d] bg-[#161b22] text-[#667085] hover:text-[#00FFA7] hover:border-[#00FFA7]/30 transition-colors"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg border border-[#21262d] bg-[#161b22] text-[#667085] hover:text-[#FF4500] hover:border-[#FF4500]/30 transition-colors"
           >
             <RefreshCw size={16} />
           </button>
           <button
             onClick={openCreate}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors font-medium text-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors font-medium text-sm"
           >
             <Plus size={16} /> New Task
           </button>
@@ -212,7 +212,7 @@ export default function Tasks() {
             onClick={() => { setFilter(f.value); setLoading(true) }}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border ${
               filter === f.value
-                ? 'bg-[#00FFA7]/10 border-[#00FFA7]/20 text-[#00FFA7]'
+                ? 'bg-[#FF4500]/10 border-[#FF4500]/20 text-[#FF4500]'
                 : 'bg-[#161b22] border-[#21262d] text-[#667085] hover:text-[#e6edf3] hover:border-[#344054]'
             }`}
           >
@@ -227,7 +227,7 @@ export default function Tasks() {
         <div className="bg-[#161b22] border border-[#21262d] rounded-xl p-12 text-center">
           <CalendarClock size={32} className="text-[#667085] mx-auto mb-3" />
           <p className="text-[#667085] text-sm">No scheduled tasks yet</p>
-          <button onClick={openCreate} className="mt-3 text-[#00FFA7] text-sm hover:underline">
+          <button onClick={openCreate} className="mt-3 text-[#FF4500] text-sm hover:underline">
             Create your first task
           </button>
         </div>
@@ -262,7 +262,7 @@ export default function Tasks() {
                     </td>
                     <td className="p-4">
                       {task.agent ? (
-                        <span className="inline-flex text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#00FFA7]/8 border border-[#00FFA7]/20 text-[#00FFA7]">
+                        <span className="inline-flex text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#FF4500]/8 border border-[#FF4500]/20 text-[#FF4500]">
                           {AGENT_LABELS[task.agent] || `@${task.agent}`}
                         </span>
                       ) : (
@@ -280,7 +280,7 @@ export default function Tasks() {
                       <div className="flex items-center gap-1 justify-end">
                         {task.status === 'pending' && (
                           <>
-                            <button onClick={() => handleRunNow(task.id)} className="p-1.5 rounded-lg hover:bg-[#00FFA7]/10 text-[#667085] hover:text-[#00FFA7] transition-colors" title="Run Now">
+                            <button onClick={() => handleRunNow(task.id)} className="p-1.5 rounded-lg hover:bg-[#FF4500]/10 text-[#667085] hover:text-[#FF4500] transition-colors" title="Run Now">
                               <Play size={14} />
                             </button>
                             <button onClick={() => openEdit(task)} className="p-1.5 rounded-lg hover:bg-white/5 text-[#667085] hover:text-[#e6edf3] transition-colors" title="Edit">
@@ -302,7 +302,7 @@ export default function Tasks() {
                           </>
                         )}
                         {task.status === 'failed' && (
-                          <button onClick={() => handleRunNow(task.id)} className="p-1.5 rounded-lg hover:bg-[#00FFA7]/10 text-[#667085] hover:text-[#00FFA7] transition-colors" title="Retry">
+                          <button onClick={() => handleRunNow(task.id)} className="p-1.5 rounded-lg hover:bg-[#FF4500]/10 text-[#667085] hover:text-[#FF4500] transition-colors" title="Retry">
                             <RefreshCw size={14} />
                           </button>
                         )}
@@ -342,7 +342,7 @@ export default function Tasks() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="e.g. Post LinkedIn about Summit"
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#00FFA7]/50 focus:outline-none"
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#FF4500]/50 focus:outline-none"
                 />
               </div>
 
@@ -353,7 +353,7 @@ export default function Tasks() {
                   value={form.description}
                   onChange={(e) => setForm({ ...form, description: e.target.value })}
                   placeholder="Optional context"
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#00FFA7]/50 focus:outline-none"
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#FF4500]/50 focus:outline-none"
                 />
               </div>
 
@@ -363,7 +363,7 @@ export default function Tasks() {
                   <select
                     value={form.type}
                     onChange={(e) => setForm({ ...form, type: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none"
+                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none"
                   >
                     <option value="skill">Skill</option>
                     <option value="prompt">Prompt</option>
@@ -375,7 +375,7 @@ export default function Tasks() {
                   <select
                     value={form.agent}
                     onChange={(e) => setForm({ ...form, agent: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none"
+                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none"
                   >
                     {AGENTS.map((a) => (
                       <option key={a} value={a}>{AGENT_LABELS[a] || a}</option>
@@ -397,7 +397,7 @@ export default function Tasks() {
                         : 'custom/my_script.py'
                   }
                   rows={3}
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#00FFA7]/50 focus:outline-none font-mono resize-none"
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#FF4500]/50 focus:outline-none font-mono resize-none"
                 />
               </div>
 
@@ -407,7 +407,7 @@ export default function Tasks() {
                   type="datetime-local"
                   value={form.scheduled_at}
                   onChange={(e) => setForm({ ...form, scheduled_at: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none"
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none"
                 />
               </div>
             </div>
@@ -422,7 +422,7 @@ export default function Tasks() {
               <button
                 onClick={handleSave}
                 disabled={saving || !form.name || !form.payload || !form.scheduled_at}
-                className="px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {saving ? 'Saving...' : editingTask ? 'Update' : 'Schedule'}
               </button>
@@ -458,7 +458,7 @@ export default function Tasks() {
 
               {viewTask.result_summary && (
                 <div>
-                  <label className="block text-xs font-medium text-[#00FFA7] mb-1">Result</label>
+                  <label className="block text-xs font-medium text-[#FF4500] mb-1">Result</label>
                   <pre className="text-xs text-[#e6edf3] bg-[#0d1117] border border-[#21262d] rounded-lg p-3 whitespace-pre-wrap font-mono max-h-64 overflow-y-auto">{viewTask.result_summary}</pre>
                 </div>
               )}

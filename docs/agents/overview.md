@@ -1,10 +1,10 @@
 # Agents Overview
 
-Agents are the core of EvoNexus. Each agent is a specialized AI persona with its own domain, system prompt, skills, and persistent memory.
+Agents are the core of WizzOS. Each agent is a specialized AI persona with its own domain, system prompt, skills, and persistent memory.
 
-EvoNexus organizes agents in **two ortogonal layers**:
+WizzOS organizes agents in **two ortogonal layers**:
 
-- **Business Layer (17 agents)** — operations, finance, community, marketing, HR, legal, product, data, sales, learning retention. Built and maintained by EvoNexus.
+- **Business Layer (17 agents)** — operations, finance, community, marketing, HR, legal, product, data, sales, learning retention. Built and maintained by WizzOS.
 - **Engineering Layer (21 agents)** — software development, code review, testing, debugging, security, design, cycle orchestration, retrospective. 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by Yeachan Heo) + 2 native (Helm, Mirror). Follows a canonical 6-phase workflow. See [Engineering Layer](engineering-layer.md) for details.
 
 The two layers are independent — business tasks route to business agents, engineering tasks to engineering agents — but cross-layer handoffs are common (e.g., `@nova` writes a PRD → `@apex-architect` does the architecture review → `@bolt-executor` implements → `@mirror-retro` captures lessons).
@@ -214,7 +214,7 @@ See the dedicated [Engineering Layer](engineering-layer.md) page for pipelines, 
 
 **Kai** is the personal assistant with an isolated domain. Health tracking, habits, personal appointments, and routines. It does not handle professional matters.
 
-**Oracle** is the workspace knowledge agent. It answers questions about how EvoNexus works — agents, skills, routines, integrations, dashboard, configuration, and architecture — by reading the actual documentation before responding. No RAG or vector DB needed.
+**Oracle** is the workspace knowledge agent. It answers questions about how WizzOS works — agents, skills, routines, integrations, dashboard, configuration, and architecture — by reading the actual documentation before responding. No RAG or vector DB needed.
 
 **Mako** handles marketing. Campaign planning, content creation, brand reviews, SEO audits, email sequences, and performance reports.
 

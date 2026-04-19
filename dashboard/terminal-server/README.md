@@ -1,6 +1,6 @@
 # Terminal Server
 
-Internal HTTP/WebSocket bridge that spawns `claude` CLI sessions for the EvoNexus dashboard UI.
+Internal HTTP/WebSocket bridge that spawns `claude` CLI sessions for the WizzOS dashboard UI.
 
 Consumed by `dashboard/frontend/src/components/AgentTerminal.tsx`. Not meant to be used standalone.
 

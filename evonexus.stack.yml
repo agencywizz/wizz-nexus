@@ -1,5 +1,5 @@
 ## ============================================================================
-## EvoNexus — Portainer / Docker Swarm deployment stack
+## WizzOS — Portainer / Docker Swarm deployment stack
 ##
 ## Before deploying, replace the placeholders below with your own values:
 ##   * ghcr.io/OWNER/...            → the ghcr.io namespace where your CI
@@ -23,7 +23,7 @@ version: "3.7"
 services:
 
   evonexus_dashboard:
-    image: ghcr.io/OWNER/evo-nexus-dashboard:latest  ## replace OWNER
+    image: ghcr.io/OWNER/wizz-os-dashboard:latest  ## replace OWNER
 
     volumes:
       - evonexus_config:/workspace/config
@@ -83,7 +83,7 @@ services:
         - traefik.http.services.evonexus_terminal.loadbalancer.passHostHeader=true
 
   evonexus_telegram:
-    image: ghcr.io/OWNER/evo-nexus-runtime:latest  ## replace OWNER
+    image: ghcr.io/OWNER/wizz-os-runtime:latest  ## replace OWNER
     command:
       - "claude"
       - "--channels"
@@ -121,7 +121,7 @@ services:
           memory: 1024M
 
   evonexus_scheduler:
-    image: ghcr.io/OWNER/evo-nexus-runtime:latest  ## replace OWNER
+    image: ghcr.io/OWNER/wizz-os-runtime:latest  ## replace OWNER
     command: ["uv", "run", "python", "scheduler.py"]
 
     volumes:

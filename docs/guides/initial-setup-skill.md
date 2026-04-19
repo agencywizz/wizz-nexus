@@ -1,6 +1,6 @@
 # Initial Setup and Onboarding
 
-The `initial-setup` skill gives you a guided tour of EvoNexus when you first start using it.
+The `initial-setup` skill gives you a guided tour of WizzOS when you first start using it.
 
 ## How to Trigger
 

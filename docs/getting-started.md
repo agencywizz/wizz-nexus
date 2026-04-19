@@ -1,4 +1,4 @@
-# Getting Started with EvoNexus
+# Getting Started with WizzOS
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@
 ### 1. Quick Install (recommended)
 
 ```bash
-npx @evoapi/evo-nexus
+npx @evoapi/wizz-os
 ```
 
 This downloads and runs the interactive setup wizard automatically.
@@ -20,8 +20,8 @@ This downloads and runs the interactive setup wizard automatically.
 ### Alternative: Manual Clone
 
 ```bash
-git clone --depth 1 https://github.com/EvolutionAPI/evo-nexus.git
-cd evo-nexus
+git clone --depth 1 https://github.com/EvolutionAPI/wizz-os.git
+cd wizz-os
 
 # Interactive setup wizard
 make setup
@@ -44,9 +44,9 @@ It generates:
 
 ### 2. Choose Your AI Provider
 
-The wizard asks which backend should power EvoNexus. **Anthropic is the default** — if you already have Claude Code authenticated, you don't need to do anything else.
+The wizard asks which backend should power WizzOS. **Anthropic is the default** — if you already have Claude Code authenticated, you don't need to do anything else.
 
-For any other provider (OpenRouter, OpenAI, Gemini, AWS Bedrock, Vertex AI, Codex Auth), EvoNexus uses [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude), a drop-in binary compatible with the Claude CLI protocol. Install it once:
+For any other provider (OpenRouter, OpenAI, Gemini, AWS Bedrock, Vertex AI, Codex Auth), WizzOS uses [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude), a drop-in binary compatible with the Claude CLI protocol. Install it once:
 
 ```bash
 npm install -g @gitlawb/openclaude
@@ -75,9 +75,9 @@ At minimum, you need:
 **On a VPS (remote):** The setup wizard automatically creates a dedicated `evonexus` system user (Claude Code refuses `--dangerously-skip-permissions` as root) and installs a **systemd service** that starts on boot:
 
 ```bash
-systemctl status evo-nexus      # check status
-systemctl restart evo-nexus     # restart
-journalctl -u evo-nexus -f      # follow logs
+systemctl status wizz-os      # check status
+systemctl restart wizz-os     # restart
+journalctl -u wizz-os -f      # follow logs
 su - evonexus                   # switch to service user
 ```
 

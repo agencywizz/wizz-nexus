@@ -1,6 +1,6 @@
 # Using Agents
 
-EvoNexus ships with 16 specialized agents, each owning a specific domain. You don't need to memorize commands — just describe what you need and Claude routes to the right agent.
+WizzOS ships with 16 specialized agents, each owning a specific domain. You don't need to memorize commands — just describe what you need and Claude routes to the right agent.
 
 ## Getting Started
 

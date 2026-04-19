@@ -2,7 +2,7 @@
 
 ![Goals — Mission → Project → Goal tree with progress](imgs/doc-goals.webp)
 
-**Goals give EvoNexus direction.** Without a goal, routines and heartbeats are just activity. With a goal, every agent run has a target to push toward — and progress is measurable.
+**Goals give WizzOS direction.** Without a goal, routines and heartbeats are just activity. With a goal, every agent run has a target to push toward — and progress is measurable.
 
 ## The Hierarchy
 

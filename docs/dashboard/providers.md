@@ -1,8 +1,8 @@
 # AI Providers
 
-The **Providers** page lets you choose which LLM backend powers EvoNexus, configure its credentials, and test the connection — all from the dashboard. It lives under **System → Providers** in the sidebar and requires the `config:manage` permission.
+The **Providers** page lets you choose which LLM backend powers WizzOS, configure its credentials, and test the connection — all from the dashboard. It lives under **System → Providers** in the sidebar and requires the `config:manage` permission.
 
-EvoNexus uses Anthropic's `claude` CLI by default. To run on any other backend (OpenRouter, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Codex Auth), it switches to [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude) — a drop-in binary that speaks the same CLI protocol but dispatches to the provider of your choice via environment variables.
+WizzOS uses Anthropic's `claude` CLI by default. To run on any other backend (OpenRouter, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Codex Auth), it switches to [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude) — a drop-in binary that speaks the same CLI protocol but dispatches to the provider of your choice via environment variables.
 
 ## Supported Providers
 
@@ -50,7 +50,7 @@ Both the Python runner (`ADWs/runner.py`) and the JS terminal bridge (`dashboard
 
 The REST API that backs the Providers page masks secrets (`*_KEY`, `*_SECRET`, `*_TOKEN`) as `first6****last4` on every response. When you open the config modal, the form starts empty for those fields — type a new value to replace, or leave empty to keep the current one. Values containing `****` are treated as masked placeholders and skipped on save (so a round-trip through the UI doesn't accidentally overwrite a real secret with the mask string).
 
-The backend also rejects any env var value containing shell metacharacters (`;`, `&`, `|`, backtick, `$`, newlines) — defense in depth against injection if someone points EvoNexus at a compromised `providers.json`.
+The backend also rejects any env var value containing shell metacharacters (`;`, `&`, `|`, backtick, `$`, newlines) — defense in depth against injection if someone points WizzOS at a compromised `providers.json`.
 
 ## Logout Warning
 

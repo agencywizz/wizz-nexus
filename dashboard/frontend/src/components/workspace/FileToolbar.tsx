@@ -51,9 +51,9 @@ function ToolbarButton({ icon, label, onClick, variant = 'default', disabled = f
     switch (variant) {
       case 'accent':
         return {
-          background: 'rgba(0,255,167,0.12)',
+          background: 'rgba(255,69,0,0.12)',
           color: 'var(--evo-green)',
-          borderColor: 'rgba(0,255,167,0.3)',
+          borderColor: 'rgba(255,69,0,0.3)',
         }
       case 'warning':
         return {
@@ -80,7 +80,7 @@ function ToolbarButton({ icon, label, onClick, variant = 'default', disabled = f
     if (disabled) return
     switch (variant) {
       case 'accent':
-        e.currentTarget.style.background = 'rgba(0,255,167,0.2)'
+        e.currentTarget.style.background = 'rgba(255,69,0,0.2)'
         break
       case 'warning':
         e.currentTarget.style.background = 'rgba(245,158,11,0.2)'

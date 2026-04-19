@@ -229,7 +229,7 @@ export default function ShareView() {
                 justifyContent: 'center',
               }}
             >
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--evo-green, #00FFA7)" strokeWidth="1.5">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--evo-green, #FF4500)" strokeWidth="1.5">
                 <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
               </svg>
             </div>
@@ -260,7 +260,7 @@ export default function ShareView() {
 function PoweredByFooter() {
   return (
     <a
-      href="https://evonexus.evolutionfoundation.com.br/"
+      href="https://evonexus.wizzcomms.com/"
       target="_blank"
       rel="noopener noreferrer"
       style={{
@@ -281,9 +281,9 @@ function PoweredByFooter() {
         cursor: 'pointer',
       }}
     >
-      <img src="/EVO_NEXUS.png" alt="EvoNexus" style={{ height: '16px', width: 'auto', opacity: 0.7 }} />
+      <img src="/logo.png" alt="WizzOS" style={{ height: '16px', width: 'auto', opacity: 0.7 }} />
       <span style={{ fontSize: '11px', color: 'var(--text-muted, #667085)' }}>
-        Powered by EvoNexus
+        Powered by WizzOS
       </span>
     </a>
   )

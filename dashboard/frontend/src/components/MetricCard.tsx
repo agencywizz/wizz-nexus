@@ -9,7 +9,7 @@ interface MetricCardProps {
 
 export default function MetricCard({ label, value, delta, deltaType = 'neutral' }: MetricCardProps) {
   const deltaColor = {
-    up: 'text-[#00FFA7]',
+    up: 'text-[#FF4500]',
     down: 'text-red-400',
     neutral: 'text-[#667085]',
   }[deltaType]
@@ -21,7 +21,7 @@ export default function MetricCard({ label, value, delta, deltaType = 'neutral' 
   }[deltaType]
 
   return (
-    <div className="bg-[#182230] border border-[#344054] rounded-xl p-5 hover:border-[#00FFA7] transition-colors">
+    <div className="bg-[#182230] border border-[#344054] rounded-xl p-5 hover:border-[#FF4500] transition-colors">
       <p className="text-sm text-[#667085] mb-1">{label}</p>
       <p className="text-2xl font-bold text-[#F9FAFB]">{value}</p>
       {delta && (

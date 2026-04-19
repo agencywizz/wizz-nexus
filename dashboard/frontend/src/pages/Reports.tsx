@@ -117,7 +117,7 @@ export default function Reports() {
     return (
       <div className="max-w-[1400px] mx-auto">
         <div className="mb-6">
-          <button onClick={handleBack} className="text-[#00FFA7] text-sm hover:underline mb-4 inline-flex items-center gap-1">
+          <button onClick={handleBack} className="text-[#FF4500] text-sm hover:underline mb-4 inline-flex items-center gap-1">
             <ArrowLeft size={14} /> Back
           </button>
           <h1 className="text-2xl font-bold text-[#e6edf3] tracking-tight">{viewItem.name}</h1>
@@ -174,7 +174,7 @@ export default function Reports() {
               className={`px-2 py-0.5 rounded transition-colors ${
                 i === breadcrumbs.length - 1
                   ? 'text-[#e6edf3] font-medium'
-                  : 'text-[#667085] hover:text-[#00FFA7]'
+                  : 'text-[#667085] hover:text-[#FF4500]'
               }`}
             >
               {bc.name}
@@ -191,7 +191,7 @@ export default function Reports() {
           placeholder="Filter files..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full max-w-md bg-[#161b22] border border-[#21262d] rounded-xl pl-9 pr-4 py-2.5 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 transition-all"
+          className="w-full max-w-md bg-[#161b22] border border-[#21262d] rounded-xl pl-9 pr-4 py-2.5 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 transition-all"
         />
       </div>
 
@@ -220,11 +220,11 @@ export default function Reports() {
               onClick={() => handleNavigate(item.path)}
               className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-[#1c2128] transition-colors border-b border-[#21262d] last:border-b-0 group"
             >
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#00FFA7]/8 group-hover:bg-[#00FFA7]/15 transition-colors">
-                <Folder size={16} className="text-[#00FFA7]" />
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#FF4500]/8 group-hover:bg-[#FF4500]/15 transition-colors">
+                <Folder size={16} className="text-[#FF4500]" />
               </div>
               <div className="flex-1 min-w-0">
-                <span className="text-sm font-medium text-[#e6edf3] group-hover:text-[#00FFA7] transition-colors">{item.name}</span>
+                <span className="text-sm font-medium text-[#e6edf3] group-hover:text-[#FF4500] transition-colors">{item.name}</span>
               </div>
               <span className="text-xs text-[#667085]">{item.children_count} items</span>
               <ChevronRight size={14} className="text-[#3F3F46] group-hover:text-[#667085] transition-colors" />
@@ -247,7 +247,7 @@ export default function Reports() {
                   <IconComp size={16} className="text-[#8b949e]" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <span className={`text-sm text-[#e6edf3] ${item.viewable ? 'group-hover:text-[#00FFA7]' : ''} transition-colors truncate block`}>
+                  <span className={`text-sm text-[#e6edf3] ${item.viewable ? 'group-hover:text-[#FF4500]' : ''} transition-colors truncate block`}>
                     {item.name}
                   </span>
                 </div>

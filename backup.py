@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EvoNexus — Workspace Backup & Restore
+WizzOS — Workspace Backup & Restore
 Export/import all gitignored user data (memory, config, logs, customizations).
 Usage: python backup.py backup [--target local|s3] [--s3-bucket BUCKET]
        python backup.py restore <file> [--mode merge|replace]
@@ -107,10 +107,10 @@ def _get_workspace_name() -> str:
         try:
             import yaml
             config = yaml.safe_load(config_file.read_text())
-            return config.get("name", "EvoNexus Workspace")
+            return config.get("name", "WizzOS Workspace")
         except Exception:
             pass
-    return "EvoNexus Workspace"
+    return "WizzOS Workspace"
 
 
 def _should_exclude(rel_path: str) -> bool:
@@ -597,7 +597,7 @@ def list_backups(target: str = "local", s3_bucket: str = None):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="EvoNexus — Workspace Backup & Restore",
+        description="WizzOS — Workspace Backup & Restore",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

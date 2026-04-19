@@ -1,6 +1,6 @@
 # Core Routines
 
-Core routines are the backbone of the EvoNexus daily loop. They ship with the repo, are hardcoded in `scheduler.py`, and run automatically. Unlike custom routines (which live in `ADWs/routines/custom/` and are configured via `config/routines.yaml`), core routines require zero configuration.
+Core routines are the backbone of the WizzOS daily loop. They ship with the repo, are hardcoded in `scheduler.py`, and run automatically. Unlike custom routines (which live in `ADWs/routines/custom/` and are configured via `config/routines.yaml`), core routines require zero configuration.
 
 There are 6 core routines. Together they form a closed loop: **orient in the morning, work during the day, consolidate at night, backup data, sync memory, and review weekly**.
 

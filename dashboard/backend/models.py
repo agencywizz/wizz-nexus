@@ -1,4 +1,4 @@
-"""SQLAlchemy models for EvoNexus dashboard."""
+"""SQLAlchemy models for WizzOS dashboard."""
 
 import json
 import secrets

@@ -21,7 +21,7 @@ if (isNaN(port) || port < 1 || port > 65535) {
 
 async function main() {
   try {
-    console.log('Starting EvoNexus terminal server...');
+    console.log('Starting WizzOS terminal server...');
     console.log(`Port: ${port}`);
 
     await startServer({ port, dev });

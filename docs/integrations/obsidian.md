@@ -37,7 +37,7 @@ The `obs-obsidian-cli` skill provides vault interaction:
 
 ## Related Skills
 
-EvoNexus includes several Obsidian-specific skills:
+WizzOS includes several Obsidian-specific skills:
 
 | Skill | What it does |
 |---|---|

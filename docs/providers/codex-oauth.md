@@ -8,7 +8,7 @@
 
 ### What is the Codex OAuth provider?
 
-The `codex_auth` provider lets EvoNexus run agents on **GPT-5.x via the ChatGPT Codex backend** — using your regular ChatGPT login, no API key required. It routes through [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), which reads `~/.codex/auth.json` and exchanges the OAuth token automatically.
+The `codex_auth` provider lets WizzOS run agents on **GPT-5.x via the ChatGPT Codex backend** — using your regular ChatGPT login, no API key required. It routes through [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), which reads `~/.codex/auth.json` and exchanges the OAuth token automatically.
 
 This is distinct from the plain `openai` provider, which uses an `OPENAI_API_KEY` and hits the standard chat completions endpoint.
 
@@ -113,7 +113,7 @@ Check that `config/providers.json` lists `codex_auth` as `active_provider` and t
 
 ### O que é o provider Codex OAuth?
 
-O provider `codex_auth` faz o EvoNexus rodar agentes no **GPT-5.x via backend Codex do ChatGPT** — usando seu login normal do ChatGPT, sem API key. A chamada passa pelo [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), que lê o `~/.codex/auth.json` e troca o token OAuth automaticamente.
+O provider `codex_auth` faz o WizzOS rodar agentes no **GPT-5.x via backend Codex do ChatGPT** — usando seu login normal do ChatGPT, sem API key. A chamada passa pelo [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), que lê o `~/.codex/auth.json` e troca o token OAuth automaticamente.
 
 É diferente do provider `openai` normal, que usa `OPENAI_API_KEY` e bate no endpoint padrão de chat completions.
 

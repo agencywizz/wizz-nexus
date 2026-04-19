@@ -83,7 +83,7 @@ Because heartbeats burn tokens on every run, put guardrails on them:
 ### A heartbeat isn't firing
 
 1. Check the heartbeat's `enabled` — is this one individually on?
-2. Check the dispatcher log (`journalctl -u evo-nexus -f` or the dashboard service logs) for interval registration.
+2. Check the dispatcher log (`journalctl -u wizz-os -f` or the dashboard service logs) for interval registration.
 3. Call `POST /api/heartbeats/{id}/run` — does a manual run work? If yes, it's a scheduler issue; if no, it's an agent or prompt issue.
 
 ### A run failed

@@ -28,7 +28,7 @@ export default function SkillDetail() {
 
   return (
     <div>
-      <Link to="/skills" className="text-[#00FFA7] text-sm hover:underline mb-4 inline-block">
+      <Link to="/skills" className="text-[#FF4500] text-sm hover:underline mb-4 inline-block">
         &larr; Back to skills
       </Link>
       <h1 className="text-2xl font-bold text-[#F9FAFB] mb-6">{name}</h1>

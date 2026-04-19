@@ -53,7 +53,7 @@ type TimelineItem = (CommentItem | ActivityItem) & { _type: 'comment' | 'activit
 
 const STATUS_STYLES: Record<TicketStatus, string> = {
   open: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  in_progress: 'bg-[#00FFA7]/10 text-[#00FFA7] border-[#00FFA7]/20',
+  in_progress: 'bg-[#FF4500]/10 text-[#FF4500] border-[#FF4500]/20',
   blocked: 'bg-red-500/10 text-red-400 border-red-500/20',
   review: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
   resolved: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
@@ -206,7 +206,7 @@ export default function TicketDetail() {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-[#667085]">
         <p className="text-sm text-red-400">{error || 'Ticket not found'}</p>
-        <button onClick={() => navigate('/issues')} className="mt-3 text-xs text-[#00FFA7] hover:underline">
+        <button onClick={() => navigate('/issues')} className="mt-3 text-xs text-[#FF4500] hover:underline">
           Back to Issues
         </button>
       </div>
@@ -229,7 +229,7 @@ export default function TicketDetail() {
       <div className="bg-[#161b22] border border-[#21262d] rounded-xl p-5 mb-4">
         <div className="flex items-start gap-3 mb-4">
           <div className="w-10 h-10 rounded-xl bg-[#161b22] border border-[#21262d] flex items-center justify-center shrink-0 mt-0.5">
-            <Ticket size={18} className="text-[#00FFA7]" />
+            <Ticket size={18} className="text-[#FF4500]" />
           </div>
           <div className="flex-1 min-w-0">
             <h1 className="text-xl font-bold text-[#e6edf3] mb-1">{ticket.title}</h1>
@@ -248,7 +248,7 @@ export default function TicketDetail() {
             {(ticket.status === 'closed' || ticket.status === 'resolved') && (
               <button
                 onClick={handleReopen}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-[#00FFA7] bg-[#00FFA7]/5 border border-[#00FFA7]/20 hover:bg-[#00FFA7]/10 rounded-lg transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-[#FF4500] bg-[#FF4500]/5 border border-[#FF4500]/20 hover:bg-[#FF4500]/10 rounded-lg transition-colors"
                 title="Reopen ticket"
               >
                 <RotateCcw size={12} /> Reopen
@@ -271,7 +271,7 @@ export default function TicketDetail() {
             {editStatus ? (
               <select
                 autoFocus
-                className="bg-[#0C111D] border border-[#21262d] rounded px-2 py-1 text-[#e6edf3] text-xs focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+                className="bg-[#0C111D] border border-[#21262d] rounded px-2 py-1 text-[#e6edf3] text-xs focus:outline-none focus:border-[#FF4500]/50 transition-colors"
                 value={ticket.status}
                 onChange={e => handleStatusChange(e.target.value as TicketStatus)}
                 onBlur={() => setEditStatus(false)}
@@ -293,7 +293,7 @@ export default function TicketDetail() {
             {editPriority ? (
               <select
                 autoFocus
-                className="bg-[#0C111D] border border-[#21262d] rounded px-2 py-1 text-[#e6edf3] text-xs focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+                className="bg-[#0C111D] border border-[#21262d] rounded px-2 py-1 text-[#e6edf3] text-xs focus:outline-none focus:border-[#FF4500]/50 transition-colors"
                 value={ticket.priority}
                 onChange={e => handlePriorityChange(e.target.value as TicketPriority)}
                 onBlur={() => setEditPriority(false)}
@@ -303,7 +303,7 @@ export default function TicketDetail() {
             ) : (
               <button
                 onClick={() => setEditPriority(true)}
-                className="text-[#e6edf3] hover:text-[#00FFA7] transition-colors capitalize text-xs"
+                className="text-[#e6edf3] hover:text-[#FF4500] transition-colors capitalize text-xs"
               >
                 {ticket.priority}
               </button>
@@ -352,7 +352,7 @@ export default function TicketDetail() {
           {ticket.resolved_at && (
             <div>
               <p className="text-[#667085] mb-1.5">Resolved</p>
-              <span className="text-[#00FFA7]">{formatDate(ticket.resolved_at)}</span>
+              <span className="text-[#FF4500]">{formatDate(ticket.resolved_at)}</span>
             </div>
           )}
         </div>
@@ -361,7 +361,7 @@ export default function TicketDetail() {
       {/* Timeline */}
       <div className="bg-[#161b22] border border-[#21262d] rounded-xl p-5 mb-4">
         <h2 className="text-sm font-semibold text-[#e6edf3] mb-4 flex items-center gap-2">
-          <Activity size={14} className="text-[#00FFA7]" /> Timeline
+          <Activity size={14} className="text-[#FF4500]" /> Timeline
           <span className="text-[10px] text-[#667085] font-normal">{timeline.length} items</span>
         </h2>
 
@@ -376,7 +376,7 @@ export default function TicketDetail() {
               <div key={item.id} className="flex gap-3">
                 <div className="shrink-0 flex items-center justify-center mt-0.5">
                   {item._type === 'comment'
-                    ? <div className="w-6 h-6 rounded-full bg-[#00FFA7]/20 flex items-center justify-center"><MessageSquare size={11} className="text-[#00FFA7]" /></div>
+                    ? <div className="w-6 h-6 rounded-full bg-[#FF4500]/20 flex items-center justify-center"><MessageSquare size={11} className="text-[#FF4500]" /></div>
                     : <div className="w-6 h-6 rounded-full bg-[#21262d] flex items-center justify-center"><Activity size={11} className="text-[#667085]" /></div>
                   }
                 </div>
@@ -412,11 +412,11 @@ export default function TicketDetail() {
       {ticket.status !== 'closed' && (
         <div className="bg-[#161b22] border border-[#21262d] rounded-xl p-5">
           <h2 className="text-sm font-semibold text-[#e6edf3] mb-3 flex items-center gap-2">
-            <MessageSquare size={14} className="text-[#00FFA7]" /> Add Comment
+            <MessageSquare size={14} className="text-[#FF4500]" /> Add Comment
           </h2>
           <form onSubmit={handleAddComment}>
             <textarea
-              className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 resize-none mb-3 transition-colors"
+              className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 resize-none mb-3 transition-colors"
               placeholder="Add a comment... Use @agent-slug to mention an agent"
               rows={3}
               value={commentBody}
@@ -427,7 +427,7 @@ export default function TicketDetail() {
               <button
                 type="submit"
                 disabled={submitting || !commentBody.trim()}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#00FFA7] text-black rounded-lg hover:bg-[#00FFA7]/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#FF4500] text-black rounded-lg hover:bg-[#FF4500]/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <Send size={12} />
                 {submitting ? 'Sending...' : 'Comment'}

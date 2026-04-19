@@ -69,7 +69,7 @@ function normalizeCostData(raw: any): CostData {
   }
 }
 
-const COLORS = ['#00FFA7', '#3B82F6', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899', '#14B8A6', '#F97316']
+const COLORS = ['#FF4500', '#3B82F6', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899', '#14B8A6', '#F97316']
 
 // --- Stat Card (matches Overview.tsx) ---
 function StatCard({
@@ -84,13 +84,13 @@ function StatCard({
   icon: LucideIcon
 }) {
   return (
-    <div className="group relative bg-[#161b22] border border-[#21262d] rounded-2xl p-5 transition-all duration-300 hover:border-[#00FFA7]/40 hover:shadow-[0_0_24px_rgba(0,255,167,0.06)]">
+    <div className="group relative bg-[#161b22] border border-[#21262d] rounded-2xl p-5 transition-all duration-300 hover:border-[#FF4500]/40 hover:shadow-[0_0_24px_rgba(255,69,0,0.06)]">
       {/* Subtle top gradient accent */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00FFA7]/20 to-transparent rounded-t-2xl" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF4500]/20 to-transparent rounded-t-2xl" />
 
       <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-          <Icon size={18} className="text-[#00FFA7]" />
+        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#FF4500]/8 border border-[#FF4500]/15">
+          <Icon size={18} className="text-[#FF4500]" />
         </div>
       </div>
 
@@ -241,10 +241,10 @@ export default function Costs() {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Line Chart: Cost per day */}
-        <div className="bg-[#161b22] border border-[#21262d] rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+        <div className="bg-[#161b22] border border-[#21262d] rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
           <h2 className="text-base font-semibold text-[#e6edf3] mb-4 flex items-center gap-2.5">
-            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-              <Activity size={14} className="text-[#00FFA7]" />
+            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#FF4500]/8 border border-[#FF4500]/15">
+              <Activity size={14} className="text-[#FF4500]" />
             </div>
             Cost per Day
           </h2>
@@ -257,16 +257,16 @@ export default function Costs() {
                 contentStyle={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '12px', color: '#e6edf3' }}
                 formatter={(value: unknown) => [`$${Number(value).toFixed(4)}`, 'Cost']}
               />
-              <Line type="monotone" dataKey="cost" stroke="#00FFA7" strokeWidth={2} dot={{ fill: '#00FFA7', r: 3 }} />
+              <Line type="monotone" dataKey="cost" stroke="#FF4500" strokeWidth={2} dot={{ fill: '#FF4500', r: 3 }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         {/* Pie Chart: Cost per agent */}
-        <div className="bg-[#161b22] border border-[#21262d] rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+        <div className="bg-[#161b22] border border-[#21262d] rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
           <h2 className="text-base font-semibold text-[#e6edf3] mb-4 flex items-center gap-2.5">
-            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-              <DollarSign size={14} className="text-[#00FFA7]" />
+            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#FF4500]/8 border border-[#FF4500]/15">
+              <DollarSign size={14} className="text-[#FF4500]" />
             </div>
             Cost per Agent
           </h2>
@@ -297,11 +297,11 @@ export default function Costs() {
       </div>
 
       {/* Per Routine Table */}
-      <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+      <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
         <div className="p-5 border-b border-[#21262d]">
           <h2 className="text-base font-semibold text-[#e6edf3] flex items-center gap-2.5">
-            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-              <Calculator size={14} className="text-[#00FFA7]" />
+            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#FF4500]/8 border border-[#FF4500]/15">
+              <Calculator size={14} className="text-[#FF4500]" />
             </div>
             Per Routine Breakdown
           </h2>
@@ -336,11 +336,11 @@ export default function Costs() {
       </div>
 
       {/* Per Heartbeat Table */}
-      <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden mt-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+      <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden mt-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
         <div className="p-5 border-b border-[#21262d]">
           <h2 className="text-base font-semibold text-[#e6edf3] flex items-center gap-2.5">
-            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-              <Activity size={14} className="text-[#00FFA7]" />
+            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#FF4500]/8 border border-[#FF4500]/15">
+              <Activity size={14} className="text-[#FF4500]" />
             </div>
             Per Heartbeat Breakdown
           </h2>
@@ -382,7 +382,7 @@ export default function Costs() {
 
       {/* Image Generation Costs */}
       {imageCosts && imageCosts.entries.length > 0 && (
-        <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden mt-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+        <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden mt-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
           <div className="p-5 border-b border-[#21262d] flex items-center justify-between">
             <h2 className="text-base font-semibold text-[#e6edf3] flex items-center gap-2.5">
               <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#F472B6]/10 border border-[#F472B6]/20">
@@ -396,7 +396,7 @@ export default function Costs() {
               <span>{formatBytes(imageCosts.totals.total_bytes)}</span>
               <span>{imageCosts.totals.total_seconds}s total</span>
               {imageCosts.totals.total_cost_usd !== undefined && (
-                <span className="text-[#00FFA7] font-medium">${imageCosts.totals.total_cost_usd.toFixed(2)}</span>
+                <span className="text-[#FF4500] font-medium">${imageCosts.totals.total_cost_usd.toFixed(2)}</span>
               )}
             </div>
           </div>
@@ -429,7 +429,7 @@ export default function Costs() {
                     <td className="p-4 text-right text-[#8b949e] tabular-nums text-[13px]">{e.token_usage.total_tokens.toLocaleString()}</td>
                     <td className="p-4 text-right text-[#8b949e] tabular-nums text-[13px]">{formatBytes(e.size_bytes)}</td>
                     <td className="p-4 text-right text-[#667085] tabular-nums text-[13px]">{e.elapsed_seconds.toFixed(1)}s</td>
-                    <td className="p-4 text-right tabular-nums text-[13px] text-[#00FFA7]">
+                    <td className="p-4 text-right tabular-nums text-[13px] text-[#FF4500]">
                       {e.estimated_cost_usd !== undefined ? `$${e.estimated_cost_usd.toFixed(4)}` : '—'}
                     </td>
                     <td className="p-4 text-right text-[#667085] text-[13px] whitespace-nowrap">{relativeTime(e.timestamp)}</td>

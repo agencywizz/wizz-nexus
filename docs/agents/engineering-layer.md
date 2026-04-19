@@ -1,23 +1,23 @@
 # Engineering Layer
 
-> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). EvoNexus imports the agents and adapts them to the workspace conventions (themed names, EvoNexus standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/EvolutionAPI/evo-nexus/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
+> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). WizzOS imports the agents and adapts them to the workspace conventions (themed names, WizzOS standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
 
-> **Native additions (v0.13.0):** `helm-conductor` and `mirror-retro` are native EvoNexus agents, not derived from oh-my-claudecode. Helm orchestrates the engineering cycle and routes tasks to phase owners; Mirror runs blameless retrospectives at the end of features and sprints.
+> **Native additions (v0.13.0):** `helm-conductor` and `mirror-retro` are native WizzOS agents, not derived from oh-my-claudecode. Helm orchestrates the engineering cycle and routes tasks to phase owners; Mirror runs blameless retrospectives at the end of features and sprints.
 
 ## What It Is
 
-The Engineering Layer is a complete software development team built into EvoNexus. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/EvolutionAPI/evo-nexus/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
+The Engineering Layer is a complete software development team built into WizzOS. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
 
 It exists as a layer ortogonal to the Business Layer (Clawdia, Flux, Atlas, etc.). Business agents handle operations (emails, finance, community); engineering agents handle code (architecture, bugs, reviews, tests). Cross-layer handoffs are common — e.g., Nova writes a PRD → Apex reviews the architecture → Bolt implements → Lens reviews → Oath verifies → Mirror captures lessons.
 
 ## When to Use
 
-- You write code on top of EvoNexus
+- You write code on top of WizzOS
 - You want a structured dev workflow with separation of concerns (planner ≠ executor ≠ reviewer ≠ verifier)
 - You want code review, security audits, and verification as first-class agents
 - You want autonomous end-to-end execution from a brief to working code (`dev-autopilot`)
 
-If you only need EvoNexus for ops/business work, you can ignore the Engineering Layer entirely — it doesn't get in the way.
+If you only need WizzOS for ops/business work, you can ignore the Engineering Layer entirely — it doesn't get in the way.
 
 ## The 21 Agents
 
@@ -54,7 +54,7 @@ These agents do focused implementation work: writing code, running tests, invest
 | **Prism** | `/prism-scientist` | Scientist — formal statistical analysis with CI, effect size, p-value |
 | **Helm** ⭐ | `/helm-conductor` | Conductor — cycle orchestration, sequencing, routing to phase owners, sprint planning |
 
-⭐ = native EvoNexus agent (not derived from oh-my-claudecode)
+⭐ = native WizzOS agent (not derived from oh-my-claudecode)
 
 ### Speed (haiku) — 2 agents
 
@@ -67,7 +67,7 @@ Fast, parallel, low-token agents for high-volume work.
 
 ## The 6-Phase Workflow
 
-The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/evo-nexus/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
+The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
 
 ```
 Discovery → Planning → Solutioning → Build → Verify → Retro
@@ -258,11 +258,11 @@ The Engineering Layer is **derived** from [oh-my-claudecode](https://github.com/
 - **Version imported:** v4.11.4
 - **Date imported:** 2026-04-10
 
-EvoNexus modifications:
+WizzOS modifications:
 - Renamed agents to themed names (`architect` → `apex-architect`)
 - Added `dev-` prefix to all skills for namespace consistency
-- Adapted memory structure to match EvoNexus per-agent pattern
+- Adapted memory structure to match WizzOS per-agent pattern
 - Removed runtime dependencies on OMC TypeScript `src/` (kept only the markdown definitions)
-- Discarded skills that overlapped with EvoNexus builtins or were OMC meta-skills
+- Discarded skills that overlapped with WizzOS builtins or were OMC meta-skills
 
-See [NOTICE.md](https://github.com/EvolutionAPI/evo-nexus/blob/main/NOTICE.md) for the complete attribution and modification list.
+See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) for the complete attribution and modification list.

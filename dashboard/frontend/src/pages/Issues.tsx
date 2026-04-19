@@ -34,7 +34,7 @@ interface TicketItem {
 
 const STATUS_STYLES: Record<TicketStatus, string> = {
   open: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  in_progress: 'bg-[#00FFA7]/10 text-[#00FFA7] border-[#00FFA7]/20',
+  in_progress: 'bg-[#FF4500]/10 text-[#FF4500] border-[#FF4500]/20',
   blocked: 'bg-red-500/10 text-red-400 border-red-500/20',
   review: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
   resolved: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
@@ -156,7 +156,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
       <div className="bg-[#161b22] border border-[#21262d] rounded-xl w-full max-w-md shadow-2xl" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#21262d]">
           <h2 className="text-sm font-semibold text-white flex items-center gap-2">
-            <Ticket size={16} className="text-[#00FFA7]" /> New Ticket
+            <Ticket size={16} className="text-[#FF4500]" /> New Ticket
           </h2>
           <button onClick={onClose} className="text-[#667085] hover:text-white transition-colors">
             <X size={16} />
@@ -167,7 +167,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
           <div>
             <label className="block text-xs text-[#667085] mb-1">Title *</label>
             <input
-              className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+              className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 transition-colors"
               placeholder="Describe the issue or topic..."
               value={form.title}
               onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
@@ -179,7 +179,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
           <div>
             <label className="block text-xs text-[#667085] mb-1">Description</label>
             <textarea
-              className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 resize-none transition-colors"
+              className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 resize-none transition-colors"
               placeholder="Optional details..."
               rows={3}
               value={form.description}
@@ -191,7 +191,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             <div>
               <label className="block text-xs text-[#667085] mb-1">Priority</label>
               <select
-                className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+                className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] focus:outline-none focus:border-[#FF4500]/50 transition-colors"
                 value={form.priority}
                 onChange={e => setForm(f => ({ ...f, priority: e.target.value as TicketPriority }))}
               >
@@ -202,7 +202,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             <div className="relative">
               <label className="block text-xs text-[#667085] mb-1">Assign to agent</label>
               <input
-                className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+                className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 transition-colors"
                 placeholder="Search agent..."
                 value={form.assignee_agent || agentSearch}
                 onChange={e => {
@@ -246,7 +246,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             <button
               type="submit"
               disabled={saving || !form.title.trim()}
-              className="px-4 py-2 text-sm font-semibold bg-[#00FFA7] text-black rounded-lg hover:bg-[#00FFA7]/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-4 py-2 text-sm font-semibold bg-[#FF4500] text-black rounded-lg hover:bg-[#FF4500]/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {saving ? 'Creating...' : 'Create'}
             </button>
@@ -385,7 +385,7 @@ export default function Issues() {
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#161b22] border border-[#21262d] flex items-center justify-center">
-            <Ticket size={20} className="text-[#00FFA7]" />
+            <Ticket size={20} className="text-[#FF4500]" />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-[#e6edf3]">Issues</h1>
@@ -404,25 +404,25 @@ export default function Issues() {
             onClick={() => setShowFilters(f => !f)}
             className={`flex items-center gap-1.5 px-3 py-2 text-xs border rounded-lg transition-colors ${
               hasFilters
-                ? 'text-[#00FFA7] border-[#00FFA7]/30 bg-[#00FFA7]/5'
+                ? 'text-[#FF4500] border-[#FF4500]/30 bg-[#FF4500]/5'
                 : 'text-[#667085] hover:text-white border-[#21262d] bg-[#161b22] hover:border-[#344054]'
             }`}
           >
             <Filter size={13} />
             Filters
-            {hasFilters && <span className="bg-[#00FFA7]/20 text-[#00FFA7] text-[10px] px-1.5 rounded-full">
+            {hasFilters && <span className="bg-[#FF4500]/20 text-[#FF4500] text-[10px] px-1.5 rounded-full">
               {[selectedStatuses.length, selectedPriorities.length, selectedAssignee ? 1 : 0, q ? 1 : 0].reduce((a, b) => a + b, 0)}
             </span>}
           </button>
           <button
             onClick={() => setShowCreate(true)}
-            className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium bg-[#00FFA7] text-black rounded-lg hover:bg-[#00FFA7]/90 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium bg-[#FF4500] text-black rounded-lg hover:bg-[#FF4500]/90 transition-colors"
           >
             <Plus size={13} /> New Ticket
           </button>
           <button
             onClick={fetchTickets}
-            className="flex items-center gap-2 px-3 py-2 text-xs border border-[#21262d] bg-[#161b22] text-[#667085] hover:text-[#00FFA7] hover:border-[#00FFA7]/30 rounded-lg transition-colors"
+            className="flex items-center gap-2 px-3 py-2 text-xs border border-[#21262d] bg-[#161b22] text-[#667085] hover:text-[#FF4500] hover:border-[#FF4500]/30 rounded-lg transition-colors"
             title="Refresh"
           >
             <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
@@ -436,7 +436,7 @@ export default function Issues() {
         <div className="relative">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#667085]" />
           <input
-            className="w-full bg-[#161b22] border border-[#21262d] rounded-lg pl-9 pr-4 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+            className="w-full bg-[#161b22] border border-[#21262d] rounded-lg pl-9 pr-4 py-2 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 transition-colors"
             placeholder="Search tickets by title, description or comments..."
             value={q}
             onChange={e => { setQ(e.target.value); setOffset(0) }}
@@ -491,7 +491,7 @@ export default function Issues() {
           <div>
             <p className="text-xs font-medium text-[#e6edf3] mb-2">Assignee</p>
             <input
-              className="bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-1.5 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+              className="bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-1.5 text-sm text-[#e6edf3] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 transition-colors"
               placeholder="Agent slug (e.g. zara-cs)"
               value={selectedAssignee}
               onChange={e => { setSelectedAssignee(e.target.value); setOffset(0) }}
@@ -508,8 +508,8 @@ export default function Issues() {
 
       {/* Bulk actions bar */}
       {selected.size > 0 && (
-        <div className="mb-4 flex items-center gap-3 px-4 py-2.5 bg-[#00FFA7]/5 border border-[#00FFA7]/20 rounded-xl">
-          <span className="text-xs text-[#00FFA7] font-medium">{selected.size} selected</span>
+        <div className="mb-4 flex items-center gap-3 px-4 py-2.5 bg-[#FF4500]/5 border border-[#FF4500]/20 rounded-xl">
+          <span className="text-xs text-[#FF4500] font-medium">{selected.size} selected</span>
           <button
             onClick={handleBulkClose}
             className="text-xs text-[#e6edf3] bg-[#161b22] border border-[#21262d] hover:border-[#344054] px-3 py-1.5 rounded-lg transition-colors"
@@ -544,7 +544,7 @@ export default function Issues() {
         <div className="grid grid-cols-[auto_1fr_auto_auto_auto_auto] gap-3 px-4 py-2.5 border-b border-[#21262d] text-[11px] font-medium uppercase tracking-wider text-[#667085]">
           <button onClick={toggleSelectAll} className="flex items-center">
             {selected.size === tickets.length && tickets.length > 0
-              ? <CheckSquare size={14} className="text-[#00FFA7]" />
+              ? <CheckSquare size={14} className="text-[#FF4500]" />
               : <Square size={14} />}
           </button>
           <span>Title</span>
@@ -564,7 +564,7 @@ export default function Issues() {
             <p className="text-sm font-medium">No tickets found</p>
             {hasFilters
               ? <p className="text-xs mt-1 text-[#667085]">Try clearing the filters</p>
-              : <button onClick={() => setShowCreate(true)} className="mt-3 text-xs text-[#00FFA7] hover:underline">Create your first ticket</button>
+              : <button onClick={() => setShowCreate(true)} className="mt-3 text-xs text-[#FF4500] hover:underline">Create your first ticket</button>
             }
           </div>
         ) : (
@@ -572,16 +572,16 @@ export default function Issues() {
             <div
               key={ticket.id}
               className={`grid grid-cols-[auto_1fr_auto_auto_auto_auto] gap-3 px-4 py-3 items-center border-b border-[#21262d]/50 last:border-0 hover:bg-white/5 transition-colors cursor-pointer ${
-                selected.has(ticket.id) ? 'bg-[#00FFA7]/[0.03]' : ''
+                selected.has(ticket.id) ? 'bg-[#FF4500]/[0.03]' : ''
               }`}
               onClick={() => navigate(`/tickets/${ticket.id}`)}
             >
               <button
                 onClick={e => { e.stopPropagation(); toggleSelect(ticket.id) }}
-                className="text-[#667085] hover:text-[#00FFA7]"
+                className="text-[#667085] hover:text-[#FF4500]"
               >
                 {selected.has(ticket.id)
-                  ? <CheckSquare size={14} className="text-[#00FFA7]" />
+                  ? <CheckSquare size={14} className="text-[#FF4500]" />
                   : <Square size={14} />}
               </button>
 

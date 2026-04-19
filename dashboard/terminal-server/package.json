@@ -1,7 +1,7 @@
 {
   "name": "evo-terminal-server",
   "version": "0.1.0",
-  "description": "Terminal bridge for the EvoNexus dashboard — spawns claude CLI sessions over HTTP/WebSocket",
+  "description": "Terminal bridge for the WizzOS dashboard — spawns claude CLI sessions over HTTP/WebSocket",
   "private": true,
   "main": "src/server.js",
   "bin": {

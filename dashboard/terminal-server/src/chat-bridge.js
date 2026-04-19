@@ -215,7 +215,7 @@ class ChatBridge {
         // Build runtime context block for ticket source attribution
         const runtimeLines = [
           '## Runtime context',
-          'You are running inside the EvoNexus dashboard.',
+          'You are running inside the WizzOS dashboard.',
         ];
         if (agentName) {
           runtimeLines.push(`- Current agent slug: ${agentName}`);

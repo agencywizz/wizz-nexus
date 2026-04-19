@@ -1,5 +1,5 @@
 [project]
-name = "evo-nexus"
+name = "wizz-os"
 version = "0.24.0"
 description = "Unofficial open source toolkit for Claude Code — AI-powered business operating system"
 requires-python = ">=3.10"

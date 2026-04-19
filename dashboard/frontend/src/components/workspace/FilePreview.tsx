@@ -209,12 +209,12 @@ export default function FilePreview({ path, onDownload }: FilePreviewProps) {
             onClick={onDownload}
             className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg transition-colors"
             style={{
-              background: 'rgba(0,255,167,0.1)',
-              border: '1px solid rgba(0,255,167,0.3)',
+              background: 'rgba(255,69,0,0.1)',
+              border: '1px solid rgba(255,69,0,0.3)',
               color: 'var(--evo-green)',
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,255,167,0.2)')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(0,255,167,0.1)')}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,69,0,0.2)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,69,0,0.1)')}
           >
             <Download size={14} />
             Download

@@ -351,7 +351,7 @@ export default function AgentDetail() {
         </div>
         <Link
           to="/agents"
-          className="mt-2 text-[11px] uppercase tracking-[0.12em] text-[#00FFA7] hover:underline"
+          className="mt-2 text-[11px] uppercase tracking-[0.12em] text-[#FF4500] hover:underline"
         >
           ← Agentes
         </Link>
@@ -374,7 +374,7 @@ export default function AgentDetail() {
     return (
       <div className="h-full w-full flex flex-col items-center justify-center bg-[#0C111D] gap-3">
         <p className="text-[#667085] text-sm">Agent not found</p>
-        <Link to="/agents" className="text-[11px] uppercase tracking-[0.12em] text-[#00FFA7] hover:underline">
+        <Link to="/agents" className="text-[11px] uppercase tracking-[0.12em] text-[#FF4500] hover:underline">
           ← Agents
         </Link>
       </div>

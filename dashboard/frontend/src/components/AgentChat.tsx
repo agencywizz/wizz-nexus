@@ -73,7 +73,7 @@ type AssistantBlock =
 
 type Status = 'idle' | 'connecting' | 'running' | 'error'
 
-export default function AgentChat({ agent, sessionId, accentColor = '#00FFA7', externalLoading = false, externalError = null, onPendingCountChange, onNeedsAttention }: AgentChatProps) {
+export default function AgentChat({ agent, sessionId, accentColor = '#FF4500', externalLoading = false, externalError = null, onPendingCountChange, onNeedsAttention }: AgentChatProps) {
   const { dismissBySession } = useNotifications()
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
@@ -1097,7 +1097,7 @@ export default function AgentChat({ agent, sessionId, accentColor = '#00FFA7', e
                     className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-md text-[#667085] hover:text-[#e6edf3] hover:bg-[#21262d]"
                     title={copiedIndex === i ? 'Copied' : 'Copy message'}
                   >
-                    {copiedIndex === i ? <Check size={12} className="text-[#00FFA7]" /> : <Copy size={12} />}
+                    {copiedIndex === i ? <Check size={12} className="text-[#FF4500]" /> : <Copy size={12} />}
                   </button>
                   {msg.uuid && status !== 'running' && !editingUuid && (
                     <button
@@ -1177,7 +1177,7 @@ export default function AgentChat({ agent, sessionId, accentColor = '#00FFA7', e
                         className="flex items-center justify-center w-6 h-6 rounded-md text-[#667085] hover:text-[#e6edf3] hover:bg-[#21262d]"
                         title={copiedIndex === i ? 'Copied' : 'Copy message'}
                       >
-                        {copiedIndex === i ? <Check size={12} className="text-[#00FFA7]" /> : <Copy size={12} />}
+                        {copiedIndex === i ? <Check size={12} className="text-[#FF4500]" /> : <Copy size={12} />}
                       </button>
                     </div>
                   )}
@@ -1575,7 +1575,7 @@ function ToolCard({ block, accentColor }: { block: Extract<AssistantBlock, { typ
               <div key={i} className="flex items-start gap-2 text-[12px]">
                 <span
                   className="flex-shrink-0 mt-0.5 font-mono text-[13px]"
-                  style={{ color: isPending ? '#667085' : '#00FFA7' }}
+                  style={{ color: isPending ? '#667085' : '#FF4500' }}
                 >
                   {icon}
                 </span>

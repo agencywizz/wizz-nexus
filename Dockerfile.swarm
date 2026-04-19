@@ -1,5 +1,5 @@
 # ============================================================================
-# Dockerfile.swarm — EvoNexus runtime para Docker Swarm / Portainer
+# Dockerfile.swarm — WizzOS runtime para Docker Swarm / Portainer
 #
 # This is a Swarm-specific variant of the upstream Dockerfile. It matches
 # the upstream feature set (Python + Node + claude + openclaude + gh +
@@ -75,9 +75,9 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # OCI metadata
-LABEL org.opencontainers.image.title="evo-nexus-runtime" \
-      org.opencontainers.image.description="EvoNexus runtime for Swarm (telegram/scheduler/ad-hoc routines)" \
-      org.opencontainers.image.source="https://github.com/EvolutionAPI/evo-nexus" \
+LABEL org.opencontainers.image.title="wizz-os-runtime" \
+      org.opencontainers.image.description="WizzOS runtime for Swarm (telegram/scheduler/ad-hoc routines)" \
+      org.opencontainers.image.source="https://github.com/EvolutionAPI/wizz-os" \
       org.opencontainers.image.licenses="MIT"
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

@@ -1,10 +1,10 @@
 # workspace/learning — Knowledge Retention Layer
 
-Spaced repetition system for EvoNexus, built on SM-2 algorithm over plain markdown files.
+Spaced repetition system for WizzOS, built on SM-2 algorithm over plain markdown files.
 
 ## Purpose
 
-Closes the retention gap: EvoNexus captures knowledge (`memory/`, `agent-memory/`, `meetings/`) but had no mechanism to bring a fact back before it was forgotten. This layer adds **deliberate capture + spaced review + active recall**.
+Closes the retention gap: WizzOS captures knowledge (`memory/`, `agent-memory/`, `meetings/`) but had no mechanism to bring a fact back before it was forgotten. This layer adds **deliberate capture + spaced review + active recall**.
 
 ## Directory Layout
 
@@ -66,7 +66,7 @@ lapses: 0
 
 ## Language Policy
 
-- Skills and this README are in **English** (EvoNexus repo policy — open source).
+- Skills and this README are in **English** (WizzOS repo policy — open source).
 - Fact content is in **pt-BR** by default (`workspace.language`).
 - All user content (`facts/`, `decks/`, `.state/`) is gitignored — privacy and licensing.
 

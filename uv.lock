@@ -258,7 +258,7 @@ wheels = [
 ]
 
 [[package]]
-name = "evo-nexus"
+name = "wizz-os"
 version = "0.24.0"
 source = { virtual = "." }
 dependencies = [

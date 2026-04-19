@@ -29,7 +29,7 @@ function statusLabel(share: ShareRecord): { label: string; color: string } {
     const exp = new Date(share.expires_at)
     if (now > exp) return { label: 'Expirado', color: '#fbbf24' }
   }
-  return { label: 'Ativo', color: '#00FFA7' }
+  return { label: 'Ativo', color: '#FF4500' }
 }
 
 export default function ShareLinks() {
@@ -87,8 +87,8 @@ export default function ShareLinks() {
               width: '40px',
               height: '40px',
               borderRadius: '10px',
-              background: 'rgba(0,255,167,0.1)',
-              border: '1px solid rgba(0,255,167,0.2)',
+              background: 'rgba(255,69,0,0.1)',
+              border: '1px solid rgba(255,69,0,0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

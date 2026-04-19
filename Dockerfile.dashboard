@@ -1,5 +1,5 @@
 # ============================================================
-# EvoNexus Dashboard — Multi-stage Dockerfile
+# WizzOS Dashboard — Multi-stage Dockerfile
 # Stage 1: Build React frontend
 # Stage 2: Python backend (Flask) serving built frontend
 # ============================================================

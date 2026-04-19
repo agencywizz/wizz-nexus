@@ -115,10 +115,10 @@ function S3ConfigPanel({ config, onSaved }: { config: BackupConfig; onSaved: () 
         className="w-full flex items-center justify-between px-4 py-3 hover:bg-[#0d1117]/50 transition-colors"
       >
         <div className="flex items-center gap-3 text-sm">
-          <Cloud size={16} className={config.s3_configured ? 'text-[#00FFA7]' : 'text-[#667085]'} />
+          <Cloud size={16} className={config.s3_configured ? 'text-[#FF4500]' : 'text-[#667085]'} />
           <span className="text-[#e6edf3] font-medium">Storage Provider</span>
           {config.s3_configured ? (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-[#00FFA7]/10 text-[#00FFA7]">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-[#FF4500]/10 text-[#FF4500]">
               S3: {config.s3_bucket}
             </span>
           ) : (
@@ -164,7 +164,7 @@ function S3ConfigPanel({ config, onSaved }: { config: BackupConfig; onSaved: () 
                       value={values[field.envKey] ?? ''}
                       onChange={e => setValues(prev => ({ ...prev, [field.envKey]: e.target.value }))}
                       placeholder={field.hint}
-                      className="w-full px-3 py-2 rounded-lg text-sm font-mono bg-[#0d1117] border border-[#21262d] text-[#e6edf3] placeholder-[#667085]/50 focus:outline-none focus:border-[#00FFA7] transition-colors"
+                      className="w-full px-3 py-2 rounded-lg text-sm font-mono bg-[#0d1117] border border-[#21262d] text-[#e6edf3] placeholder-[#667085]/50 focus:outline-none focus:border-[#FF4500] transition-colors"
                     />
                     {field.sensitive && (
                       <button
@@ -190,8 +190,8 @@ function S3ConfigPanel({ config, onSaved }: { config: BackupConfig; onSaved: () 
               disabled={saving}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
                 saved
-                  ? 'bg-[#00FFA7]/20 text-[#00FFA7] border border-[#00FFA7]/30'
-                  : 'bg-[#00FFA7] text-[#0d1117] hover:bg-[#00FFA7]/90'
+                  ? 'bg-[#FF4500]/20 text-[#FF4500] border border-[#FF4500]/30'
+                  : 'bg-[#FF4500] text-[#0d1117] hover:bg-[#FF4500]/90'
               } disabled:opacity-50`}
             >
               <Save size={14} />
@@ -355,8 +355,8 @@ export default function Backups() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#00FFA7]/10 flex items-center justify-center">
-            <HardDriveDownload size={20} className="text-[#00FFA7]" />
+          <div className="w-10 h-10 rounded-xl bg-[#FF4500]/10 flex items-center justify-center">
+            <HardDriveDownload size={20} className="text-[#FF4500]" />
           </div>
           <div>
             <h1 className="text-xl font-semibold text-[#e6edf3]">Backups</h1>
@@ -391,7 +391,7 @@ export default function Backups() {
           <button
             onClick={() => handleBackup('local')}
             disabled={jobStatus === 'running'}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors font-medium text-sm disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors font-medium text-sm disabled:opacity-50"
           >
             {jobStatus === 'running' ? <Loader2 size={16} className="animate-spin" /> : <Plus size={16} />}
             {jobStatus === 'running' ? 'Running...' : 'New Backup'}
@@ -401,7 +401,7 @@ export default function Backups() {
 
       {/* Status banner */}
       {jobStatus === 'done' && (
-        <div className="flex items-center gap-2 px-4 py-3 mb-4 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] text-sm">
+        <div className="flex items-center gap-2 px-4 py-3 mb-4 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] text-sm">
           <CheckCircle size={16} />
           Operation completed successfully.
           <button onClick={() => setJobStatus('idle')} className="ml-auto text-xs opacity-60 hover:opacity-100">dismiss</button>
@@ -455,7 +455,7 @@ export default function Backups() {
                 <tr key={b.filename} className="border-b border-[#21262d] last:border-0 hover:bg-[#0d1117]/50 transition-colors">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <FileArchive size={16} className="text-[#00FFA7] shrink-0" />
+                      <FileArchive size={16} className="text-[#FF4500] shrink-0" />
                       <span className="text-[#e6edf3] font-mono text-xs truncate max-w-[200px] lg:max-w-none">
                         {b.filename}
                       </span>
@@ -477,7 +477,7 @@ export default function Backups() {
                     <div className="flex items-center justify-end gap-1">
                       <button
                         onClick={() => handleDownload(b.filename)}
-                        className="p-1.5 rounded-lg text-[#667085] hover:text-[#00FFA7] hover:bg-[#00FFA7]/10 transition-colors"
+                        className="p-1.5 rounded-lg text-[#667085] hover:text-[#FF4500] hover:bg-[#FF4500]/10 transition-colors"
                         title="Download"
                       >
                         <Download size={14} />
@@ -575,7 +575,7 @@ export default function Backups() {
                               const base = import.meta.env.DEV ? 'http://localhost:8080' : ''
                               window.open(`${base}/api/backups/s3/${encodeURIComponent(b.key)}/download`, '_blank')
                             }}
-                            className="p-1.5 rounded-lg text-[#667085] hover:text-[#00FFA7] hover:bg-[#00FFA7]/10 transition-colors"
+                            className="p-1.5 rounded-lg text-[#667085] hover:text-[#FF4500] hover:bg-[#FF4500]/10 transition-colors"
                             title="Download from S3"
                           >
                             <Download size={14} />
@@ -605,7 +605,7 @@ export default function Backups() {
                   name="mode"
                   checked={restoreMode === 'merge'}
                   onChange={() => setRestoreMode('merge')}
-                  className="mt-0.5 accent-[#00FFA7]"
+                  className="mt-0.5 accent-[#FF4500]"
                 />
                 <div>
                   <div className="text-sm font-medium text-[#e6edf3]">Merge</div>
@@ -618,7 +618,7 @@ export default function Backups() {
                   name="mode"
                   checked={restoreMode === 'replace'}
                   onChange={() => setRestoreMode('replace')}
-                  className="mt-0.5 accent-[#00FFA7]"
+                  className="mt-0.5 accent-[#FF4500]"
                 />
                 <div>
                   <div className="text-sm font-medium text-[#e6edf3]">Replace</div>
@@ -636,7 +636,7 @@ export default function Backups() {
               </button>
               <button
                 onClick={() => handleRestore(showRestoreModal)}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors font-medium text-sm"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors font-medium text-sm"
               >
                 <RotateCcw size={14} />
                 Restore ({restoreMode})

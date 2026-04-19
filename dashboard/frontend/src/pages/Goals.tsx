@@ -77,11 +77,11 @@ async function apiFetch(path: string, opts?: RequestInit) {
 
 function statusIcon(status: string, size = 14) {
   switch (status) {
-    case 'achieved': return <CheckCircle2 size={size} className="text-[#00FFA7]" />
+    case 'achieved': return <CheckCircle2 size={size} className="text-[#FF4500]" />
     case 'active': return <Circle size={size} className="text-blue-400" />
     case 'on-hold': return <PauseCircle size={size} className="text-yellow-400" />
     case 'cancelled': return <XCircle size={size} className="text-red-400" />
-    case 'done': return <CheckCircle2 size={size} className="text-[#00FFA7]" />
+    case 'done': return <CheckCircle2 size={size} className="text-[#FF4500]" />
     case 'in_progress': return <Clock size={size} className="text-blue-400" />
     case 'open': return <Circle size={size} className="text-[#667085]" />
     default: return <Circle size={size} className="text-[#667085]" />
@@ -121,7 +121,7 @@ function ProgressBar({ current, target, size = 'md' }: { current: number; target
   return (
     <div className={`w-full bg-[#21262d] rounded-full ${h}`}>
       <div
-        className={`${h} rounded-full transition-all duration-300 ${p >= 100 ? 'bg-[#00FFA7]' : 'bg-blue-400'}`}
+        className={`${h} rounded-full transition-all duration-300 ${p >= 100 ? 'bg-[#FF4500]' : 'bg-blue-400'}`}
         style={{ width: `${p}%` }}
       />
     </div>
@@ -159,7 +159,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
-      className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-white placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+      className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-white placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50 transition-colors"
     />
   )
 }
@@ -168,7 +168,7 @@ function Select(props: React.SelectHTMLAttributes<HTMLSelectElement>) {
   return (
     <select
       {...props}
-      className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#00FFA7]/50 transition-colors"
+      className="w-full bg-[#0C111D] border border-[#21262d] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#FF4500]/50 transition-colors"
     />
   )
 }
@@ -235,7 +235,7 @@ function GoalRow({
           <div className="w-24">
             <ProgressBar current={goal.current_value} target={goal.target_value} size="sm" />
           </div>
-          <span className={`text-xs font-mono ${p >= 100 ? 'text-[#00FFA7]' : 'text-[#667085]'}`}>{p}%</span>
+          <span className={`text-xs font-mono ${p >= 100 ? 'text-[#FF4500]' : 'text-[#667085]'}`}>{p}%</span>
         </div>
 
         {/* Due date */}
@@ -248,7 +248,7 @@ function GoalRow({
         {/* Recalculate button */}
         <button
           onClick={(e) => { e.stopPropagation(); onRecalculate(goal.id) }}
-          className="p-1 text-[#667085] hover:text-[#00FFA7] transition-colors ml-1"
+          className="p-1 text-[#667085] hover:text-[#FF4500] transition-colors ml-1"
           title="Recalculate progress"
         >
           <RefreshCw size={12} />
@@ -258,7 +258,7 @@ function GoalRow({
       {expanded && (
         <div className="border-t border-[#21262d] bg-[#0C111D]/40 px-4 py-2">
           {tasks.length === 0 ? (
-            <p className="text-xs text-[#667085] py-1">No tasks. <button onClick={() => onCreateTask(goal.id)} className="text-[#00FFA7] hover:underline">Add one</button></p>
+            <p className="text-xs text-[#667085] py-1">No tasks. <button onClick={() => onCreateTask(goal.id)} className="text-[#FF4500] hover:underline">Add one</button></p>
           ) : (
             <div className="mb-1">
               <div className="text-[10px] text-[#667085] mb-1">{doneTasks}/{tasks.length} tasks done</div>
@@ -269,7 +269,7 @@ function GoalRow({
           )}
           <button
             onClick={() => onCreateTask(goal.id)}
-            className="flex items-center gap-1 text-xs text-[#667085] hover:text-[#00FFA7] transition-colors mt-1"
+            className="flex items-center gap-1 text-xs text-[#667085] hover:text-[#FF4500] transition-colors mt-1"
           >
             <Plus size={12} /> Add task
           </button>
@@ -327,7 +327,7 @@ function ProjectCard({
                 <div className="w-32">
                   <ProgressBar current={totalCurrent} target={totalTarget} />
                 </div>
-                <span className="text-xs text-[#00FFA7] font-mono">{pct(totalCurrent, totalTarget)}%</span>
+                <span className="text-xs text-[#FF4500] font-mono">{pct(totalCurrent, totalTarget)}%</span>
               </div>
             )}
           </div>
@@ -351,7 +351,7 @@ function ProjectCard({
           )}
           <button
             onClick={() => onCreateGoal(project.id)}
-            className="flex items-center gap-1 text-xs text-[#667085] hover:text-[#00FFA7] transition-colors mt-2"
+            className="flex items-center gap-1 text-xs text-[#667085] hover:text-[#FF4500] transition-colors mt-2"
           >
             <Plus size={12} /> Add goal
           </button>
@@ -429,7 +429,7 @@ function CreateGoalModal({ projectId, onClose, onCreated }: { projectId: number;
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="px-4 py-2 text-sm bg-[#00FFA7] text-black font-semibold rounded-lg hover:bg-[#00FFA7]/90 transition-colors disabled:opacity-50"
+          className="px-4 py-2 text-sm bg-[#FF4500] text-black font-semibold rounded-lg hover:bg-[#FF4500]/90 transition-colors disabled:opacity-50"
         >
           {loading ? 'Creating...' : 'Create'}
         </button>
@@ -488,7 +488,7 @@ function CreateTaskModal({ goalId, onClose, onCreated }: { goalId: number; onClo
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="px-4 py-2 text-sm bg-[#00FFA7] text-black font-semibold rounded-lg hover:bg-[#00FFA7]/90 transition-colors disabled:opacity-50"
+          className="px-4 py-2 text-sm bg-[#FF4500] text-black font-semibold rounded-lg hover:bg-[#FF4500]/90 transition-colors disabled:opacity-50"
         >
           {loading ? 'Creating...' : 'Create'}
         </button>
@@ -621,7 +621,7 @@ export default function Goals() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <Target size={20} className="text-[#00FFA7]" />
+          <Target size={20} className="text-[#FF4500]" />
           <div>
             <h1 className="text-white font-semibold text-lg">Goals</h1>
             <p className="text-xs text-[#667085]">Mission → Project → Goal → Task hierarchy</p>
@@ -666,7 +666,7 @@ export default function Goals() {
             <button
               key={s}
               onClick={() => setStatusFilter(s)}
-              className={`px-2.5 py-1 text-xs rounded-lg transition-colors ${statusFilter === s ? 'bg-[#00FFA7]/15 text-[#00FFA7] border border-[#00FFA7]/30' : 'text-[#667085] border border-[#21262d] hover:border-[#344054]'}`}
+              className={`px-2.5 py-1 text-xs rounded-lg transition-colors ${statusFilter === s ? 'bg-[#FF4500]/15 text-[#FF4500] border border-[#FF4500]/30' : 'text-[#667085] border border-[#21262d] hover:border-[#344054]'}`}
             >
               {s}
             </button>
@@ -678,7 +678,7 @@ export default function Goals() {
             <button
               key={d}
               onClick={() => setDueFilter(d)}
-              className={`px-2.5 py-1 text-xs rounded-lg transition-colors ${dueFilter === d ? 'bg-[#00FFA7]/15 text-[#00FFA7] border border-[#00FFA7]/30' : 'text-[#667085] border border-[#21262d] hover:border-[#344054]'}`}
+              className={`px-2.5 py-1 text-xs rounded-lg transition-colors ${dueFilter === d ? 'bg-[#FF4500]/15 text-[#FF4500] border border-[#FF4500]/30' : 'text-[#667085] border border-[#21262d] hover:border-[#344054]'}`}
             >
               {d}
             </button>
@@ -695,10 +695,10 @@ export default function Goals() {
         filteredMissions.map((mission) => (
           <div key={mission.id} className="mb-8">
             {/* Mission header */}
-            <div className="bg-gradient-to-r from-[#00FFA7]/10 to-transparent border border-[#00FFA7]/20 rounded-xl p-5 mb-4">
+            <div className="bg-gradient-to-r from-[#FF4500]/10 to-transparent border border-[#FF4500]/20 rounded-xl p-5 mb-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <Target size={18} className="text-[#00FFA7]" />
+                  <Target size={18} className="text-[#FF4500]" />
                   <div>
                     <h2 className="text-white font-bold text-base">{mission.title}</h2>
                     {mission.description && <p className="text-xs text-[#667085] mt-0.5">{mission.description}</p>}

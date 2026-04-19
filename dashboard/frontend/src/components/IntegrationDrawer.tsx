@@ -214,8 +214,8 @@ export default function IntegrationDrawer({
                     <span
                       className="inline-block h-2 w-2 rounded-full shrink-0"
                       style={{
-                        backgroundColor: isConnected ? '#00FFA7' : '#3F3F46',
-                        boxShadow: isConnected ? '0 0 6px rgba(0,255,167,0.5)' : 'none',
+                        backgroundColor: isConnected ? '#FF4500' : '#3F3F46',
+                        boxShadow: isConnected ? '0 0 6px rgba(255,69,0,0.5)' : 'none',
                       }}
                     />
                   </div>
@@ -257,7 +257,7 @@ export default function IntegrationDrawer({
                   </p>
                   <a
                     href={`/connect/${integration.name.toLowerCase()}`}
-                    className="inline-flex items-center gap-1.5 text-sm px-4 py-2 rounded-lg bg-[#00FFA7]/10 text-[#00FFA7] border border-[#00FFA7]/20 hover:bg-[#00FFA7]/20 transition-all"
+                    className="inline-flex items-center gap-1.5 text-sm px-4 py-2 rounded-lg bg-[#FF4500]/10 text-[#FF4500] border border-[#FF4500]/20 hover:bg-[#FF4500]/20 transition-all"
                   >
                     <ExternalLink size={14} />
                     Conectar {integration.name}
@@ -288,7 +288,7 @@ export default function IntegrationDrawer({
                   href={meta.docsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs text-[#667085] hover:text-[#00FFA7] transition-colors mt-2"
+                  className="inline-flex items-center gap-1 text-xs text-[#667085] hover:text-[#FF4500] transition-colors mt-2"
                 >
                   <ExternalLink size={12} />
                   Documentação
@@ -301,7 +301,7 @@ export default function IntegrationDrawer({
               <div className="border-t border-[#21262d] px-5 py-4 space-y-3">
                 {/* Test result */}
                 {testState.status === 'ok' && (
-                  <div className="flex items-center gap-2 text-xs text-[#00FFA7]">
+                  <div className="flex items-center gap-2 text-xs text-[#FF4500]">
                     <CheckCircle2 size={13} />
                     <span>{testState.message} · {testState.latency}ms</span>
                   </div>
@@ -330,7 +330,7 @@ export default function IntegrationDrawer({
                     type="button"
                     onClick={handleSave}
                     disabled={saving}
-                    className="flex-1 flex items-center justify-center gap-1.5 text-sm px-4 py-2 rounded-lg bg-[#00FFA7] text-[#0C111D] font-semibold hover:bg-[#00e699] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="flex-1 flex items-center justify-center gap-1.5 text-sm px-4 py-2 rounded-lg bg-[#FF4500] text-[#0C111D] font-semibold hover:bg-[#00e699] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {saving ? <Loader2 size={14} className="animate-spin" /> : null}
                     Salvar

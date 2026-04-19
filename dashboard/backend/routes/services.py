@@ -122,7 +122,7 @@ def run_routine(routine_id):
 
 @bp.route("/api/services/restart-all", methods=["POST"])
 def restart_all_services():
-    """Restart all EvoNexus services (dashboard + scheduler + terminal-server).
+    """Restart all WizzOS services (dashboard + scheduler + terminal-server).
 
     Kills processes directly and re-runs start-services.sh, bypassing
     'systemctl restart' which doesn't reliably kill children on Type=oneshot

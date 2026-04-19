@@ -260,9 +260,9 @@ const AGENT_META: Record<string, AgentMeta> = {
 
 const DEFAULT_META: AgentMeta = {
   icon: Bot,
-  color: '#00FFA7',
-  colorMuted: 'rgba(0,255,167,0.12)',
-  glowColor: 'rgba(0,255,167,0.15)',
+  color: '#FF4500',
+  colorMuted: 'rgba(255,69,0,0.12)',
+  glowColor: 'rgba(255,69,0,0.15)',
   command: '',
   label: 'Agent',
 }
@@ -371,10 +371,10 @@ function AgentCard({ agent, isRunning }: { agent: Agent; isRunning: boolean }) {
         {/* Status dot + running badge */}
         <div className="flex items-center gap-2">
           {isRunning && (
-            <span className="flex items-center gap-1 rounded-full bg-[#00FFA7]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#00FFA7] border border-[#00FFA7]/20">
+            <span className="flex items-center gap-1 rounded-full bg-[#FF4500]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#FF4500] border border-[#FF4500]/20">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00FFA7] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#00FFA7]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF4500] opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FF4500]" />
               </span>
               Running
             </span>
@@ -511,10 +511,10 @@ function OracleHeroCard({ agent, isRunning }: { agent: Agent; isRunning: boolean
               Start Here
             </span>
             {isRunning && (
-              <span className="flex items-center gap-1 rounded-full bg-[#00FFA7]/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#00FFA7] border border-[#00FFA7]/20">
+              <span className="flex items-center gap-1 rounded-full bg-[#FF4500]/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#FF4500] border border-[#FF4500]/20">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00FFA7] opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#00FFA7]" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF4500] opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#FF4500]" />
                 </span>
                 Running
               </span>
@@ -525,7 +525,7 @@ function OracleHeroCard({ agent, isRunning }: { agent: Agent; isRunning: boolean
             Oracle
           </h2>
           <p className="text-[12.5px] text-[#8b949e] leading-snug">
-            Your entry point to EvoNexus. Interviews you, maps workspace capabilities to your pain points, and delivers a phased implementation plan.
+            Your entry point to WizzOS. Interviews you, maps workspace capabilities to your pain points, and delivers a phased implementation plan.
           </p>
         </div>
 
@@ -551,7 +551,7 @@ const FILTERS: { value: FilterValue; label: string; icon: LucideIcon }[] = [
 const CATEGORY_META: Record<Category, { label: string; color: string; description: string }> = {
   business: {
     label: 'Business',
-    color: '#00FFA7',
+    color: '#FF4500',
     description: 'Operations, finance, marketing, HR, legal, product, data',
   },
   engineering: {
@@ -752,7 +752,7 @@ export default function Agents() {
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <Building2 size={14} className="text-[#00FFA7]" />
+              <Building2 size={14} className="text-[#FF4500]" />
               <span className="text-[#8b949e]">
                 <span className="font-medium text-[#e6edf3]">{counts.business}</span> business
               </span>
@@ -832,7 +832,7 @@ export default function Agents() {
                   onClick={() => setFilter(f.value)}
                   className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12px] font-medium transition-all ${
                     active
-                      ? 'border-[#00FFA7]/40 bg-[#00FFA7]/10 text-[#00FFA7]'
+                      ? 'border-[#FF4500]/40 bg-[#FF4500]/10 text-[#FF4500]'
                       : 'border-[#21262d] bg-[#161b22] text-[#8b949e] hover:border-[#30363d] hover:text-[#e6edf3]'
                   }`}
                 >
@@ -856,7 +856,7 @@ export default function Agents() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search agents..."
-              className="w-full rounded-full border border-[#21262d] bg-[#161b22] py-1.5 pl-9 pr-3 text-[12px] text-[#e6edf3] placeholder:text-[#667085] focus:border-[#00FFA7]/40 focus:outline-none"
+              className="w-full rounded-full border border-[#21262d] bg-[#161b22] py-1.5 pl-9 pr-3 text-[12px] text-[#e6edf3] placeholder:text-[#667085] focus:border-[#FF4500]/40 focus:outline-none"
             />
           </div>
         </div>

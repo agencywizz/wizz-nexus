@@ -118,9 +118,9 @@ export default function Docs() {
       {/* Header */}
       <div className="px-4 py-5 flex items-center justify-between border-b border-[#344054]">
         <div className="flex items-center gap-2">
-          <BookOpen size={20} className="text-[#00FFA7]" />
+          <BookOpen size={20} className="text-[#FF4500]" />
           <span className="text-lg font-bold">
-            <span className="text-[#00FFA7]">Evo</span>
+            <span className="text-[#FF4500]">Evo</span>
             <span className="text-white">Nexus</span>
             <span className="text-[#667085] ml-1.5 text-sm font-normal">Docs</span>
           </span>
@@ -142,7 +142,7 @@ export default function Docs() {
             placeholder="Search docs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-8 pr-3 py-2 text-sm bg-[#182230] border border-[#344054] rounded-lg text-[#D0D5DD] placeholder-[#667085] focus:outline-none focus:border-[#00FFA7]/50"
+            className="w-full pl-8 pr-3 py-2 text-sm bg-[#182230] border border-[#344054] rounded-lg text-[#D0D5DD] placeholder-[#667085] focus:outline-none focus:border-[#FF4500]/50"
           />
         </div>
       </div>
@@ -169,7 +169,7 @@ export default function Docs() {
               className="w-full flex items-center gap-2 px-2 py-1.5 text-[11px] uppercase tracking-widest text-[#667085] font-semibold hover:text-[#D0D5DD] transition-colors"
             >
               {collapsed[sec.slug] ? <ChevronRight size={12} /> : <ChevronDown size={12} />}
-              <Icon size={13} className="text-[#00FFA7]/60" />
+              <Icon size={13} className="text-[#FF4500]/60" />
               {sec.title}
             </button>
             {!collapsed[sec.slug] && (
@@ -191,7 +191,7 @@ export default function Docs() {
                       onClick={() => handleNav(child.slug)}
                       className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors mb-0.5 block ${
                         activeSlug === child.slug
-                          ? 'text-[#00FFA7] bg-[#00FFA7]/10 border-l-2 border-[#00FFA7]'
+                          ? 'text-[#FF4500] bg-[#FF4500]/10 border-l-2 border-[#FF4500]'
                           : 'text-[#667085] hover:text-[#D0D5DD] hover:bg-white/5 border-l-2 border-transparent'
                       }`}
                     >
@@ -215,7 +215,7 @@ export default function Docs() {
       <div className="px-4 py-3 border-t border-[#344054]/50">
         <a
           href="/"
-          className="flex items-center justify-center gap-1.5 text-xs text-[#667085] hover:text-[#00FFA7] transition-colors"
+          className="flex items-center justify-center gap-1.5 text-xs text-[#667085] hover:text-[#FF4500] transition-colors"
         >
           Back to Dashboard
         </a>
@@ -228,7 +228,7 @@ export default function Docs() {
       {/* Mobile hamburger */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-[#182230] border border-[#344054] text-[#D0D5DD] hover:text-[#00FFA7] transition-colors"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-[#182230] border border-[#344054] text-[#D0D5DD] hover:text-[#FF4500] transition-colors"
       >
         <Menu size={20} />
       </button>
@@ -274,7 +274,7 @@ export default function Docs() {
                   a: ({ href, children, ...props }) => (
                     <a
                       href={href}
-                      className="text-[#00FFA7] hover:underline"
+                      className="text-[#FF4500] hover:underline"
                       target={href?.startsWith('http') ? '_blank' : undefined}
                       rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                       {...props}
@@ -339,7 +339,7 @@ export default function Docs() {
         }
         .docs-content code {
           background: #182230;
-          color: #00FFA7;
+          color: #FF4500;
           padding: 0.15rem 0.4rem;
           border-radius: 4px;
           font-size: 0.875rem;
@@ -358,7 +358,7 @@ export default function Docs() {
           color: #D0D5DD;
         }
         .docs-content blockquote {
-          border-left: 3px solid #00FFA7;
+          border-left: 3px solid #FF4500;
           padding-left: 1rem;
           margin: 1rem 0;
           color: #667085;

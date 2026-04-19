@@ -2,7 +2,7 @@
 
 **Command:** `/oracle` | **Color:** amber | **Model:** Sonnet
 
-Oracle is the workspace knowledge agent — it answers questions about EvoNexus itself. Agents, skills, routines, integrations, the dashboard, configuration, and architecture are all in its domain. Oracle reads documentation before answering and never guesses. If it does not find the answer in the docs, it says so.
+Oracle is the workspace knowledge agent — it answers questions about WizzOS itself. Agents, skills, routines, integrations, the dashboard, configuration, and architecture are all in its domain. Oracle reads documentation before answering and never guesses. If it does not find the answer in the docs, it says so.
 
 ## When to Use
 

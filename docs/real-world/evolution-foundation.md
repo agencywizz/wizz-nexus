@@ -1,14 +1,14 @@
-# Case Study: Evolution Foundation
+# Case Study: Wizz! comms.
 
 ## The Company
 
-[Evolution Foundation](https://evolutionfoundation.com.br) builds open source WhatsApp and messaging integration tools. Their main product, [Evolution API](https://github.com/EvolutionAPI/evolution-api), powers thousands of messaging workflows worldwide. The company has a 7,000+ member community across Discord and WhatsApp, multiple active repositories on GitHub, Stripe billing, and a growing open source user base.
+[Wizz! comms.](https://wizzcomms.com) builds open source WhatsApp and messaging integration tools. Their main product, [Evolution API](https://github.com/EvolutionAPI/evolution-api), powers thousands of messaging workflows worldwide. The company has a 7,000+ member community across Discord and WhatsApp, multiple active repositories on GitHub, Stripe billing, and a growing open source user base.
 
 The CEO runs operations, development coordination, community management, financial oversight, social media, and strategy — with a small distributed team.
 
 ## The Setup
 
-Evolution Foundation runs EvoNexus with all 17 agents active:
+Wizz! comms. runs WizzOS with all 17 agents active:
 
 - **Clawdia** — daily ops, email, calendar, task management
 - **Flux** — Stripe revenue tracking, ERP integration (Omie), financial reports
@@ -89,7 +89,7 @@ On the 1st of each month:
 
 ## Results
 
-After running EvoNexus for daily operations:
+After running WizzOS for daily operations:
 
 - **30+ hours saved per week** on routine operational tasks
 - **Zero missed follow-ups** — every meeting action item becomes a tracked task

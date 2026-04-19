@@ -19,11 +19,11 @@ const evoTheme = EditorView.theme({
     fontSize: '13px',
   },
   '.cm-content': {
-    caretColor: '#00FFA7',
+    caretColor: '#FF4500',
     padding: '12px 0',
   },
   '.cm-cursor': {
-    borderLeftColor: '#00FFA7',
+    borderLeftColor: '#FF4500',
     borderLeftWidth: '2px',
   },
   '.cm-selectionBackground, ::selection': {
@@ -58,8 +58,8 @@ const evoTheme = EditorView.theme({
 
 // Syntax highlighting for Evolution theme
 const evoHighlight = HighlightStyle.define([
-  { tag: tags.keyword, color: '#00FFA7' },
-  { tag: tags.operator, color: '#00FFA7' },
+  { tag: tags.keyword, color: '#FF4500' },
+  { tag: tags.operator, color: '#FF4500' },
   { tag: tags.string, color: '#7ee787' },
   { tag: tags.number, color: '#79c0ff' },
   { tag: tags.bool, color: '#79c0ff' },
@@ -70,10 +70,10 @@ const evoHighlight = HighlightStyle.define([
   { tag: tags.typeName, color: '#ffa657' },
   { tag: tags.className, color: '#ffa657' },
   { tag: tags.propertyName, color: '#79c0ff' },
-  { tag: tags.heading, color: '#00FFA7', fontWeight: 'bold' },
+  { tag: tags.heading, color: '#FF4500', fontWeight: 'bold' },
   { tag: tags.emphasis, fontStyle: 'italic' },
   { tag: tags.strong, fontWeight: 'bold' },
-  { tag: tags.link, color: '#00FFA7', textDecoration: 'underline' },
+  { tag: tags.link, color: '#FF4500', textDecoration: 'underline' },
   { tag: tags.url, color: '#7ee787' },
   { tag: tags.meta, color: '#667085' },
   { tag: tags.tagName, color: '#7ee787' },

@@ -63,7 +63,7 @@ export default function NotificationBell() {
       >
         <Bell size={16} />
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5 -right-0.5 min-w-[14px] h-[14px] px-0.5 rounded-full bg-[#00FFA7] text-[#0C111D] text-[9px] font-bold flex items-center justify-center leading-none">
+          <span className="absolute -top-0.5 -right-0.5 min-w-[14px] h-[14px] px-0.5 rounded-full bg-[#FF4500] text-[#0C111D] text-[9px] font-bold flex items-center justify-center leading-none">
             {unreadCount > 99 ? '99+' : unreadCount}
           </span>
         )}
@@ -103,12 +103,12 @@ export default function NotificationBell() {
                     onClick={() => handleEntryClick(n)}
                   >
                     {/* Unread dot */}
-                    <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${n.read ? 'bg-transparent' : 'bg-[#00FFA7]'}`} />
+                    <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${n.read ? 'bg-transparent' : 'bg-[#FF4500]'}`} />
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
                         {n.event === 'agent_awaiting'
-                          ? <BellRing size={12} className="text-[#00FFA7] shrink-0" />
+                          ? <BellRing size={12} className="text-[#FF4500] shrink-0" />
                           : <CheckCircle2 size={12} className="text-[#667085] shrink-0" />}
                         <span className="text-sm font-semibold text-[#D0D5DD] truncate">
                           @{n.agentName}

@@ -24,7 +24,7 @@ interface UserForm {
 const emptyForm: UserForm = { username: '', email: '', display_name: '', password: '', role: 'viewer' }
 
 const roleBadge: Record<string, { bg: string; text: string; border: string }> = {
-  admin: { bg: 'rgba(0,255,167,0.10)', text: '#00FFA7', border: 'rgba(0,255,167,0.25)' },
+  admin: { bg: 'rgba(255,69,0,0.10)', text: '#FF4500', border: 'rgba(255,69,0,0.25)' },
   operator: { bg: 'rgba(96,165,250,0.10)', text: '#60A5FA', border: 'rgba(96,165,250,0.25)' },
   viewer: { bg: 'rgba(102,112,133,0.15)', text: '#667085', border: 'rgba(102,112,133,0.30)' },
 }
@@ -149,7 +149,7 @@ export default function UsersPage() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#161b22] border border-[#21262d] flex items-center justify-center">
-            <UsersIcon size={20} className="text-[#00FFA7]" />
+            <UsersIcon size={20} className="text-[#FF4500]" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-[#e6edf3]">User Management</h1>
@@ -158,7 +158,7 @@ export default function UsersPage() {
         </div>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00FFA7] text-[#0d1117] font-semibold text-sm hover:bg-[#00FFA7]/90 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF4500] text-[#0d1117] font-semibold text-sm hover:bg-[#FF4500]/90 transition-colors"
         >
           <Plus size={16} /> Add User
         </button>
@@ -210,8 +210,8 @@ export default function UsersPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className={`inline-flex items-center gap-1.5 text-xs ${u.is_active ? 'text-[#00FFA7]' : 'text-red-400'}`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${u.is_active ? 'bg-[#00FFA7]' : 'bg-red-400'}`} />
+                      <span className={`inline-flex items-center gap-1.5 text-xs ${u.is_active ? 'text-[#FF4500]' : 'text-red-400'}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${u.is_active ? 'bg-[#FF4500]' : 'bg-red-400'}`} />
                         {u.is_active ? 'Active' : 'Inactive'}
                       </span>
                     </td>
@@ -271,7 +271,7 @@ export default function UsersPage() {
                   type="text"
                   value={form.username}
                   onChange={(e) => setForm({ ...form, username: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#00FFA7] transition-colors"
+                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#FF4500] transition-colors"
                 />
               </div>
               <div>
@@ -280,7 +280,7 @@ export default function UsersPage() {
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#00FFA7] transition-colors"
+                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#FF4500] transition-colors"
                 />
               </div>
               <div>
@@ -289,7 +289,7 @@ export default function UsersPage() {
                   type="text"
                   value={form.display_name}
                   onChange={(e) => setForm({ ...form, display_name: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#00FFA7] transition-colors"
+                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#FF4500] transition-colors"
                 />
               </div>
               <div>
@@ -300,7 +300,7 @@ export default function UsersPage() {
                   type="password"
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#00FFA7] transition-colors"
+                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#FF4500] transition-colors"
                 />
               </div>
               <div>
@@ -308,7 +308,7 @@ export default function UsersPage() {
                 <select
                   value={form.role}
                   onChange={(e) => setForm({ ...form, role: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#00FFA7] transition-colors"
+                  className="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#21262d] text-[#e6edf3] text-sm focus:outline-none focus:border-[#FF4500] transition-colors"
                 >
                   {availableRoles.map(r => (
                     <option key={r} value={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</option>
@@ -327,7 +327,7 @@ export default function UsersPage() {
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="px-4 py-2 rounded-lg bg-[#00FFA7] text-[#0d1117] font-semibold text-sm hover:bg-[#00FFA7]/90 transition-colors disabled:opacity-50"
+                className="px-4 py-2 rounded-lg bg-[#FF4500] text-[#0d1117] font-semibold text-sm hover:bg-[#FF4500]/90 transition-colors disabled:opacity-50"
               >
                 {submitting ? 'Saving...' : editingId ? 'Save Changes' : 'Create User'}
               </button>

@@ -1,4 +1,4 @@
-# EvoNexus Documentation
+# WizzOS Documentation
 
 Complete reference.
 
@@ -416,24 +416,24 @@ Persistent memory at `.claude/agent-memory/dex/`. Stores project context, user p
 
 # Engineering Layer
 
-> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). EvoNexus imports the agents and adapts them to the workspace conventions (themed names, EvoNexus standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/EvolutionAPI/evo-nexus/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
+> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). WizzOS imports the agents and adapts them to the workspace conventions (themed names, WizzOS standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
 
-> **Native additions (v0.13.0):** `helm-conductor` and `mirror-retro` are native EvoNexus agents, not derived from oh-my-claudecode. Helm orchestrates the engineering cycle and routes tasks to phase owners; Mirror runs blameless retrospectives at the end of features and sprints.
+> **Native additions (v0.13.0):** `helm-conductor` and `mirror-retro` are native WizzOS agents, not derived from oh-my-claudecode. Helm orchestrates the engineering cycle and routes tasks to phase owners; Mirror runs blameless retrospectives at the end of features and sprints.
 
 ## What It Is
 
-The Engineering Layer is a complete software development team built into EvoNexus. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/EvolutionAPI/evo-nexus/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
+The Engineering Layer is a complete software development team built into WizzOS. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
 
 It exists as a layer ortogonal to the Business Layer (Clawdia, Flux, Atlas, etc.). Business agents handle operations (emails, finance, community); engineering agents handle code (architecture, bugs, reviews, tests). Cross-layer handoffs are common — e.g., Nova writes a PRD → Apex reviews the architecture → Bolt implements → Lens reviews → Oath verifies → Mirror captures lessons.
 
 ## When to Use
 
-- You write code on top of EvoNexus
+- You write code on top of WizzOS
 - You want a structured dev workflow with separation of concerns (planner ≠ executor ≠ reviewer ≠ verifier)
 - You want code review, security audits, and verification as first-class agents
 - You want autonomous end-to-end execution from a brief to working code (`dev-autopilot`)
 
-If you only need EvoNexus for ops/business work, you can ignore the Engineering Layer entirely — it doesn't get in the way.
+If you only need WizzOS for ops/business work, you can ignore the Engineering Layer entirely — it doesn't get in the way.
 
 ## The 21 Agents
 
@@ -470,7 +470,7 @@ These agents do focused implementation work: writing code, running tests, invest
 | **Prism** | `/prism-scientist` | Scientist — formal statistical analysis with CI, effect size, p-value |
 | **Helm** ⭐ | `/helm-conductor` | Conductor — cycle orchestration, sequencing, routing to phase owners, sprint planning |
 
-⭐ = native EvoNexus agent (not derived from oh-my-claudecode)
+⭐ = native WizzOS agent (not derived from oh-my-claudecode)
 
 ### Speed (haiku) — 2 agents
 
@@ -483,7 +483,7 @@ Fast, parallel, low-token agents for high-volume work.
 
 ## The 6-Phase Workflow
 
-The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/evo-nexus/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
+The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
 
 ```
 Discovery → Planning → Solutioning → Build → Verify → Retro
@@ -674,14 +674,14 @@ The Engineering Layer is **derived** from [oh-my-claudecode](https://github.com/
 - **Version imported:** v4.11.4
 - **Date imported:** 2026-04-10
 
-EvoNexus modifications:
+WizzOS modifications:
 - Renamed agents to themed names (`architect` → `apex-architect`)
 - Added `dev-` prefix to all skills for namespace consistency
-- Adapted memory structure to match EvoNexus per-agent pattern
+- Adapted memory structure to match WizzOS per-agent pattern
 - Removed runtime dependencies on OMC TypeScript `src/` (kept only the markdown definitions)
-- Discarded skills that overlapped with EvoNexus builtins or were OMC meta-skills
+- Discarded skills that overlapped with WizzOS builtins or were OMC meta-skills
 
-See [NOTICE.md](https://github.com/EvolutionAPI/evo-nexus/blob/main/NOTICE.md) for the complete attribution and modification list.
+See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) for the complete attribution and modification list.
 
 
 ---
@@ -1009,7 +1009,7 @@ Persistent memory at `.claude/agent-memory/nova/`. Stores project context, user 
 
 **Command:** `/oracle` | **Color:** amber | **Model:** Sonnet
 
-Oracle is the workspace knowledge agent — it answers questions about EvoNexus itself. Agents, skills, routines, integrations, the dashboard, configuration, and architecture are all in its domain. Oracle reads documentation before answering and never guesses. If it does not find the answer in the docs, it says so.
+Oracle is the workspace knowledge agent — it answers questions about WizzOS itself. Agents, skills, routines, integrations, the dashboard, configuration, and architecture are all in its domain. Oracle reads documentation before answering and never guesses. If it does not find the answer in the docs, it says so.
 
 ## When to Use
 
@@ -1049,11 +1049,11 @@ Oracle has no persistent agent memory. It reads documentation on every invocatio
 
 # Agents Overview
 
-Agents are the core of EvoNexus. Each agent is a specialized AI persona with its own domain, system prompt, skills, and persistent memory.
+Agents are the core of WizzOS. Each agent is a specialized AI persona with its own domain, system prompt, skills, and persistent memory.
 
-EvoNexus organizes agents in **two ortogonal layers**:
+WizzOS organizes agents in **two ortogonal layers**:
 
-- **Business Layer (17 agents)** — operations, finance, community, marketing, HR, legal, product, data, sales, learning retention. Built and maintained by EvoNexus.
+- **Business Layer (17 agents)** — operations, finance, community, marketing, HR, legal, product, data, sales, learning retention. Built and maintained by WizzOS.
 - **Engineering Layer (21 agents)** — software development, code review, testing, debugging, security, design, cycle orchestration, retrospective. 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by Yeachan Heo) + 2 native (Helm, Mirror). Follows a canonical 6-phase workflow. See [Engineering Layer](engineering-layer.md) for details.
 
 The two layers are independent — business tasks route to business agents, engineering tasks to engineering agents — but cross-layer handoffs are common (e.g., `@nova` writes a PRD → `@apex-architect` does the architecture review → `@bolt-executor` implements → `@mirror-retro` captures lessons).
@@ -1263,7 +1263,7 @@ See the dedicated [Engineering Layer](engineering-layer.md) page for pipelines, 
 
 **Kai** is the personal assistant with an isolated domain. Health tracking, habits, personal appointments, and routines. It does not handle professional matters.
 
-**Oracle** is the workspace knowledge agent. It answers questions about how EvoNexus works — agents, skills, routines, integrations, dashboard, configuration, and architecture — by reading the actual documentation before responding. No RAG or vector DB needed.
+**Oracle** is the workspace knowledge agent. It answers questions about how WizzOS works — agents, skills, routines, integrations, dashboard, configuration, and architecture — by reading the actual documentation before responding. No RAG or vector DB needed.
 
 **Mako** handles marketing. Campaign planning, content creation, brand reviews, SEO audits, email sequences, and performance reports.
 
@@ -1517,9 +1517,9 @@ Persistent memory at `.claude/agent-memory/zara/`. Stores project context, user 
 
 ## Overview
 
-EvoNexus is a file-based, git-friendly framework. Everything is markdown, YAML, and Python scripts. No database required for the core framework (SQLite is used only by the dashboard).
+WizzOS is a file-based, git-friendly framework. Everything is markdown, YAML, and Python scripts. No database required for the core framework (SQLite is used only by the dashboard).
 
-EvoNexus organizes 38 agents in **two ortogonal layers**: a Business Layer (17 agents for ops/finance/community/learning retention/etc.) and an Engineering Layer (21 agents for software dev — 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode), MIT, by Yeachan Heo, plus 2 native: Helm and Mirror). The two layers share the same skill, memory, and integration infrastructure but stay out of each other's way: business tasks route to business agents, engineering tasks to engineering agents. Cross-layer handoffs are common (e.g., Nova writes a PRD → Apex reviews → Bolt implements → Mirror captures lessons). The engineering layer follows a canonical 6-phase workflow (Discovery → Planning → Solutioning → Build → Verify → Retro) documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/evo-nexus/blob/main/.claude/rules/dev-phases.md).
+WizzOS organizes 38 agents in **two ortogonal layers**: a Business Layer (17 agents for ops/finance/community/learning retention/etc.) and an Engineering Layer (21 agents for software dev — 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode), MIT, by Yeachan Heo, plus 2 native: Helm and Mirror). The two layers share the same skill, memory, and integration infrastructure but stay out of each other's way: business tasks route to business agents, engineering tasks to engineering agents. Cross-layer handoffs are common (e.g., Nova writes a PRD → Apex reviews → Bolt implements → Mirror captures lessons). The engineering layer follows a canonical 6-phase workflow (Discovery → Planning → Solutioning → Build → Verify → Retro) documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md).
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -1812,7 +1812,7 @@ This enables Claude to query your knowledge base directly during conversations.
 
 # Dashboard Overview
 
-The EvoNexus web dashboard is a React + Flask application that gives you a visual interface to manage agents, routines, integrations, memory, and more.
+The WizzOS web dashboard is a React + Flask application that gives you a visual interface to manage agents, routines, integrations, memory, and more.
 
 ## Starting the Dashboard
 
@@ -1943,7 +1943,7 @@ Status board for all 18 integrations. Shows which are connected (green), which n
 
 ### Providers
 
-Pick and configure which LLM backend powers EvoNexus — Anthropic (default), or any of 6 alternates via [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude): OpenRouter, OpenAI, Gemini, Codex Auth, AWS Bedrock, Vertex AI. Each provider card shows install status (claude vs openclaude), configured/unconfigured flags, and a Test button that runs `<binary> --version` with the merged env. Switching provider takes effect immediately — both the terminal-server and the ADW runner re-read `config/providers.json` on every session spawn, no restart needed. Secrets are masked in the UI and in every API response. See [providers.md](providers.md) for the full reference.
+Pick and configure which LLM backend powers WizzOS — Anthropic (default), or any of 6 alternates via [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude): OpenRouter, OpenAI, Gemini, Codex Auth, AWS Bedrock, Vertex AI. Each provider card shows install status (claude vs openclaude), configured/unconfigured flags, and a Test button that runs `<binary> --version` with the merged env. Switching provider takes effect immediately — both the terminal-server and the ADW runner re-read `config/providers.json` on every session spawn, no restart needed. Secrets are masked in the UI and in every API response. See [providers.md](providers.md) for the full reference.
 
 ### Chat
 
@@ -2002,9 +2002,9 @@ Workspace configuration hub with three tabs:
 
 # AI Providers
 
-The **Providers** page lets you choose which LLM backend powers EvoNexus, configure its credentials, and test the connection — all from the dashboard. It lives under **System → Providers** in the sidebar and requires the `config:manage` permission.
+The **Providers** page lets you choose which LLM backend powers WizzOS, configure its credentials, and test the connection — all from the dashboard. It lives under **System → Providers** in the sidebar and requires the `config:manage` permission.
 
-EvoNexus uses Anthropic's `claude` CLI by default. To run on any other backend (OpenRouter, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Codex Auth), it switches to [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude) — a drop-in binary that speaks the same CLI protocol but dispatches to the provider of your choice via environment variables.
+WizzOS uses Anthropic's `claude` CLI by default. To run on any other backend (OpenRouter, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Codex Auth), it switches to [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude) — a drop-in binary that speaks the same CLI protocol but dispatches to the provider of your choice via environment variables.
 
 ## Supported Providers
 
@@ -2052,7 +2052,7 @@ Both the Python runner (`ADWs/runner.py`) and the JS terminal bridge (`dashboard
 
 The REST API that backs the Providers page masks secrets (`*_KEY`, `*_SECRET`, `*_TOKEN`) as `first6****last4` on every response. When you open the config modal, the form starts empty for those fields — type a new value to replace, or leave empty to keep the current one. Values containing `****` are treated as masked placeholders and skipped on save (so a round-trip through the UI doesn't accidentally overwrite a real secret with the mask string).
 
-The backend also rejects any env var value containing shell metacharacters (`;`, `&`, `|`, backtick, `$`, newlines) — defense in depth against injection if someone points EvoNexus at a compromised `providers.json`.
+The backend also rejects any env var value containing shell metacharacters (`;`, `&`, `|`, backtick, `$`, newlines) — defense in depth against injection if someone points WizzOS at a compromised `providers.json`.
 
 ## Logout Warning
 
@@ -2079,7 +2079,7 @@ The interactive setup wizard (`make setup`) asks which provider to use as step 3
 
 # Users and Roles
 
-EvoNexus uses a role-based access control (RBAC) system. Every user has exactly one role, and each role defines what resources the user can access and what actions they can perform.
+WizzOS uses a role-based access control (RBAC) system. Every user has exactly one role, and each role defines what resources the user can access and what actions they can perform.
 
 ## Default Roles
 
@@ -2207,7 +2207,7 @@ View the full audit log at **Audit Log** in the sidebar (requires `audit:view`).
 
 ---
 
-# Getting Started with EvoNexus
+# Getting Started with WizzOS
 
 ## Prerequisites
 
@@ -2221,7 +2221,7 @@ View the full audit log at **Audit Log** in the sidebar (requires `audit:view`).
 ### 1. Quick Install (recommended)
 
 ```bash
-npx @evoapi/evo-nexus
+npx @evoapi/wizz-os
 ```
 
 This downloads and runs the interactive setup wizard automatically.
@@ -2229,8 +2229,8 @@ This downloads and runs the interactive setup wizard automatically.
 ### Alternative: Manual Clone
 
 ```bash
-git clone --depth 1 https://github.com/EvolutionAPI/evo-nexus.git
-cd evo-nexus
+git clone --depth 1 https://github.com/EvolutionAPI/wizz-os.git
+cd wizz-os
 
 # Interactive setup wizard
 make setup
@@ -2253,9 +2253,9 @@ It generates:
 
 ### 2. Choose Your AI Provider
 
-The wizard asks which backend should power EvoNexus. **Anthropic is the default** — if you already have Claude Code authenticated, you don't need to do anything else.
+The wizard asks which backend should power WizzOS. **Anthropic is the default** — if you already have Claude Code authenticated, you don't need to do anything else.
 
-For any other provider (OpenRouter, OpenAI, Gemini, AWS Bedrock, Vertex AI, Codex Auth), EvoNexus uses [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude), a drop-in binary compatible with the Claude CLI protocol. Install it once:
+For any other provider (OpenRouter, OpenAI, Gemini, AWS Bedrock, Vertex AI, Codex Auth), WizzOS uses [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude), a drop-in binary compatible with the Claude CLI protocol. Install it once:
 
 ```bash
 npm install -g @gitlawb/openclaude
@@ -2284,9 +2284,9 @@ At minimum, you need:
 **On a VPS (remote):** The setup wizard automatically creates a dedicated `evonexus` system user (Claude Code refuses `--dangerously-skip-permissions` as root) and installs a **systemd service** that starts on boot:
 
 ```bash
-systemctl status evo-nexus      # check status
-systemctl restart evo-nexus     # restart
-journalctl -u evo-nexus -f      # follow logs
+systemctl status wizz-os      # check status
+systemctl restart wizz-os     # restart
+journalctl -u wizz-os -f      # follow logs
 su - evonexus                   # switch to service user
 ```
 
@@ -2352,7 +2352,7 @@ After the plan is ready, you can invoke individual agents:
 
 ![Goals — Mission → Project → Goal tree with progress](imgs/doc-goals.webp)
 
-**Goals give EvoNexus direction.** Without a goal, routines and heartbeats are just activity. With a goal, every agent run has a target to push toward — and progress is measurable.
+**Goals give WizzOS direction.** Without a goal, routines and heartbeats are just activity. With a goal, every agent run has a target to push toward — and progress is measurable.
 
 ## The Hierarchy
 
@@ -3310,7 +3310,7 @@ If you need to run something **once** at a specific time (not recurring), use [S
 
 # Creating Skills
 
-Skills are reusable instruction sets that teach Claude how to perform specific tasks. EvoNexus includes 126 built-in skills — you can create your own.
+Skills are reusable instruction sets that teach Claude how to perform specific tasks. WizzOS includes 126 built-in skills — you can create your own.
 
 ## Using the Skill Creator
 
@@ -3447,7 +3447,7 @@ Claude matches your intent to the skill description and follows the instructions
 
 # Daily Workflow
 
-A practical guide to running your business day with EvoNexus — from morning briefing to end-of-day wrap-up.
+A practical guide to running your business day with WizzOS — from morning briefing to end-of-day wrap-up.
 
 ## Morning (7:00 - 8:00)
 
@@ -3645,7 +3645,7 @@ See [Creating Routines](creating-routines.md) for details on the schedule and cu
 
 # Initial Setup and Onboarding
 
-The `initial-setup` skill gives you a guided tour of EvoNexus when you first start using it.
+The `initial-setup` skill gives you a guided tour of WizzOS when you first start using it.
 
 ## How to Trigger
 
@@ -3727,7 +3727,7 @@ You can trigger the setup tour again anytime — just say "show me around" or "o
 
 ---
 
-# Updating EvoNexus
+# Updating WizzOS
 
 ## Check your current version
 
@@ -3766,7 +3766,7 @@ python app.py &
 
 ## Update via Docker
 
-If you're running EvoNexus with Docker Compose:
+If you're running WizzOS with Docker Compose:
 
 ```bash
 cd /path/to/your/workspace
@@ -3815,7 +3815,7 @@ Returns:
   "current": "0.3.2",
   "latest": "0.4.0",
   "update_available": true,
-  "release_url": "https://github.com/EvolutionAPI/evo-nexus/releases/tag/v0.4.0",
+  "release_url": "https://github.com/EvolutionAPI/wizz-os/releases/tag/v0.4.0",
   "release_notes": "..."
 }
 ```
@@ -3823,14 +3823,14 @@ Returns:
 ## Changelog
 
 See all releases and changelogs on GitHub:
-https://github.com/EvolutionAPI/evo-nexus/releases
+https://github.com/EvolutionAPI/wizz-os/releases
 
 
 ---
 
 # Using Agents
 
-EvoNexus ships with 16 specialized agents, each owning a specific domain. You don't need to memorize commands — just describe what you need and Claude routes to the right agent.
+WizzOS ships with 16 specialized agents, each owning a specific domain. You don't need to memorize commands — just describe what you need and Claude routes to the right agent.
 
 ## Getting Started
 
@@ -4022,7 +4022,7 @@ Because heartbeats burn tokens on every run, put guardrails on them:
 ### A heartbeat isn't firing
 
 1. Check the heartbeat's `enabled` — is this one individually on?
-2. Check the dispatcher log (`journalctl -u evo-nexus -f` or the dashboard service logs) for interval registration.
+2. Check the dispatcher log (`journalctl -u wizz-os -f` or the dashboard service logs) for interval registration.
 3. Call `POST /api/heartbeats/{id}/run` — does a manual run work? If yes, it's a scheduler issue; if no, it's an agent or prompt issue.
 
 ### A run failed
@@ -4383,7 +4383,7 @@ Discord integration enables community monitoring, message retrieval, channel man
 ### 1. Create a Discord Bot
 
 1. Go to [discord.com/developers/applications](https://discord.com/developers/applications)
-2. Click **New Application**, give it a name (e.g., "EvoNexus Bot")
+2. Click **New Application**, give it a name (e.g., "WizzOS Bot")
 3. Go to **Bot** in the sidebar
 4. Click **Reset Token** and copy the token -- you will need this
 
@@ -4487,7 +4487,7 @@ integrations:
 
 # Evo CRM Integration
 
-Evo CRM integration connects EvoNexus to the AI-powered CRM platform for managing contacts, conversations, pipelines, and labels.
+Evo CRM integration connects WizzOS to the AI-powered CRM platform for managing contacts, conversations, pipelines, and labels.
 
 ## Setup
 
@@ -5337,7 +5337,7 @@ The `obs-obsidian-cli` skill provides vault interaction:
 
 ## Related Skills
 
-EvoNexus includes several Obsidian-specific skills:
+WizzOS includes several Obsidian-specific skills:
 
 | Skill | What it does |
 |---|---|
@@ -5426,7 +5426,7 @@ Omie can send real-time events via webhooks. Supported events include order crea
 
 # Integrations Overview
 
-EvoNexus connects to external services through three mechanisms: **MCP servers**, **API clients**, and **OAuth flows**. Each integration provides data to one or more agents and routines.
+WizzOS connects to external services through three mechanisms: **MCP servers**, **API clients**, and **OAuth flows**. Each integration provides data to one or more agents and routines.
 
 ![Integrations overview](../imgs/doc-integrations.webp)
 
@@ -5651,7 +5651,7 @@ The Stripe integration provides data for these metrics:
 
 ## Stripe + Omie
 
-For a complete financial picture, EvoNexus combines Stripe data (revenue, subscriptions) with Omie ERP data (expenses, invoices, accounts payable/receivable). The `fin-daily-pulse` skill queries both sources.
+For a complete financial picture, WizzOS combines Stripe data (revenue, subscriptions) with Omie ERP data (expenses, invoices, accounts payable/receivable). The `fin-daily-pulse` skill queries both sources.
 
 If you only use Stripe (no Omie), the financial routines still work -- they show revenue metrics and skip the expense/ERP sections.
 
@@ -5913,9 +5913,9 @@ The `int-youtube` skill queries the YouTube Data API:
 
 ---
 
-# What is EvoNexus
+# What is WizzOS
 
-> **Note:** EvoNexus is an independent, **unofficial open-source project**. It is **not affiliated with, endorsed by, or sponsored by Anthropic**. "Claude" and "Claude Code" are trademarks of Anthropic, PBC. This project integrates with Claude Code as a third-party tool and requires users to provide their own installation and credentials.
+> **Note:** WizzOS is an independent, **unofficial open-source project**. It is **not affiliated with, endorsed by, or sponsored by Anthropic**. "Claude" and "Claude Code" are trademarks of Anthropic, PBC. This project integrates with Claude Code as a third-party tool and requires users to provide their own installation and credentials.
 
 ## The Problem
 
@@ -5923,9 +5923,9 @@ Running a business means juggling dozens of tools, dashboards, and communication
 
 Most "AI assistants" are chatbots. You ask a question, you get an answer, and then you're back to manually copying data between tools. That doesn't scale.
 
-## What EvoNexus Is
+## What WizzOS Is
 
-EvoNexus is a multi-agent workspace compatible with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and other LLM tooling. It turns a single Claude Code installation into a team of **38 specialized agents** organized in two ortogonal layers — one for business operations, one for software engineering.
+WizzOS is a multi-agent workspace compatible with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and other LLM tooling. It turns a single Claude Code installation into a team of **38 specialized agents** organized in two ortogonal layers — one for business operations, one for software engineering.
 
 The **Business Layer** has 17 agents that own distinct domains (finance, projects, community, social media, strategy, sales, courses, learning retention, personal wellness, marketing, HR, customer success, legal, product, data, knowledge) and produce real operational outputs: HTML reports, triaged inboxes, synced meeting notes, financial snapshots, community health checks.
 
@@ -5944,7 +5944,7 @@ A scheduler runs routines on a daily, weekly, and monthly cadence. Cross-layer h
 
 ## How It's Different
 
-| Chatbot | EvoNexus |
+| Chatbot | WizzOS |
 |---------|------------|
 | You ask, it answers | Agents run routines on schedule |
 | Forgets between sessions | Persistent memory across sessions |
@@ -6005,11 +6005,11 @@ Two-tier persistence. `CLAUDE.md` holds working memory (who you are, active proj
 
 ### AI Providers
 
-EvoNexus runs on Anthropic's `claude` CLI by default, but can switch to any of 6 alternate LLM backends (OpenRouter, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Codex Auth) via [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude). The active provider is stored in `config/providers.json` and can be changed from the Providers page in the dashboard — both the terminal-server and the ADW runner re-read the config on every session spawn, so switching takes effect immediately. No vendor lock-in, your choice of model, your keys. See [docs/dashboard/providers.md](dashboard/providers.md) for the full reference.
+WizzOS runs on Anthropic's `claude` CLI by default, but can switch to any of 6 alternate LLM backends (OpenRouter, OpenAI, Gemini, AWS Bedrock, Google Vertex AI, Codex Auth) via [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude). The active provider is stored in `config/providers.json` and can be changed from the Providers page in the dashboard — both the terminal-server and the ADW runner re-read the config on every session spawn, so switching takes effect immediately. No vendor lock-in, your choice of model, your keys. See [docs/dashboard/providers.md](dashboard/providers.md) for the full reference.
 
 ## Open Source
 
-EvoNexus is MIT-licensed, built by [Evolution Foundation](https://evolutionfoundation.com.br). The source is at [github.com/EvolutionAPI/evo-nexus](https://github.com/EvolutionAPI/evo-nexus). This is an unofficial community project — not affiliated with or endorsed by Anthropic.
+WizzOS is MIT-licensed, built by [Wizz! comms.](https://wizzcomms.com). The source is at [github.com/EvolutionAPI/wizz-os](https://github.com/EvolutionAPI/wizz-os). This is an unofficial community project — not affiliated with or endorsed by Anthropic.
 
 It's designed to be forked and adapted. Add your own agents, skills, routines, and integrations. The architecture is markdown-first — no complex plugin systems, just files that Claude Code reads.
 
@@ -6026,7 +6026,7 @@ It's designed to be forked and adapted. Add your own agents, skills, routines, a
 
 ### What is the Codex OAuth provider?
 
-The `codex_auth` provider lets EvoNexus run agents on **GPT-5.x via the ChatGPT Codex backend** — using your regular ChatGPT login, no API key required. It routes through [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), which reads `~/.codex/auth.json` and exchanges the OAuth token automatically.
+The `codex_auth` provider lets WizzOS run agents on **GPT-5.x via the ChatGPT Codex backend** — using your regular ChatGPT login, no API key required. It routes through [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), which reads `~/.codex/auth.json` and exchanges the OAuth token automatically.
 
 This is distinct from the plain `openai` provider, which uses an `OPENAI_API_KEY` and hits the standard chat completions endpoint.
 
@@ -6131,7 +6131,7 @@ Check that `config/providers.json` lists `codex_auth` as `active_provider` and t
 
 ### O que é o provider Codex OAuth?
 
-O provider `codex_auth` faz o EvoNexus rodar agentes no **GPT-5.x via backend Codex do ChatGPT** — usando seu login normal do ChatGPT, sem API key. A chamada passa pelo [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), que lê o `~/.codex/auth.json` e troca o token OAuth automaticamente.
+O provider `codex_auth` faz o WizzOS rodar agentes no **GPT-5.x via backend Codex do ChatGPT** — usando seu login normal do ChatGPT, sem API key. A chamada passa pelo [OpenClaude](https://github.com/Gitlawb/openclaude) (v0.3.0+), que lê o `~/.codex/auth.json` e troca o token OAuth automaticamente.
 
 É diferente do provider `openai` normal, que usa `OPENAI_API_KEY` e bate no endpoint padrão de chat completions.
 
@@ -6233,17 +6233,17 @@ Confirme que `config/providers.json` lista `codex_auth` como `active_provider` e
 
 ---
 
-# Case Study: Evolution Foundation
+# Case Study: Wizz! comms.
 
 ## The Company
 
-[Evolution Foundation](https://evolutionfoundation.com.br) builds open source WhatsApp and messaging integration tools. Their main product, [Evolution API](https://github.com/EvolutionAPI/evolution-api), powers thousands of messaging workflows worldwide. The company has a 7,000+ member community across Discord and WhatsApp, multiple active repositories on GitHub, Stripe billing, and a growing open source user base.
+[Wizz! comms.](https://wizzcomms.com) builds open source WhatsApp and messaging integration tools. Their main product, [Evolution API](https://github.com/EvolutionAPI/evolution-api), powers thousands of messaging workflows worldwide. The company has a 7,000+ member community across Discord and WhatsApp, multiple active repositories on GitHub, Stripe billing, and a growing open source user base.
 
 The CEO runs operations, development coordination, community management, financial oversight, social media, and strategy — with a small distributed team.
 
 ## The Setup
 
-Evolution Foundation runs EvoNexus with all 17 agents active:
+Wizz! comms. runs WizzOS with all 17 agents active:
 
 - **Clawdia** — daily ops, email, calendar, task management
 - **Flux** — Stripe revenue tracking, ERP integration (Omie), financial reports
@@ -6324,7 +6324,7 @@ On the 1st of each month:
 
 ## Results
 
-After running EvoNexus for daily operations:
+After running WizzOS for daily operations:
 
 - **30+ hours saved per week** on routine operational tasks
 - **Zero missed follow-ups** — every meeting action item becomes a tracked task
@@ -6337,9 +6337,9 @@ The key insight: the value isn't in any single routine. It's in the compounding 
 
 ---
 
-# A Morning with EvoNexus
+# A Morning with WizzOS
 
-What does it actually look like to start your day with EvoNexus running? Here's a walkthrough of a typical morning, from waking up to being fully productive.
+What does it actually look like to start your day with WizzOS running? Here's a walkthrough of a typical morning, from waking up to being fully productive.
 
 ## 7:00 AM — "Good morning"
 
@@ -6423,7 +6423,7 @@ That's the difference between a chatbot and an operating layer.
 
 `CLAUDE.md` is a context file that Claude Code reads automatically at the start of every session. It's the primary mechanism for giving Claude persistent knowledge about you, your company, your projects, and your preferences.
 
-In EvoNexus, `CLAUDE.md` is generated by the setup wizard (`make setup`). `setup.py` generates CLAUDE.md inline — no template file needed. It serves as the "working memory" layer — the hot cache that every agent reads before doing anything.
+In WizzOS, `CLAUDE.md` is generated by the setup wizard (`make setup`). `setup.py` generates CLAUDE.md inline — no template file needed. It serves as the "working memory" layer — the hot cache that every agent reads before doing anything.
 
 ## What Goes In It
 
@@ -6539,9 +6539,9 @@ All environment variables are defined in `.env` (generated by `make setup`). See
 
 ## AI Provider Configuration
 
-EvoNexus uses the `claude` CLI by default (Anthropic native auth). To switch to any other backend, the active provider is read from `config/providers.json` — **not from `.env`** directly. The dashboard's Providers page and `make setup` both write to that file.
+WizzOS uses the `claude` CLI by default (Anthropic native auth). To switch to any other backend, the active provider is read from `config/providers.json` — **not from `.env`** directly. The dashboard's Providers page and `make setup` both write to that file.
 
-The env vars below are the ones EvoNexus injects into the spawned CLI process based on the active provider. You don't set them in `.env` yourself — they live inside `config/providers.json` under each provider's `env_vars` key, and the terminal-server / ADW runner merge them into the subprocess environment at spawn time. Only the variable names in this allowlist are accepted (both the Python runner and the JS bridge enforce the same list):
+The env vars below are the ones WizzOS injects into the spawned CLI process based on the active provider. You don't set them in `.env` yourself — they live inside `config/providers.json` under each provider's `env_vars` key, and the terminal-server / ADW runner merge them into the subprocess environment at spawn time. Only the variable names in this allowlist are accepted (both the Python runner and the JS bridge enforce the same list):
 
 | Variable | Used by | Description |
 |----------|---------|-------------|
@@ -6689,7 +6689,7 @@ These are populated automatically when you connect accounts through the dashboar
 
 ## Required vs Optional
 
-**No variable is strictly required** -- EvoNexus works with whatever integrations you enable. But specific routines need their corresponding keys:
+**No variable is strictly required** -- WizzOS works with whatever integrations you enable. But specific routines need their corresponding keys:
 
 | Routine | Required Variables |
 |---------|-------------------|
@@ -6865,7 +6865,7 @@ make help            # Show all available commands with descriptions
 
 # workspace.yaml Reference
 
-The `config/workspace.yaml` file is the central configuration for your EvoNexus instance. It's generated by `make setup` and read by the dashboard, scheduler, and setup scripts.
+The `config/workspace.yaml` file is the central configuration for your WizzOS instance. It's generated by `make setup` and read by the dashboard, scheduler, and setup scripts.
 
 ## Location
 
@@ -6991,7 +6991,7 @@ The setup wizard also generates these alongside `workspace.yaml`:
 
 # Core Routines
 
-Core routines are the backbone of the EvoNexus daily loop. They ship with the repo, are hardcoded in `scheduler.py`, and run automatically. Unlike custom routines (which live in `ADWs/routines/custom/` and are configured via `config/routines.yaml`), core routines require zero configuration.
+Core routines are the backbone of the WizzOS daily loop. They ship with the repo, are hardcoded in `scheduler.py`, and run automatically. Unlike custom routines (which live in `ADWs/routines/custom/` and are configured via `config/routines.yaml`), core routines require zero configuration.
 
 There are 6 core routines. Together they form a closed loop: **orient in the morning, work during the day, consolidate at night, backup data, sync memory, and review weekly**.
 

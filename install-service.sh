@@ -1,5 +1,5 @@
 #!/bin/bash
-# EvoNexus — Install as systemd service with dedicated user
+# WizzOS — Install as systemd service with dedicated user
 # Usage: sudo bash install-service.sh [install_dir]
 #
 # Creates an 'evonexus' system user, copies/chowns the installation,
@@ -23,17 +23,17 @@ fi
 
 INSTALL_DIR="${1:-$(pwd)}"
 if [ ! -f "$INSTALL_DIR/pyproject.toml" ]; then
-  echo -e "${RED}✗ Not an EvoNexus installation: $INSTALL_DIR${RESET}"
-  echo "  Run from the evo-nexus directory, or pass the path: sudo bash install-service.sh /path/to/evo-nexus"
+  echo -e "${RED}✗ Not an WizzOS installation: $INSTALL_DIR${RESET}"
+  echo "  Run from the wizz-os directory, or pass the path: sudo bash install-service.sh /path/to/wizz-os"
   exit 1
 fi
 
 SERVICE_USER="evonexus"
 SERVICE_HOME="/home/$SERVICE_USER"
-SERVICE_DIR="$SERVICE_HOME/evo-nexus"
-SERVICE_NAME="evo-nexus"
+SERVICE_DIR="$SERVICE_HOME/wizz-os"
+SERVICE_NAME="wizz-os"
 
-echo -e "\n${GREEN}EvoNexus — Service Installer${RESET}\n"
+echo -e "\n${GREEN}WizzOS — Service Installer${RESET}\n"
 
 # ── Step 1: Create user ──
 
@@ -131,9 +131,9 @@ echo -e "  Creating systemd service..."
 
 cat > /etc/systemd/system/${SERVICE_NAME}.service << SERVICEEOF
 [Unit]
-Description=EvoNexus Dashboard + Scheduler + Terminal Server
+Description=WizzOS Dashboard + Scheduler + Terminal Server
 After=network.target
-Documentation=https://github.com/EvolutionAPI/evo-nexus
+Documentation=https://github.com/EvolutionAPI/wizz-os
 
 [Service]
 Type=oneshot
@@ -183,11 +183,11 @@ fi
 
 # ── Done ──
 
-echo -e "\n${GREEN}Done!${RESET} EvoNexus is running as '$SERVICE_USER' via systemd.\n"
+echo -e "\n${GREEN}Done!${RESET} WizzOS is running as '$SERVICE_USER' via systemd.\n"
 echo -e "  Useful commands:"
 echo -e "    ${DIM}systemctl status $SERVICE_NAME${RESET}     — check status"
 echo -e "    ${DIM}systemctl restart $SERVICE_NAME${RESET}    — restart"
 echo -e "    ${DIM}journalctl -u $SERVICE_NAME -f${RESET}     — follow logs"
 echo -e "    ${DIM}su - $SERVICE_USER${RESET}                 — switch to service user"
-echo -e "    ${DIM}su - $SERVICE_USER -c 'cd ~/evo-nexus && make run R=morning'${RESET} — run routine manually"
+echo -e "    ${DIM}su - $SERVICE_USER -c 'cd ~/wizz-os && make run R=morning'${RESET} — run routine manually"
 echo ""

@@ -73,7 +73,7 @@ const AGENT_META: Record<string, AgentMeta> = {
 
 const DEFAULT_META: AgentMeta = {
   icon: Bot,
-  color: '#00FFA7',
+  color: '#FF4500',
   command: '',
   label: 'Agent',
 }

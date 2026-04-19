@@ -116,11 +116,11 @@ type RunStatus = 'idle' | 'running' | 'success' | 'error'
 // Stat Card (matches Overview design)
 function StatCard({ label, value, icon: Icon }: { label: string; value: string | number; icon: LucideIcon }) {
   return (
-    <div className="group relative bg-[#161b22] border border-[#21262d] rounded-2xl p-5 transition-all duration-300 hover:border-[#00FFA7]/40 hover:shadow-[0_0_24px_rgba(0,255,167,0.06)]">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00FFA7]/20 to-transparent rounded-t-2xl" />
+    <div className="group relative bg-[#161b22] border border-[#21262d] rounded-2xl p-5 transition-all duration-300 hover:border-[#FF4500]/40 hover:shadow-[0_0_24px_rgba(255,69,0,0.06)]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF4500]/20 to-transparent rounded-t-2xl" />
       <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-          <Icon size={18} className="text-[#00FFA7]" />
+        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#FF4500]/8 border border-[#FF4500]/15">
+          <Icon size={18} className="text-[#FF4500]" />
         </div>
       </div>
       <p className="text-3xl font-bold text-[#e6edf3] tracking-tight">{value}</p>
@@ -193,7 +193,7 @@ export default function Routines() {
     >
       <span className={`inline-flex items-center gap-1 ${align === 'right' ? 'justify-end' : ''}`}>
         {label}
-        <ArrowUpDown size={11} className={sortKey === field ? 'text-[#00FFA7]' : 'opacity-40'} />
+        <ArrowUpDown size={11} className={sortKey === field ? 'text-[#FF4500]' : 'opacity-40'} />
       </span>
     </th>
   )
@@ -240,10 +240,10 @@ export default function Routines() {
       ) : (
         <>
           {/* Cost Chart */}
-          <div className="bg-[#161b22] border border-[#21262d] rounded-2xl p-6 mb-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+          <div className="bg-[#161b22] border border-[#21262d] rounded-2xl p-6 mb-6 transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00FFA7]/8 border border-[#00FFA7]/15">
-                <Zap size={14} className="text-[#00FFA7]" />
+              <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#FF4500]/8 border border-[#FF4500]/15">
+                <Zap size={14} className="text-[#FF4500]" />
               </div>
               <h2 className="text-base font-semibold text-[#e6edf3]">Cost per Routine</h2>
             </div>
@@ -256,13 +256,13 @@ export default function Routines() {
                   contentStyle={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '12px', color: '#e6edf3' }}
                   formatter={(value: unknown) => [`$${Number(value).toFixed(4)}`, 'Cost']}
                 />
-                <Bar dataKey="cost" fill="#00FFA7" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="cost" fill="#FF4500" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
           {/* Table */}
-          <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(0,255,167,0.04)]">
+          <div className="bg-[#161b22] border border-[#21262d] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_32px_rgba(255,69,0,0.04)]">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -291,15 +291,15 @@ export default function Routines() {
                             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border"
                             style={{
                               backgroundColor:
-                                r.status === 'healthy' ? 'rgba(0,255,167,0.10)' :
+                                r.status === 'healthy' ? 'rgba(255,69,0,0.10)' :
                                 r.status === 'warning' ? 'rgba(251,191,36,0.10)' :
                                 'rgba(239,68,68,0.10)',
                               color:
-                                r.status === 'healthy' ? '#00FFA7' :
+                                r.status === 'healthy' ? '#FF4500' :
                                 r.status === 'warning' ? '#FBBF24' :
                                 '#EF4444',
                               borderColor:
-                                r.status === 'healthy' ? 'rgba(0,255,167,0.25)' :
+                                r.status === 'healthy' ? 'rgba(255,69,0,0.25)' :
                                 r.status === 'warning' ? 'rgba(251,191,36,0.25)' :
                                 'rgba(239,68,68,0.25)',
                             }}
@@ -308,7 +308,7 @@ export default function Routines() {
                               className="w-1.5 h-1.5 rounded-full"
                               style={{
                                 backgroundColor:
-                                  r.status === 'healthy' ? '#00FFA7' :
+                                  r.status === 'healthy' ? '#FF4500' :
                                   r.status === 'warning' ? '#FBBF24' :
                                   '#EF4444',
                               }}
@@ -338,7 +338,7 @@ export default function Routines() {
                         <td className="py-3 pr-4 text-right text-[#D0D5DD] tabular-nums text-[13px]">{r.runs}</td>
                         <td className="py-3 pr-4 text-right">
                           <span className={`text-[13px] font-medium ${
-                            r.success_pct >= 90 ? 'text-[#00FFA7]' : r.success_pct >= 70 ? 'text-[#FBBF24]' : 'text-red-400'
+                            r.success_pct >= 90 ? 'text-[#FF4500]' : r.success_pct >= 70 ? 'text-[#FBBF24]' : 'text-red-400'
                           }`}>
                             {r.success_pct}%
                           </span>
@@ -357,7 +357,7 @@ export default function Routines() {
                               </span>
                             )
                             if (status === 'success') return (
-                              <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-[#00FFA7]/10 text-[#00FFA7] border border-[#00FFA7]/20">
+                              <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-[#FF4500]/10 text-[#FF4500] border border-[#FF4500]/20">
                                 <CheckCircle2 size={10} /> Started
                               </span>
                             )
@@ -380,7 +380,7 @@ export default function Routines() {
                                     setTimeout(() => setRunStatus(prev => ({ ...prev, [r.name]: 'idle' })), 5000)
                                   }
                                 }}
-                                className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-[#00FFA7]/10 text-[#00FFA7] border border-[#00FFA7]/20 hover:bg-[#00FFA7]/20 hover:shadow-[0_0_12px_rgba(0,255,167,0.10)] transition-all"
+                                className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-[#FF4500]/10 text-[#FF4500] border border-[#FF4500]/20 hover:bg-[#FF4500]/20 hover:shadow-[0_0_12px_rgba(255,69,0,0.10)] transition-all"
                                 title={`Run ${r.name}`}
                               >
                                 <Play size={10} /> Run
@@ -392,9 +392,9 @@ export default function Routines() {
                     )
                   })}
                   {/* Totals row */}
-                  <tr className="border-t-2 border-[#00FFA7]/20 bg-[#00FFA7]/[0.03]">
+                  <tr className="border-t-2 border-[#FF4500]/20 bg-[#FF4500]/[0.03]">
                     <td className="p-4" />
-                    <td className="py-3 pr-4 text-[#00FFA7] text-[13px] font-semibold">TOTAL</td>
+                    <td className="py-3 pr-4 text-[#FF4500] text-[13px] font-semibold">TOTAL</td>
                     <td className="py-3 pr-4" />
                     <td className="py-3 pr-4 text-[#e6edf3] text-right text-[13px] font-semibold tabular-nums">{totals.runs}</td>
                     <td className="py-3 pr-4" />

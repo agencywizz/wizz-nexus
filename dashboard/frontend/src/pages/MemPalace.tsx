@@ -201,8 +201,8 @@ export default function MemPalace() {
       {/* Not installed */}
       {!status?.installed && (
         <div className="bg-[#182230] border border-[#344054] rounded-xl p-8 text-center max-w-lg mx-auto">
-          <div className="w-16 h-16 rounded-2xl bg-[#00FFA7]/10 flex items-center justify-center mx-auto mb-4">
-            <Library size={32} className="text-[#00FFA7]" />
+          <div className="w-16 h-16 rounded-2xl bg-[#FF4500]/10 flex items-center justify-center mx-auto mb-4">
+            <Library size={32} className="text-[#FF4500]" />
           </div>
           <h2 className="text-xl font-semibold text-[#F9FAFB] mb-2">Enable MemPalace</h2>
           <p className="text-[#667085] text-sm mb-6">
@@ -213,7 +213,7 @@ export default function MemPalace() {
             <button
               onClick={handleInstall}
               disabled={installing}
-              className="px-6 py-2.5 bg-[#00FFA7] text-[#0C111D] rounded-lg font-medium text-sm hover:bg-[#00FFA7]/90 transition-colors disabled:opacity-50"
+              className="px-6 py-2.5 bg-[#FF4500] text-[#0C111D] rounded-lg font-medium text-sm hover:bg-[#FF4500]/90 transition-colors disabled:opacity-50"
             >
               {installing ? (
                 <span className="flex items-center gap-2">
@@ -242,7 +242,7 @@ export default function MemPalace() {
                 onClick={() => setTab(t.key)}
                 className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px ${
                   tab === t.key
-                    ? 'text-[#00FFA7] border-[#00FFA7]'
+                    ? 'text-[#FF4500] border-[#FF4500]'
                     : 'text-[#667085] border-transparent hover:text-[#D0D5DD]'
                 }`}
               >
@@ -258,7 +258,7 @@ export default function MemPalace() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="bg-[#182230] border border-[#344054] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-1">
-                    <Layers size={14} className="text-[#00FFA7]" />
+                    <Layers size={14} className="text-[#FF4500]" />
                     <span className="text-xs text-[#667085] uppercase tracking-wider">Wings</span>
                   </div>
                   <p className="text-2xl font-bold text-[#F9FAFB]">{status.stats?.wings?.length || 0}</p>
@@ -268,7 +268,7 @@ export default function MemPalace() {
                 </div>
                 <div className="bg-[#182230] border border-[#344054] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-1">
-                    <Grid3X3 size={14} className="text-[#00FFA7]" />
+                    <Grid3X3 size={14} className="text-[#FF4500]" />
                     <span className="text-xs text-[#667085] uppercase tracking-wider">Rooms</span>
                   </div>
                   <p className="text-2xl font-bold text-[#F9FAFB]">{status.stats?.rooms?.length || 0}</p>
@@ -278,7 +278,7 @@ export default function MemPalace() {
                 </div>
                 <div className="bg-[#182230] border border-[#344054] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-1">
-                    <Database size={14} className="text-[#00FFA7]" />
+                    <Database size={14} className="text-[#FF4500]" />
                     <span className="text-xs text-[#667085] uppercase tracking-wider">Drawers</span>
                   </div>
                   <p className="text-2xl font-bold text-[#F9FAFB]">{status.stats?.total_drawers || 0}</p>
@@ -309,9 +309,9 @@ export default function MemPalace() {
                 }
                 const isScanning = m.phase === 'scanning' || (total === 0 && done === 0)
                 return (
-                  <div className="bg-[#00FFA7]/5 border border-[#00FFA7]/20 rounded-xl p-5 space-y-3">
+                  <div className="bg-[#FF4500]/5 border border-[#FF4500]/20 rounded-xl p-5 space-y-3">
                     <div className="flex items-center gap-3">
-                      <RefreshCw size={16} className="text-[#00FFA7] animate-spin shrink-0" />
+                      <RefreshCw size={16} className="text-[#FF4500] animate-spin shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-[#F9FAFB] font-medium">
                           {isScanning ? 'Scanning files...' : 'Mining in progress'}
@@ -326,7 +326,7 @@ export default function MemPalace() {
                       </div>
                       {!isScanning && (
                         <div className="text-right shrink-0">
-                          <p className="text-2xl font-bold text-[#00FFA7] tabular-nums">{percent}%</p>
+                          <p className="text-2xl font-bold text-[#FF4500] tabular-nums">{percent}%</p>
                           <p className="text-[10px] text-[#667085] tabular-nums">
                             {done.toLocaleString()} / {total.toLocaleString()}
                           </p>
@@ -338,7 +338,7 @@ export default function MemPalace() {
                     {!isScanning && (
                       <div className="h-2 bg-[#0C111D] rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-[#00FFA7] transition-all duration-500 ease-out"
+                          className="h-full bg-[#FF4500] transition-all duration-500 ease-out"
                           style={{ width: `${percent}%` }}
                         />
                       </div>
@@ -388,7 +388,7 @@ export default function MemPalace() {
               {canManage && (
                 <div className="bg-[#182230] border border-[#344054] rounded-xl p-5">
                   <h3 className="text-sm font-semibold text-[#D0D5DD] mb-4 flex items-center gap-2">
-                    <FolderPlus size={14} className="text-[#00FFA7]" />
+                    <FolderPlus size={14} className="text-[#FF4500]" />
                     Add Source
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -397,26 +397,26 @@ export default function MemPalace() {
                       placeholder="Directory path (e.g. /path/to/project)"
                       value={newPath}
                       onChange={(e) => setNewPath(e.target.value)}
-                      className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-2 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#00FFA7] focus:outline-none sm:col-span-3"
+                      className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-2 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#FF4500] focus:outline-none sm:col-span-3"
                     />
                     <input
                       type="text"
                       placeholder="Label (optional)"
                       value={newLabel}
                       onChange={(e) => setNewLabel(e.target.value)}
-                      className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-2 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#00FFA7] focus:outline-none"
+                      className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-2 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#FF4500] focus:outline-none"
                     />
                     <input
                       type="text"
                       placeholder="Wing override (optional)"
                       value={newWing}
                       onChange={(e) => setNewWing(e.target.value)}
-                      className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-2 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#00FFA7] focus:outline-none"
+                      className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-2 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#FF4500] focus:outline-none"
                     />
                     <button
                       onClick={handleAddSource}
                       disabled={addingSource || !newPath.trim()}
-                      className="px-4 py-2 bg-[#00FFA7] text-[#0C111D] rounded-lg font-medium text-sm hover:bg-[#00FFA7]/90 transition-colors disabled:opacity-50"
+                      className="px-4 py-2 bg-[#FF4500] text-[#0C111D] rounded-lg font-medium text-sm hover:bg-[#FF4500]/90 transition-colors disabled:opacity-50"
                     >
                       {addingSource ? 'Adding...' : 'Add'}
                     </button>
@@ -436,7 +436,7 @@ export default function MemPalace() {
                       <button
                         onClick={() => handleMine()}
                         disabled={mining || !!status?.mining}
-                        className="px-4 py-2 bg-[#00FFA7]/10 text-[#00FFA7] rounded-lg text-sm font-medium hover:bg-[#00FFA7]/20 transition-colors disabled:opacity-50 flex items-center gap-2"
+                        className="px-4 py-2 bg-[#FF4500]/10 text-[#FF4500] rounded-lg text-sm font-medium hover:bg-[#FF4500]/20 transition-colors disabled:opacity-50 flex items-center gap-2"
                       >
                         <Play size={14} /> Index All
                       </button>
@@ -449,7 +449,7 @@ export default function MemPalace() {
                         <p className="text-xs text-[#667085] truncate">{source.path}</p>
                         <div className="flex gap-3 mt-1">
                           {source.wing && (
-                            <span className="text-xs px-1.5 py-0.5 rounded bg-[#00FFA7]/10 text-[#00FFA7]">
+                            <span className="text-xs px-1.5 py-0.5 rounded bg-[#FF4500]/10 text-[#FF4500]">
                               {source.wing}
                             </span>
                           )}
@@ -465,7 +465,7 @@ export default function MemPalace() {
                           <button
                             onClick={() => handleMine(idx)}
                             disabled={mining || !!status?.mining}
-                            className="p-2 rounded-lg text-[#667085] hover:text-[#00FFA7] hover:bg-[#00FFA7]/10 transition-colors disabled:opacity-50"
+                            className="p-2 rounded-lg text-[#667085] hover:text-[#FF4500] hover:bg-[#FF4500]/10 transition-colors disabled:opacity-50"
                             title="Index this source"
                           >
                             <Play size={14} />
@@ -500,13 +500,13 @@ export default function MemPalace() {
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                      className="w-full bg-[#0C111D] border border-[#344054] rounded-lg pl-10 pr-3 py-2.5 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#00FFA7] focus:outline-none"
+                      className="w-full bg-[#0C111D] border border-[#344054] rounded-lg pl-10 pr-3 py-2.5 text-sm text-[#F9FAFB] placeholder-[#667085] focus:border-[#FF4500] focus:outline-none"
                     />
                   </div>
                   <button
                     onClick={handleSearch}
                     disabled={searching || !query.trim()}
-                    className="px-5 py-2.5 bg-[#00FFA7] text-[#0C111D] rounded-lg font-medium text-sm hover:bg-[#00FFA7]/90 transition-colors disabled:opacity-50"
+                    className="px-5 py-2.5 bg-[#FF4500] text-[#0C111D] rounded-lg font-medium text-sm hover:bg-[#FF4500]/90 transition-colors disabled:opacity-50"
                   >
                     {searching ? 'Searching...' : 'Search'}
                   </button>
@@ -518,7 +518,7 @@ export default function MemPalace() {
                       <select
                         value={searchWing}
                         onChange={(e) => setSearchWing(e.target.value)}
-                        className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-1.5 text-xs text-[#D0D5DD] focus:border-[#00FFA7] focus:outline-none"
+                        className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-1.5 text-xs text-[#D0D5DD] focus:border-[#FF4500] focus:outline-none"
                       >
                         <option value="">All wings</option>
                         {status.stats.wings?.map((w) => (
@@ -530,7 +530,7 @@ export default function MemPalace() {
                       <select
                         value={searchRoom}
                         onChange={(e) => setSearchRoom(e.target.value)}
-                        className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-1.5 text-xs text-[#D0D5DD] focus:border-[#00FFA7] focus:outline-none"
+                        className="bg-[#0C111D] border border-[#344054] rounded-lg px-3 py-1.5 text-xs text-[#D0D5DD] focus:border-[#FF4500] focus:outline-none"
                       >
                         <option value="">All rooms</option>
                         {status.stats.rooms?.map((r) => (
@@ -555,12 +555,12 @@ export default function MemPalace() {
                   ) : (
                     <div className="space-y-2">
                       {searchResults.results?.map((r, i) => (
-                        <div key={i} className="bg-[#182230] border border-[#344054] rounded-xl p-4 hover:border-[#00FFA7]/30 transition-colors">
+                        <div key={i} className="bg-[#182230] border border-[#344054] rounded-xl p-4 hover:border-[#FF4500]/30 transition-colors">
                           <div className="flex items-start justify-between gap-3 mb-2">
                             <p className="text-xs text-[#667085] truncate flex-1">{r.source_file}</p>
                             <span className={`text-xs px-1.5 py-0.5 rounded shrink-0 ${
                               r.similarity > 0.8
-                                ? 'bg-[#00FFA7]/10 text-[#00FFA7]'
+                                ? 'bg-[#FF4500]/10 text-[#FF4500]'
                                 : r.similarity > 0.6
                                   ? 'bg-yellow-500/10 text-yellow-400'
                                   : 'bg-white/5 text-[#667085]'
@@ -571,7 +571,7 @@ export default function MemPalace() {
                           <p className="text-sm text-[#D0D5DD] whitespace-pre-wrap line-clamp-4">{r.text}</p>
                           <div className="flex gap-2 mt-2">
                             {r.wing && (
-                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#00FFA7]/10 text-[#00FFA7]">{r.wing}</span>
+                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#FF4500]/10 text-[#FF4500]">{r.wing}</span>
                             )}
                             {r.room && (
                               <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-[#667085]">{r.room}</span>

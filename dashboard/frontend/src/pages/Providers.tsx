@@ -43,8 +43,8 @@ function Toggle({ on, onChange, disabled }: { on: boolean; onChange: (v: boolean
       aria-checked={on}
       disabled={disabled}
       onClick={() => onChange(!on)}
-      className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00FFA7] disabled:opacity-40 disabled:cursor-not-allowed ${
-        on ? 'bg-[#00FFA7]' : 'bg-[#1e2a3a]'
+      className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4500] disabled:opacity-40 disabled:cursor-not-allowed ${
+        on ? 'bg-[#FF4500]' : 'bg-[#1e2a3a]'
       }`}
     >
       <span className={`pointer-events-none inline-block h-4 w-4 rounded-full bg-white shadow-sm transform transition-transform duration-200 translate-y-0.5 ${
@@ -146,13 +146,13 @@ function ModelCombobox({ value, onChange, options, placeholder, inputClassName }
                 onClick={() => pick(m.id)}
                 className={`w-full text-left px-3 py-2 transition-colors border-b border-[#152030] last:border-b-0 ${
                   isActive
-                    ? 'bg-[#00FFA7]/10 text-[#00FFA7]'
+                    ? 'bg-[#FF4500]/10 text-[#FF4500]'
                     : 'text-[#e2e8f0] hover:bg-[#152030]'
                 }`}
               >
                 <div className="font-mono text-xs">{m.id}</div>
                 {m.description && (
-                  <div className={`text-[10px] mt-0.5 ${isActive ? 'text-[#00FFA7]/70' : 'text-[#5a6b7f]'}`}>
+                  <div className={`text-[10px] mt-0.5 ${isActive ? 'text-[#FF4500]/70' : 'text-[#5a6b7f]'}`}>
                     {m.description}
                   </div>
                 )}
@@ -351,11 +351,11 @@ export default function Providers() {
   const configuredCount = providers.filter(p => p.has_config && p.installed).length
   const hasActive = activeProvider !== 'none' && providers.some(p => p.id === activeProvider)
 
-  const inp = "w-full px-4 py-3 rounded-lg bg-[#0f1520] border border-[#1e2a3a] text-[#e2e8f0] placeholder-[#3d4f65] text-sm transition-colors duration-200 focus:outline-none focus:border-[#00FFA7]/60 focus:ring-1 focus:ring-[#00FFA7]/20 font-mono"
+  const inp = "w-full px-4 py-3 rounded-lg bg-[#0f1520] border border-[#1e2a3a] text-[#e2e8f0] placeholder-[#3d4f65] text-sm transition-colors duration-200 focus:outline-none focus:border-[#FF4500]/60 focus:ring-1 focus:ring-[#FF4500]/20 font-mono"
   const lbl = "block text-[11px] font-semibold text-[#5a6b7f] mb-1.5 tracking-[0.08em] uppercase"
 
   return (
-    <div className="max-w-[1200px] mx-auto font-[Inter,-apple-system,sans-serif]">
+    <div className="max-w-[1200px] mx-auto font-sans">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-xl font-bold text-white tracking-tight">Providers</h1>
@@ -367,18 +367,18 @@ export default function Providers() {
         <div className="flex items-center gap-5 mb-6 px-4 py-3 rounded-lg border border-[#152030] bg-[#0b1018]">
           <div className="flex items-center gap-4 text-[11px] tracking-wide uppercase text-[#5a6b7f]">
             <span className="flex items-center gap-1.5">
-              <span className={`w-1.5 h-1.5 rounded-full ${claudeInstalled ? 'bg-[#00FFA7]' : 'bg-[#ef4444]'}`} />
+              <span className={`w-1.5 h-1.5 rounded-full ${claudeInstalled ? 'bg-[#FF4500]' : 'bg-[#ef4444]'}`} />
               claude {claudeInstalled ? '' : '(missing)'}
             </span>
             <span className="flex items-center gap-1.5">
-              <span className={`w-1.5 h-1.5 rounded-full ${openclaudeInstalled ? 'bg-[#00FFA7]' : 'bg-[#5a6b7f]'}`} />
+              <span className={`w-1.5 h-1.5 rounded-full ${openclaudeInstalled ? 'bg-[#FF4500]' : 'bg-[#5a6b7f]'}`} />
               openclaude {openclaudeInstalled ? '' : '(missing)'}
             </span>
           </div>
           <div className="ml-auto flex items-center gap-4 text-[11px] tracking-wide uppercase text-[#5a6b7f]">
             <span>{providers.length} available</span>
             <span>{configuredCount} configured</span>
-            <span className={hasActive ? 'text-[#00FFA7]' : 'text-[#ef4444]'}>
+            <span className={hasActive ? 'text-[#FF4500]' : 'text-[#ef4444]'}>
               {hasActive ? '1 active' : 'none active'}
             </span>
           </div>
@@ -400,7 +400,7 @@ export default function Providers() {
             return (
               <div key={prov.id}
                 className={`rounded-lg border bg-[#0b1018] transition-colors ${
-                  isActive ? 'border-[#00FFA7]/30' : 'border-[#152030] hover:border-[#1e2a3a]'
+                  isActive ? 'border-[#FF4500]/30' : 'border-[#152030] hover:border-[#1e2a3a]'
                 }`}
               >
                 <div className="flex items-center gap-4 px-5 py-4">
@@ -470,7 +470,7 @@ export default function Providers() {
                 {/* Test result */}
                 {testResults[prov.id] && (
                   <div className={`mx-5 mb-3 px-3 py-1.5 rounded text-[10px] ${
-                    testResults[prov.id].success ? 'bg-[#00FFA7]/5 text-[#00FFA7]' : 'bg-[#1a0a0a] text-[#f87171]'
+                    testResults[prov.id].success ? 'bg-[#FF4500]/5 text-[#FF4500]' : 'bg-[#1a0a0a] text-[#f87171]'
                   }`}>
                     {testResults[prov.id].message}
                   </div>
@@ -568,7 +568,7 @@ export default function Providers() {
                               <AlertCircle size={10} className="inline mr-1" />{currentList.error}
                             </p>
                           ) : currentList.models.length > 0 ? (
-                            <p className="text-[10px] text-[#00FFA7] mt-1">
+                            <p className="text-[10px] text-[#FF4500] mt-1">
                               <CheckCircle2 size={10} className="inline mr-1" />
                               API key válida — {currentList.models.length} modelos carregados
                             </p>
@@ -600,7 +600,7 @@ export default function Providers() {
                 )}
 
                 {testResults[prov.id] && (
-                  <div className={`rounded-lg p-3 text-xs ${testResults[prov.id].success ? 'bg-[#00FFA7]/5 text-[#00FFA7]' : 'bg-[#1a0a0a] text-[#f87171]'}`}>
+                  <div className={`rounded-lg p-3 text-xs ${testResults[prov.id].success ? 'bg-[#FF4500]/5 text-[#FF4500]' : 'bg-[#1a0a0a] text-[#f87171]'}`}>
                     {testResults[prov.id].success ? <CheckCircle2 size={12} className="inline mr-1" /> : <AlertCircle size={12} className="inline mr-1" />}
                     {testResults[prov.id].message}
                   </div>
@@ -618,7 +618,7 @@ export default function Providers() {
                     Cancel
                   </button>
                   <button onClick={handleSave} disabled={saving}
-                    className="text-[11px] px-4 py-1.5 rounded-md bg-[#00FFA7] text-[#080c14] font-semibold hover:bg-[#00e69a] transition-colors disabled:opacity-40">
+                    className="text-[11px] px-4 py-1.5 rounded-md bg-[#FF4500] text-[#080c14] font-semibold hover:bg-[#CC3700] transition-colors disabled:opacity-40">
                     {saving ? 'Saving...' : 'Save & activate'}
                   </button>
                 </div>
@@ -689,7 +689,7 @@ export default function Providers() {
               )}
 
               {authMessage && ((authMode === 'browser') || (authMode === 'device' && authMessage.type === 'error')) && (
-                <div className={`rounded-lg p-3 text-xs ${authMessage.type === 'success' ? 'bg-[#00FFA7]/5 text-[#00FFA7]' : 'bg-[#1a0a0a] text-[#f87171]'}`}>
+                <div className={`rounded-lg p-3 text-xs ${authMessage.type === 'success' ? 'bg-[#FF4500]/5 text-[#FF4500]' : 'bg-[#1a0a0a] text-[#f87171]'}`}>
                   {authMessage.text}
                   {authMessage.type === 'error' && authMode === 'device' && <p className="text-[10px] text-[#3d4f65] mt-1">Your organization may not allow Device Auth. Use Browser OAuth instead.</p>}
                 </div>

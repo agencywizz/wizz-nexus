@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EvoNexus Scheduler
+WizzOS Scheduler
 Runs core routines on schedule. Custom routines loaded from config/routines.yaml.
 Usage: runs automatically with make dashboard-app
 """
@@ -157,7 +157,7 @@ def main():
     if not acquire_lock():
         sys.exit(1)
 
-    print("EvoNexus Scheduler")
+    print("WizzOS Scheduler")
     setup_schedule()
     total = len(schedule.get_jobs())
     print(f"  {total} routines scheduled")

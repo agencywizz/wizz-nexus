@@ -1,4 +1,4 @@
-"""Flask backend for the workspace dashboard — EvoNexus."""
+"""Flask backend for the workspace dashboard — WizzOS."""
 
 import os
 import sys
@@ -571,7 +571,7 @@ def api_version_check():
 
     try:
         resp = http_requests.get(
-            "https://api.github.com/repos/EvolutionAPI/evo-nexus/releases/latest",
+            "https://api.github.com/repos/EvolutionAPI/wizz-os/releases/latest",
             timeout=10,
             headers={"Accept": "application/vnd.github.v3+json"},
         )

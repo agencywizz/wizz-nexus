@@ -9,7 +9,7 @@ Discord integration enables community monitoring, message retrieval, channel man
 ### 1. Create a Discord Bot
 
 1. Go to [discord.com/developers/applications](https://discord.com/developers/applications)
-2. Click **New Application**, give it a name (e.g., "EvoNexus Bot")
+2. Click **New Application**, give it a name (e.g., "WizzOS Bot")
 3. Go to **Bot** in the sidebar
 4. Click **Reset Token** and copy the token -- you will need this
 

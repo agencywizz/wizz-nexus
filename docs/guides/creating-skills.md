@@ -1,6 +1,6 @@
 # Creating Skills
 
-Skills are reusable instruction sets that teach Claude how to perform specific tasks. EvoNexus includes 126 built-in skills — you can create your own.
+Skills are reusable instruction sets that teach Claude how to perform specific tasks. WizzOS includes 126 built-in skills — you can create your own.
 
 ## Using the Skill Creator
 

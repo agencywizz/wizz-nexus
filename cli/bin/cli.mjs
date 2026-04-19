@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * @evoapi/evo-nexus CLI
+ * @evoapi/wizz-os CLI
  *
  * Usage:
- *   npx @evoapi/evo-nexus          — clone + setup in current dir
- *   npx @evoapi/evo-nexus my-workspace  — clone into my-workspace/
- *   npx @evoapi/evo-nexus --help
+ *   npx @evoapi/wizz-os          — clone + setup in current dir
+ *   npx @evoapi/wizz-os my-workspace  — clone into my-workspace/
+ *   npx @evoapi/wizz-os --help
  */
 
 import { execSync, spawn } from "child_process";
@@ -14,7 +14,7 @@ import { existsSync } from "fs";
 import { resolve, basename } from "path";
 import { createInterface } from "readline";
 
-const REPO = "https://github.com/EvolutionAPI/evo-nexus.git";
+const REPO = "https://github.com/EvolutionAPI/wizz-os.git";
 const GREEN = "\x1b[92m";
 const CYAN = "\x1b[96m";
 const YELLOW = "\x1b[93m";
@@ -26,7 +26,7 @@ const RESET = "\x1b[0m";
 function banner() {
   console.log(`
 ${GREEN}  ╔══════════════════════════════════════╗
-  ║   ${BOLD}EvoNexus — Installer${RESET}${GREEN}            ║
+  ║   ${BOLD}WizzOS — Installer${RESET}${GREEN}            ║
   ║   ${DIM}Unofficial toolkit for Claude Code${RESET}${GREEN}  ║
   ╚══════════════════════════════════════╝${RESET}
 `);
@@ -60,9 +60,9 @@ async function main() {
 
   if (args.includes("--help") || args.includes("-h")) {
     console.log(`
-  Usage: npx @evoapi/evo-nexus [directory]
+  Usage: npx @evoapi/wizz-os [directory]
 
-  Clones the EvoNexus repository and runs the interactive setup wizard.
+  Clones the WizzOS repository and runs the interactive setup wizard.
 
   Arguments:
     directory    Target directory (default: evonexus)
@@ -72,8 +72,8 @@ async function main() {
     --version    Show version
 
   Examples:
-    npx @evoapi/evo-nexus
-    npx @evoapi/evo-nexus my-workspace
+    npx @evoapi/wizz-os
+    npx @evoapi/wizz-os my-workspace
 `);
     process.exit(0);
   }
@@ -133,12 +133,12 @@ async function main() {
   const targetDir = filteredArgs[0] || ".";
   const targetPath = resolve(process.cwd(), targetDir);
 
-  // Detect if target is an existing EvoNexus installation (git repo with pyproject.toml)
+  // Detect if target is an existing WizzOS installation (git repo with pyproject.toml)
   const isExistingInstall = existsSync(resolve(targetPath, ".git")) && existsSync(resolve(targetPath, "pyproject.toml"));
 
   if (isExistingInstall) {
     // ── Update mode ─────────────────────────────
-    console.log(`  ${GREEN}Existing EvoNexus installation detected.${RESET}\n`);
+    console.log(`  ${GREEN}Existing WizzOS installation detected.${RESET}\n`);
 
     // Show current version
     try {
@@ -180,7 +180,7 @@ async function main() {
         process.exit(0);
       }
     }
-    console.log(`  ${BOLD}Cloning EvoNexus into current directory...${RESET}\n`);
+    console.log(`  ${BOLD}Cloning WizzOS into current directory...${RESET}\n`);
     run(`git clone --depth=1 ${REPO} .`, { cwd: targetPath });
     console.log();
   } else if (existsSync(targetPath)) {
@@ -190,7 +190,7 @@ async function main() {
       process.exit(0);
     }
   } else {
-    console.log(`  ${BOLD}Cloning EvoNexus...${RESET}\n`);
+    console.log(`  ${BOLD}Cloning WizzOS...${RESET}\n`);
     run(`git clone --depth=1 ${REPO} "${targetPath}"`);
     console.log();
   }
@@ -231,15 +231,15 @@ async function main() {
     }
 
     // Restart services — prefer systemd if available, fallback to start-services.sh
-    const hasSystemd = check("systemctl is-active --quiet evo-nexus 2>/dev/null") ||
-                       check("systemctl is-enabled --quiet evo-nexus 2>/dev/null");
+    const hasSystemd = check("systemctl is-active --quiet wizz-os 2>/dev/null") ||
+                       check("systemctl is-enabled --quiet wizz-os 2>/dev/null");
     const startScript = resolve(targetPath, "start-services.sh");
 
     if (hasSystemd) {
       console.log(`\n  ${DIM}Restarting via systemd...${RESET}`);
       // If install dir differs from service dir, sync files
       try {
-        const serviceDir = execSync("systemctl show evo-nexus -p WorkingDirectory --value 2>/dev/null", { encoding: "utf-8" }).trim();
+        const serviceDir = execSync("systemctl show wizz-os -p WorkingDirectory --value 2>/dev/null", { encoding: "utf-8" }).trim();
         if (serviceDir && resolve(serviceDir) !== resolve(targetPath)) {
           console.log(`  ${DIM}Syncing to service directory ${serviceDir}...${RESET}`);
           run(`rsync -a --delete --exclude='.venv' --exclude='node_modules' --exclude='logs' --exclude='dashboard/data' "${targetPath}/" "${serviceDir}/"`, { cwd: targetPath });
@@ -249,13 +249,13 @@ async function main() {
             run("npm install --silent && npm run build --silent", { cwd: svcFrontend });
           }
           // Fix ownership
-          const serviceUser = execSync("systemctl show evo-nexus -p User --value 2>/dev/null", { encoding: "utf-8" }).trim();
+          const serviceUser = execSync("systemctl show wizz-os -p User --value 2>/dev/null", { encoding: "utf-8" }).trim();
           if (serviceUser) {
             run(`chown -R ${serviceUser}:${serviceUser} "${serviceDir}"`);
           }
         }
       } catch {}
-      run("systemctl restart evo-nexus");
+      run("systemctl restart wizz-os");
     } else if (existsSync(startScript)) {
       console.log(`\n  ${DIM}Restarting services...${RESET}`);
       run(`bash ${startScript}`, { cwd: targetPath });
@@ -268,11 +268,11 @@ async function main() {
         execSync("curl -sf http://localhost:8080/api/version", { timeout: 5000 });
         console.log(`  ${GREEN}✓${RESET} Dashboard restarted`);
       } catch {
-        console.log(`  ${YELLOW}!${RESET} Dashboard may not have started — check: journalctl -u evo-nexus -n 20`);
+        console.log(`  ${YELLOW}!${RESET} Dashboard may not have started — check: journalctl -u wizz-os -n 20`);
       }
     }
 
-    console.log(`\n  ${GREEN}${BOLD}EvoNexus updated successfully!${RESET}\n`);
+    console.log(`\n  ${GREEN}${BOLD}WizzOS updated successfully!${RESET}\n`);
     process.exit(0);
   }
 
@@ -305,20 +305,20 @@ async function main() {
       }
 
       console.log(`
-  ${GREEN}${BOLD}EvoNexus installed successfully!${RESET}
+  ${GREEN}${BOLD}WizzOS installed successfully!${RESET}
 `);
 
       if (isRemote) {
         // Remote mode: services already running via systemd
-        const hasSvc = check("systemctl is-enabled --quiet evo-nexus 2>/dev/null");
+        const hasSvc = check("systemctl is-enabled --quiet wizz-os 2>/dev/null");
         if (hasSvc) {
           console.log(`  ${BOLD}The dashboard is running via systemd.${RESET}
   Open the URL shown above to create your admin account.
 
   ${BOLD}Useful commands:${RESET}
-  ${CYAN}•${RESET} ${BOLD}systemctl restart evo-nexus${RESET}  — restart services
-  ${CYAN}•${RESET} ${BOLD}systemctl status evo-nexus${RESET}   — check status
-  ${CYAN}•${RESET} ${BOLD}journalctl -u evo-nexus -f${RESET}   — follow logs
+  ${CYAN}•${RESET} ${BOLD}systemctl restart wizz-os${RESET}  — restart services
+  ${CYAN}•${RESET} ${BOLD}systemctl status wizz-os${RESET}   — check status
+  ${CYAN}•${RESET} ${BOLD}journalctl -u wizz-os -f${RESET}   — follow logs
   ${CYAN}•${RESET} ${BOLD}su - evonexus${RESET}                — switch to service user
 `);
         } else {
@@ -340,8 +340,8 @@ async function main() {
 `);
       }
 
-      console.log(`  ${DIM}Documentation: https://evonexus.evolutionfoundation.com.br/docs${RESET}`);
-      console.log(`  ${DIM}GitHub: https://github.com/EvolutionAPI/evo-nexus${RESET}\n`);
+      console.log(`  ${DIM}Documentation: https://evonexus.wizzcomms.com/docs${RESET}`);
+      console.log(`  ${DIM}GitHub: https://github.com/EvolutionAPI/wizz-os${RESET}\n`);
     } else {
       console.log(`\n  ${RED}Setup failed (exit code ${code}).${RESET}`);
       console.log(`  ${DIM}Try running manually: cd ${targetDir} && make setup${RESET}\n`);

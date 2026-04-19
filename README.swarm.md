@@ -1,4 +1,4 @@
-# EvoNexus on Docker Swarm — Deploy Guide
+# WizzOS on Docker Swarm — Deploy Guide
 
 This repo supports three independent deployment paths. Each one uses a
 different set of files, and none of them interferes with the others:
@@ -18,9 +18,9 @@ Three Swarm services in one stack:
 
 | Service | Image | Purpose |
 |---|---|---|
-| `evonexus_dashboard` | `evo-nexus-dashboard` | Flask + React + embedded terminal-server, exposed through Traefik |
-| `evonexus_telegram` | `evo-nexus-runtime` | Long-running `claude --channels plugin:telegram…` daemon |
-| `evonexus_scheduler` | `evo-nexus-runtime` | Background scheduler for ADW routines (`scheduler.py`) |
+| `evonexus_dashboard` | `wizz-os-dashboard` | Flask + React + embedded terminal-server, exposed through Traefik |
+| `evonexus_telegram` | `wizz-os-runtime` | Long-running `claude --channels plugin:telegram…` daemon |
+| `evonexus_scheduler` | `wizz-os-runtime` | Background scheduler for ADW routines (`scheduler.py`) |
 
 Seven named volumes (auto-created by Portainer on first deploy):
 
@@ -76,7 +76,7 @@ long-running service. External REST APIs do not.
   your resolver has a different name).
 - A DNS A record pointing `evonexus.<yourdomain>` to the Swarm ingress.
 - Docker images published to a registry (the included GitHub Actions
-  workflow publishes to `ghcr.io/<owner>/evo-nexus-{dashboard,runtime}`).
+  workflow publishes to `ghcr.io/<owner>/wizz-os-{dashboard,runtime}`).
 - Either make the ghcr.io packages public, or run `docker login ghcr.io`
   on every Swarm manager before deploying.
 

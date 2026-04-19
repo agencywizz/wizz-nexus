@@ -202,7 +202,7 @@ function highlightMatch(name: string, term: string) {
   return (
     <>
       {name.slice(0, idx)}
-      <mark style={{ background: 'rgba(0,255,167,0.25)', color: 'var(--evo-green)', borderRadius: '2px' }}>
+      <mark style={{ background: 'rgba(255,69,0,0.25)', color: 'var(--evo-green)', borderRadius: '2px' }}>
         {name.slice(idx, idx + term.length)}
       </mark>
       {name.slice(idx + term.length)}

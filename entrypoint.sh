@@ -2,7 +2,7 @@
 # ============================================================================
 # entrypoint.sh — Bootstrap + source .env + wait-for-config wrapper
 #
-# Respects the UI-first config model EvoNexus ships upstream:
+# Respects the UI-first config model WizzOS ships upstream:
 #   * /workspace/config is a writable volume. The dashboard's Providers,
 #     Integrations, Settings and env-editor pages write there.
 #   * This entrypoint sources /workspace/config/.env on startup so the

@@ -1,6 +1,6 @@
 # Integrations Overview
 
-EvoNexus connects to external services through three mechanisms: **MCP servers**, **API clients**, and **OAuth flows**. Each integration provides data to one or more agents and routines.
+WizzOS connects to external services through three mechanisms: **MCP servers**, **API clients**, and **OAuth flows**. Each integration provides data to one or more agents and routines.
 
 ![Integrations overview](../imgs/doc-integrations.webp)
 

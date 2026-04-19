@@ -1,6 +1,6 @@
 # Agents (17 business + 21 engineering core + custom)
 
-Defined in `.claude/agents/`. Each agent has an isolated domain and can be invoked via command. EvoNexus organizes agents in **two ortogonal layers**:
+Defined in `.claude/agents/`. Each agent has an isolated domain and can be invoked via command. WizzOS organizes agents in **two ortogonal layers**:
 
 - **Business Layer** — 17 agents for operations, finance, community, marketing, HR, legal, product, data, sales, learning retention.
 - **Engineering Layer** — 21 agents for software development, most derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT). See [NOTICE.md](../../NOTICE.md). The canonical 6-phase workflow is documented in `.claude/rules/dev-phases.md`.

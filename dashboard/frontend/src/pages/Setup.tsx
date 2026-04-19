@@ -152,15 +152,15 @@ export default function Setup() {
 
   if (hasConfig === null) return (
     <div className="min-h-screen bg-[#080c14] flex items-center justify-center">
-      <div className="w-5 h-5 border-2 border-[#00FFA7]/20 border-t-[#00FFA7] rounded-full animate-spin" />
+      <div className="w-5 h-5 border-2 border-[#FF4500]/20 border-t-[#FF4500] rounded-full animate-spin" />
     </div>
   )
 
-  const inp = "w-full px-4 py-3 rounded-lg bg-[#0f1520] border border-[#1e2a3a] text-[#e2e8f0] placeholder-[#3d4f65] text-sm transition-colors duration-200 focus:outline-none focus:border-[#00FFA7]/60 focus:ring-1 focus:ring-[#00FFA7]/20"
+  const inp = "w-full px-4 py-3 rounded-lg bg-[#0f1520] border border-[#1e2a3a] text-[#e2e8f0] placeholder-[#3d4f65] text-sm transition-colors duration-200 focus:outline-none focus:border-[#FF4500]/60 focus:ring-1 focus:ring-[#FF4500]/20"
   const lbl = "block text-[11px] font-semibold text-[#5a6b7f] mb-1.5 tracking-[0.08em] uppercase"
 
   return (
-    <div className="min-h-screen bg-[#080c14] flex items-center justify-center px-4 py-8 font-[Inter,-apple-system,sans-serif] relative">
+    <div className="min-h-screen bg-[#080c14] flex items-center justify-center px-4 py-8 font-sans relative">
       <NetworkCanvas />
 
       <div className="w-full max-w-[420px] relative z-10">
@@ -170,7 +170,7 @@ export default function Setup() {
           {/* Header */}
           <div className="px-7 pt-7 pb-5 border-b border-[#152030]">
             <div className="flex flex-col items-center gap-3 mb-4">
-              <img src="/EVO_NEXUS.png" alt="EvoNexus" className="h-8 w-auto" />
+              <img src="/logo.png" alt="WizzOS" className="h-8 w-auto" />
               <p className="text-[11px] text-[#4a5a6e]">AI Workspace Platform</p>
             </div>
 
@@ -182,7 +182,7 @@ export default function Setup() {
                   onClick={() => currentStep > 1 && setCurrentStep(1)}
                   className={`flex-1 py-1.5 text-[11px] font-medium rounded-md transition-colors ${
                     currentStep === 1
-                      ? 'bg-[#00FFA7]/10 text-[#00FFA7]'
+                      ? 'bg-[#FF4500]/10 text-[#FF4500]'
                       : 'text-[#4a5a6e] hover:text-[#7a8a9e]'
                   }`}
                 >
@@ -192,7 +192,7 @@ export default function Setup() {
                   type="button"
                   className={`flex-1 py-1.5 text-[11px] font-medium rounded-md transition-colors ${
                     currentStep === 2
-                      ? 'bg-[#00FFA7]/10 text-[#00FFA7]'
+                      ? 'bg-[#FF4500]/10 text-[#FF4500]'
                       : 'text-[#4a5a6e]'
                   }`}
                   disabled
@@ -242,7 +242,7 @@ export default function Setup() {
                 </div>
 
                 <button type="submit"
-                  className="w-full py-3 mt-2 rounded-lg bg-[#00FFA7] text-[#080c14] text-sm font-semibold hover:bg-[#00e69a] active:bg-[#00cc88] transition-colors">
+                  className="w-full py-3 mt-2 rounded-lg bg-[#FF4500] text-[#080c14] text-sm font-semibold hover:bg-[#CC3700] active:bg-[#CC3700] transition-colors">
                   Continue
                 </button>
               </form>
@@ -292,8 +292,8 @@ export default function Setup() {
                   <button type="submit" disabled={submitting}
                     className={`flex-1 py-3 rounded-lg text-sm font-semibold transition-colors disabled:opacity-40 ${
                       submitting
-                        ? 'bg-[#00FFA7]/60 text-[#080c14]'
-                        : 'bg-[#00FFA7] text-[#080c14] hover:bg-[#00e69a] active:bg-[#00cc88]'
+                        ? 'bg-[#FF4500]/60 text-[#080c14]'
+                        : 'bg-[#FF4500] text-[#080c14] hover:bg-[#CC3700] active:bg-[#CC3700]'
                     }`}>
                     {submitting ? 'Creating...' : 'Create account'}
                   </button>
@@ -309,15 +309,15 @@ export default function Setup() {
               <span>137 Skills</span>
               <span>Multi-AI</span>
             </div>
-            <div className="w-1.5 h-1.5 rounded-full bg-[#00FFA7]/40" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#FF4500]/40" />
           </div>
         </div>
 
         {/* Attribution */}
         <p className="text-center mt-4 text-[10px] text-[#2d3d4f]">
-          <a href="https://evolutionfoundation.com.br" target="_blank" rel="noopener noreferrer"
+          <a href="https://wizzcomms.com" target="_blank" rel="noopener noreferrer"
             className="hover:text-[#4a5a6e] transition-colors">
-            Evolution Foundation
+            Wizz! comms.
           </a>
         </p>
       </div>

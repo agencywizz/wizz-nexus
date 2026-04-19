@@ -1,6 +1,6 @@
 # Users and Roles
 
-EvoNexus uses a role-based access control (RBAC) system. Every user has exactly one role, and each role defines what resources the user can access and what actions they can perform.
+WizzOS uses a role-based access control (RBAC) system. Every user has exactly one role, and each role defines what resources the user can access and what actions they can perform.
 
 ## Default Roles
 

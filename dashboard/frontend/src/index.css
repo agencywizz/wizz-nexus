@@ -1,20 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --evo-green: #00FFA7;
-  --bg-primary: #0C111D;
-  --bg-card: #182230;
-  --bg-sidebar: #0a0f1a;
-  --border: #344054;
-  --text-primary: #F9FAFB;
-  --text-secondary: #D0D5DD;
-  --text-muted: #667085;
+  --bg: #0D0D0D;
+  --surface: #1A1A1A;
+  --accent: #FF4500;
+  --hover: #CC3700;
+  --text: #F0F0F0;
+  --muted: #666666;
+  --evo-green: var(--accent);
+  --bg-primary: var(--bg);
+  --bg-card: var(--surface);
+  --bg-sidebar: #121212;
+  --border: #2A2A2A;
+  --text-primary: var(--text);
+  --text-secondary: #C9C9C9;
+  --text-muted: var(--muted);
   /* Workspace File Manager tokens */
   --danger: #EF4444;
   --warning: #F59E0B;
   --surface-hover: #1e2d3d;
   --surface-active: #1a2744;
-  --border-accent: #00FFA7;
+  --border-accent: var(--accent);
 }
 
 * {
@@ -23,7 +29,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
@@ -58,7 +64,7 @@ body {
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  color: #00FFA7;
+  color: var(--accent);
 }
 .markdown-content pre {
   background: #1e293b;
@@ -91,17 +97,17 @@ body {
   color: var(--text-secondary);
 }
 .markdown-content a {
-  color: #00FFA7;
+  color: var(--accent);
   text-decoration: none;
 }
 .markdown-content a:hover {
   text-decoration: underline;
 }
 .markdown-content blockquote {
-  border-left: 3px solid #00FFA7;
+  border-left: 3px solid var(--accent);
   margin: 0.75rem 0;
   padding: 0.5rem 1rem;
-  background: rgba(0, 255, 167, 0.05);
+  background: rgba(255, 69, 0, 0.08);
   color: var(--text-secondary);
 }
 .markdown-content hr {

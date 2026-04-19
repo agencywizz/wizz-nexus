@@ -1,6 +1,6 @@
 """Providers endpoint — manage AI provider configurations (Anthropic, OpenRouter, OpenAI, Gemini, etc.).
 
-EvoNexus supports multiple AI providers via OpenClaude. The active provider
+WizzOS supports multiple AI providers via OpenClaude. The active provider
 determines which CLI binary (claude vs openclaude) and which env vars are
 injected when spawning sessions.
 """

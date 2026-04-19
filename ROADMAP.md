@@ -1,8 +1,8 @@
-# EvoNexus Roadmap
+# WizzOS Roadmap
 
 > Unofficial toolkit for Claude Code — AI-powered business operating system.
 >
-> This roadmap is updated regularly. Want to vote or suggest? [Open a discussion](https://github.com/EvolutionAPI/evo-nexus/discussions) or [create an issue](https://github.com/EvolutionAPI/evo-nexus/issues).
+> This roadmap is updated regularly. Want to vote or suggest? [Open a discussion](https://github.com/EvolutionAPI/wizz-os/discussions) or [create an issue](https://github.com/EvolutionAPI/wizz-os/issues).
 
 ---
 
@@ -29,7 +29,7 @@
 
 ### Developer Experience
 
-- [x] 🔥 **CLI installer** — `npx @evoapi/evo-nexus` — clones repo, installs deps, runs interactive setup wizard.
+- [x] 🔥 **CLI installer** — `npx @evoapi/wizz-os` — clones repo, installs deps, runs interactive setup wizard.
 - [x] **Full Docker install** — `docker compose up dashboard` with multi-stage Dockerfile + GitHub Actions CI pushing to GHCR.
 - [x] **Update checker** — dashboard checks GitHub releases and shows upgrade notification.
 - [x] **settings.json** — project-level permissions (allow/deny), hooks configuration, thinking mode enabled.
@@ -51,7 +51,7 @@
 
 ## v0.5 — Extensibility & Ecosystem
 
-> Make EvoNexus composable and self-extending.
+> Make WizzOS composable and self-extending.
 
 ### Agent System
 
@@ -94,7 +94,7 @@
 - [x] **`workspace/development/` folder** — 7 subfolders (architecture, plans, specs, reviews, debug, verifications, research) for engineering layer artifacts. Distinct from `workspace/projects/` (active git repos).
 - [x] **Two-layer architecture documented** — `.claude/rules/agents.md`, `CLAUDE.md`, `docs/agents/overview.md`, `docs/agents/engineering-layer.md`, `docs/architecture.md`, `docs/introduction.md`, site `Home.tsx`.
 - [x] **Open source attribution** — `NOTICE.md` at repo root with full MIT license, version pinned (v4.11.4), modifications listed. Credits in `README.md`.
-- [x] **Pattern compliance** — all 19 engineering agents follow the EvoNexus standard: rich frontmatter (Examples + commentary), Workspace Context, Shared Knowledge Base, Working Folder, Identity, Anti-patterns, Domain, How You Work, Skills You Can Use, Handoffs, Output Format, Continuity. Verified by `@lens-reviewer` (3 fixes applied: oath-verifier disallowedTools, raven-critic and trail-tracer Skills section).
+- [x] **Pattern compliance** — all 19 engineering agents follow the WizzOS standard: rich frontmatter (Examples + commentary), Workspace Context, Shared Knowledge Base, Working Folder, Identity, Anti-patterns, Domain, How You Work, Skills You Can Use, Handoffs, Output Format, Continuity. Verified by `@lens-reviewer` (3 fixes applied: oath-verifier disallowedTools, raven-critic and trail-tracer Skills section).
 
 ### Cross-layer pipelines (now possible)
 
@@ -111,7 +111,7 @@
 
 ### Community & Docs
 
-- [x] 🔥 **Public roadmap** — this file. Community input welcome via [discussions](https://github.com/EvolutionAPI/evo-nexus/discussions).
+- [x] 🔥 **Public roadmap** — this file. Community input welcome via [discussions](https://github.com/EvolutionAPI/wizz-os/discussions).
 - [x] **Telegram & Discord channels** — activate community channels, document in README and docs site.
 - [ ] **In-app tutorials** — contextual tutorials surfaced inside the dashboard, not just external docs.
 - [x] **Resume Claude sessions in chat** — list active/resumable Claude sessions in dashboard chat with `--resume` support.
@@ -126,10 +126,10 @@
 
 Want to help? Pick any `[ ]` item and:
 
-1. Check [open issues](https://github.com/EvolutionAPI/evo-nexus/issues)
+1. Check [open issues](https://github.com/EvolutionAPI/wizz-os/issues)
 2. Read [CONTRIBUTING.md](CONTRIBUTING.md)
-3. For `💡` items, open a [discussion](https://github.com/EvolutionAPI/evo-nexus/discussions) first — design is still open
+3. For `💡` items, open a [discussion](https://github.com/EvolutionAPI/wizz-os/discussions) first — design is still open
 
 ---
 
-*Last updated: 2026-04-10 — [Evolution Foundation](https://evolutionfoundation.com.br)*
+*Last updated: 2026-04-10 — [Wizz! comms.](https://wizzcomms.com)*

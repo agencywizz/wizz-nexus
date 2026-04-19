@@ -32,7 +32,7 @@
   },
   "features": {
     "sectionTitle": "Everything included. Zero lock-in.",
-    "sectionSubtitle": "EvoNexus comes with a complete suite of tools out of the box.",
+    "sectionSubtitle": "WizzOS comes with a complete suite of tools out of the box.",
     "agents": {
       "title": "38 Specialized Agents",
       "desc": "17 business agents (ops, finance, marketing, sales, legal and more) + 21 engineering agents (architecture, code, review, tests, security and more). Each with their own memory and scope."
@@ -76,7 +76,7 @@
   },
   "why": {
     "sectionTitle": "What changes when you have a structured AI team",
-    "sectionSubtitle": "Claude Code is powerful. Without structure, you reconfigure the same agent every week. With EvoNexus, it remembers who you are.",
+    "sectionSubtitle": "Claude Code is powerful. Without structure, you reconfigure the same agent every week. With WizzOS, it remembers who you are.",
     "markdownFirst": {
       "title": "Markdown-First Agents",
       "desc": "Agents are plain .md files with system prompts. No SDK, no plugin runtime, no compile step. Drop a file in .claude/agents/ and it's live."
@@ -174,11 +174,11 @@
     "label": "Connects with everything you use"
   },
   "banner": {
-    "text": "An Evolution Foundation open source project.",
+    "text": "An Wizz! comms. open source project.",
     "cta": "Learn more"
   },
   "footer": {
-    "tagline": "An Evolution Foundation project.",
+    "tagline": "An Wizz! comms. project.",
     "links": "Links",
     "documentation": "Documentation",
     "contributing": "Contributing",

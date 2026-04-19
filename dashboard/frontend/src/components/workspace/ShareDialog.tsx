@@ -106,9 +106,9 @@ export default function ShareDialog({ path, onClose }: ShareDialogProps) {
                     onClick={() => setExpiresIn(opt.value)}
                     className="px-3 py-1.5 text-xs rounded-lg transition-colors"
                     style={{
-                      background: expiresIn === opt.value ? 'rgba(0,255,167,0.15)' : 'var(--bg-primary)',
+                      background: expiresIn === opt.value ? 'rgba(255,69,0,0.15)' : 'var(--bg-primary)',
                       color: expiresIn === opt.value ? 'var(--evo-green)' : 'var(--text-secondary)',
-                      border: `1px solid ${expiresIn === opt.value ? 'rgba(0,255,167,0.4)' : 'var(--border)'}`,
+                      border: `1px solid ${expiresIn === opt.value ? 'rgba(255,69,0,0.4)' : 'var(--border)'}`,
                     }}
                   >
                     {opt.label}
@@ -145,9 +145,9 @@ export default function ShareDialog({ path, onClose }: ShareDialogProps) {
                   onClick={handleCopy}
                   className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors flex-shrink-0"
                   style={{
-                    background: copied ? 'rgba(0,255,167,0.15)' : 'var(--bg-primary)',
+                    background: copied ? 'rgba(255,69,0,0.15)' : 'var(--bg-primary)',
                     color: copied ? 'var(--evo-green)' : 'var(--text-secondary)',
-                    border: `1px solid ${copied ? 'rgba(0,255,167,0.4)' : 'var(--border)'}`,
+                    border: `1px solid ${copied ? 'rgba(255,69,0,0.4)' : 'var(--border)'}`,
                   }}
                 >
                   {copied ? <Check size={13} /> : <Copy size={13} />}
@@ -178,7 +178,7 @@ export default function ShareDialog({ path, onClose }: ShareDialogProps) {
               disabled={loading}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors"
               style={{
-                background: loading ? 'rgba(0,255,167,0.5)' : 'var(--evo-green)',
+                background: loading ? 'rgba(255,69,0,0.5)' : 'var(--evo-green)',
                 color: '#0C111D',
                 opacity: loading ? 0.7 : 1,
                 cursor: loading ? 'not-allowed' : 'pointer',

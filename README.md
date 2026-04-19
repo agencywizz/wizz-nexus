@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://evolutionfoundation.com.br">
-    <img src="public/cover.webp" alt="Evolution Foundation" height="60"/>
+  <a href="https://wizzcomms.com">
+    <img src="public/cover.webp" alt="Wizz! comms." height="60"/>
   </a>
 </p>
 
 <p align="center">
-  <img src="public/cover.svg" alt="EvoNexus" width="100%"/>
+  <img src="public/cover.svg" alt="WizzOS" width="100%"/>
 </p>
 
 <p align="center">
@@ -19,19 +19,19 @@
 
 ---
 
-> **Disclaimer:** EvoNexus is an independent, **unofficial open-source project**. It is **not affiliated with, endorsed by, or sponsored by Anthropic**. "Claude" and "Claude Code" are trademarks of Anthropic, PBC. This project integrates with Claude Code as a third-party tool and requires users to provide their own installation and credentials.
+> **Disclaimer:** WizzOS is an independent, **unofficial open-source project**. It is **not affiliated with, endorsed by, or sponsored by Anthropic**. "Claude" and "Claude Code" are trademarks of Anthropic, PBC. This project integrates with Claude Code as a third-party tool and requires users to provide their own installation and credentials.
 
 ---
 
 ## What It Is
 
-EvoNexus is an open source, **unofficial** multi-agent operating layer built around the [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI protocol — but **not locked to any single LLM provider**. It runs natively on Anthropic's `claude` CLI by default, and can transparently switch to OpenAI, Google Gemini, OpenRouter (200+ models), AWS Bedrock, Google Vertex AI, or Codex Auth via [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude). Same agents, same skills, same workflows — your choice of backend.
+WizzOS is an open source, **unofficial** multi-agent operating layer built around the [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI protocol — but **not locked to any single LLM provider**. It runs natively on Anthropic's `claude` CLI by default, and can transparently switch to OpenAI, Google Gemini, OpenRouter (200+ models), AWS Bedrock, Google Vertex AI, or Codex Auth via [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude). Same agents, same skills, same workflows — your choice of backend.
 
 It turns a single CLI installation into a team of **38 specialized agents** organized in two ortogonal layers — **17 business agents** (operations, finance, community, marketing, HR, legal, product, data, learning retention) and **21 engineering agents** (architecture, planning, code review, testing, debugging, security, design, cycle orchestration, retrospective — 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode), MIT, by Yeachan Heo + 2 native: Helm and Mirror). The engineering layer follows a canonical 6-phase workflow documented in `.claude/rules/dev-phases.md`. Each agent has its own domain, skills, persistent memory, and automated routines. The result is a production system that runs daily operations for a founder/CEO **and** supports software development workflows: from morning briefings to financial reports, community monitoring, social analytics, end-of-day consolidation, plus architectural reviews, code audits, and verified implementation pipelines.
 
 **This is not a chatbot.** It is a real operating layer that runs routines, generates HTML reports, syncs meetings, triages emails, monitors community health, tracks financial metrics, and consolidates everything into a unified dashboard — all automated.
 
-### Why EvoNexus?
+### Why WizzOS?
 
 - **Markdown-first agents** — agents are `.md` files with system prompts, not code. No SDK, no plugin runtime, no compile step. Add an agent by dropping a file in `.claude/agents/`
 - **Skills as instructions** — reusable capabilities are markdown too. 175+ skills covering finance, community, social, engineering, data, legal, HR, ops, product, CS
@@ -124,7 +124,7 @@ The setup wizard (`make setup`) checks for all prerequisites before proceeding.
 
 ## AI Providers
 
-EvoNexus runs on **Anthropic's Claude** by default — no extra config needed. For everything else (OpenAI, Gemini, Bedrock, OpenRouter, Vertex AI, Codex Auth), it switches to [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude), a drop-in binary that speaks the Claude CLI protocol but dispatches to the provider of your choice via environment variables.
+WizzOS runs on **Anthropic's Claude** by default — no extra config needed. For everything else (OpenAI, Gemini, Bedrock, OpenRouter, Vertex AI, Codex Auth), it switches to [OpenClaude](https://www.npmjs.com/package/@gitlawb/openclaude), a drop-in binary that speaks the Claude CLI protocol but dispatches to the provider of your choice via environment variables.
 
 | Provider | Binary | Key env vars |
 |---|---|---|
@@ -148,12 +148,12 @@ The setup wizard asks which provider you want during `make setup`, and you can s
 
 ## Quick Start
 
-> **Starting out?** After installing, open Claude Code and call **`/oracle`**. It's the official entry point of EvoNexus: runs the initial setup, interviews you about your business, shows what the toolkit can automate for you, and delivers a **phased activation plan** — an index file at the top + one folder per phase + one file per item, each with suggested agent team, dependencies, and pending decisions. The plan is materialized by the `prod-activation-plan` skill (workspace canonical pattern) so you never have to guess the next step.
+> **Starting out?** After installing, open Claude Code and call **`/oracle`**. It's the official entry point of WizzOS: runs the initial setup, interviews you about your business, shows what the toolkit can automate for you, and delivers a **phased activation plan** — an index file at the top + one folder per phase + one file per item, each with suggested agent team, dependencies, and pending decisions. The plan is materialized by the `prod-activation-plan` skill (workspace canonical pattern) so you never have to guess the next step.
 
 ### Method 1 — One command (recommended)
 
 ```bash
-npx @evoapi/evo-nexus
+npx @evoapi/wizz-os
 ```
 
 This downloads and runs the interactive setup wizard automatically.
@@ -161,8 +161,8 @@ This downloads and runs the interactive setup wizard automatically.
 ### Method 2 — Manual clone
 
 ```bash
-git clone --depth 1 https://github.com/EvolutionAPI/evo-nexus.git
-cd evo-nexus
+git clone --depth 1 https://github.com/EvolutionAPI/wizz-os.git
+cd wizz-os
 
 # Interactive setup wizard — checks prerequisites, creates config files
 make setup
@@ -337,7 +337,7 @@ Each agent has:
 ## Workspace Structure
 
 ```
-evo-nexus/
+wizz-os/
 ├── .claude/
 │   ├── agents/          — 16 agent system prompts
 │   ├── commands/        — 16 slash commands
@@ -410,9 +410,9 @@ make help            # List all available commands
 
 ## Credits & Acknowledgments
 
-EvoNexus stands on the shoulders of great open source projects:
+WizzOS stands on the shoulders of great open source projects:
 
-- **[oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode)** by **Yeachan Heo** (MIT) — 19 of the 21 engineering agents (including `apex-architect`, `bolt-executor`, `lens-reviewer`) and all `dev-*` skills are derived from OMC v4.11.4. The 2 native agents (`helm-conductor`, `mirror-retro`) and the 6-phase workflow (`.claude/rules/dev-phases.md`) are EvoNexus-native additions. See [NOTICE.md](NOTICE.md) for the full list of derived components and modifications.
+- **[oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode)** by **Yeachan Heo** (MIT) — 19 of the 21 engineering agents (including `apex-architect`, `bolt-executor`, `lens-reviewer`) and all `dev-*` skills are derived from OMC v4.11.4. The 2 native agents (`helm-conductor`, `mirror-retro`) and the 6-phase workflow (`.claude/rules/dev-phases.md`) are WizzOS-native additions. See [NOTICE.md](NOTICE.md) for the full list of derived components and modifications.
 
 ---
 
@@ -426,5 +426,5 @@ Third-party attributions are documented in [NOTICE.md](NOTICE.md).
 <p align="center">
   An unofficial community toolkit for <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a>
   <br/>
-  <sub>Built by <a href="https://evolutionfoundation.com.br">Evolution Foundation</a> — not affiliated with Anthropic</sub>
+  <sub>Built by <a href="https://wizzcomms.com">Wizz! comms.</a> — not affiliated with Anthropic</sub>
 </p>

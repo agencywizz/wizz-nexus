@@ -1,4 +1,4 @@
-"""EvoNexus Licensing — register-only, no heartbeat or monitoring.
+"""WizzOS Licensing — register-only, no heartbeat or monitoring.
 
 Privacy-first: only records who installed. No continuous monitoring.
 
@@ -19,9 +19,9 @@ import requests
 
 logger = logging.getLogger("licensing")
 
-LICENSING_SERVER = "https://license.evolutionfoundation.com.br"
-PRODUCT = "evo-nexus"
-TIER = "evo-nexus"
+LICENSING_SERVER = "https://license.wizzcomms.com"
+PRODUCT = "wizz-os"
+TIER = "wizz-os"
 TIMEOUT = 10
 
 
@@ -95,7 +95,7 @@ def _post(path: str, payload: dict, api_key: str | None = None) -> dict:
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "User-Agent": f"EvoNexus/{VERSION}",
+        "User-Agent": f"WizzOS/{VERSION}",
     }
 
     if api_key:
@@ -115,7 +115,7 @@ def _post(path: str, payload: dict, api_key: str | None = None) -> dict:
 def _get(path: str, headers: dict | None = None) -> dict:
     """GET from licensing server."""
     url = f"{LICENSING_SERVER}{path}"
-    h = {"Accept": "application/json", "User-Agent": f"EvoNexus/{VERSION}"}
+    h = {"Accept": "application/json", "User-Agent": f"WizzOS/{VERSION}"}
     if headers:
         h.update(headers)
     resp = requests.get(url, headers=h, timeout=TIMEOUT)

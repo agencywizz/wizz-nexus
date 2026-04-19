@@ -150,7 +150,7 @@ export default function Sidebar() {
           item.desktopOnly ? 'hidden lg:flex' : 'flex'
         } ${
           isActive
-            ? 'text-[#00FFA7] bg-[#00FFA7]/10 border-l-2 border-[#00FFA7]'
+            ? 'text-[#FF4500] bg-[#FF4500]/10 border-l-2 border-[#FF4500]'
             : 'text-[#667085] hover:text-[#D0D5DD] hover:bg-white/5 border-l-2 border-transparent'
         }`
       }
@@ -219,7 +219,7 @@ export default function Sidebar() {
   const sidebarContent = (
     <>
       <div className="px-5 py-6 flex items-center justify-between">
-        <img src="/EVO_NEXUS.png" alt="EvoNexus" className="h-8 w-auto" />
+        <img src="/logo.png" alt="WizzOS" className="h-8 w-auto" />
         <div className="flex items-center gap-1">
           <NotificationBell />
           <button onClick={() => setMobileOpen(false)} className="lg:hidden p-1 rounded hover:bg-white/10 text-[#667085]">
@@ -239,7 +239,7 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 isActive
-                  ? 'text-[#00FFA7] bg-[#00FFA7]/10 border-l-2 border-[#00FFA7]'
+                  ? 'text-[#FF4500] bg-[#FF4500]/10 border-l-2 border-[#FF4500]'
                   : 'text-[#667085] hover:text-[#D0D5DD] hover:bg-white/5 border-l-2 border-transparent'
               }`
             }
@@ -253,7 +253,7 @@ export default function Sidebar() {
       {user && (
         <div className="px-4 py-4 border-t border-[#344054]">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#00FFA7]/20 text-[#00FFA7] flex items-center justify-center text-sm font-bold shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#FF4500]/20 text-[#FF4500] flex items-center justify-center text-sm font-bold shrink-0">
               {(user.display_name || user.username).charAt(0).toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
@@ -283,7 +283,7 @@ export default function Sidebar() {
                 href={versionInfo.release_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[#00FFA7] hover:text-[#00FFA7]/80 transition-colors"
+                className="flex items-center gap-1 text-[#FF4500] hover:text-[#FF4500]/80 transition-colors"
                 title={`Update available: v${versionInfo.latest}`}
               >
                 <ArrowUpCircle size={12} />
@@ -297,12 +297,12 @@ export default function Sidebar() {
       {/* Credits */}
       <div className="px-4 py-3 border-t border-[#344054]/50">
         <a
-          href="https://evolutionfoundation.com.br"
+          href="https://wizzcomms.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 text-[10px] text-[#667085] hover:text-[#00FFA7] transition-colors"
+          className="flex items-center justify-center gap-1.5 text-[10px] text-[#667085] hover:text-[#FF4500] transition-colors"
         >
-          by <span className="font-semibold text-[#00FFA7]/60">Evolution Foundation</span>
+          by <span className="font-semibold text-[#FF4500]/60">Wizz! comms.</span>
         </a>
       </div>
     </>
@@ -313,7 +313,7 @@ export default function Sidebar() {
       {/* Mobile hamburger */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-[#182230] border border-[#344054] text-[#D0D5DD] hover:text-[#00FFA7] transition-colors"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-[#182230] border border-[#344054] text-[#D0D5DD] hover:text-[#FF4500] transition-colors"
       >
         <Menu size={20} />
       </button>

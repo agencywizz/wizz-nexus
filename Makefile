@@ -1,5 +1,5 @@
 # ============================================================
-# EvoNexus — Makefile
+# WizzOS — Makefile
 # ============================================================
 # Usage: make <command>
 # Docs: ROUTINES.md
@@ -22,7 +22,7 @@ endif
 # ── Setup ──────────────────────────────────
 
 docs-build:         ## 📄 Regenerate docs/llms-full.txt and sync to site
-	@$(PYTHON) -c "from pathlib import Path; docs=Path('docs'); parts=['# EvoNexus Documentation\n\nComplete reference.\n']; [parts.append(f.read_text()) for f in sorted(docs.rglob('*.md'))]; Path('docs/llms-full.txt').write_text('\n\n---\n\n'.join(parts)); print(f'Generated docs/llms-full.txt ({len(parts)-1} docs)')"
+	@$(PYTHON) -c "from pathlib import Path; docs=Path('docs'); parts=['# WizzOS Documentation\n\nComplete reference.\n']; [parts.append(f.read_text()) for f in sorted(docs.rglob('*.md'))]; Path('docs/llms-full.txt').write_text('\n\n---\n\n'.join(parts)); print(f'Generated docs/llms-full.txt ({len(parts)-1} docs)')"
 	@rm -rf site/public/docs && cp -r docs/ site/public/docs/ && echo "Synced docs → site/public/docs/"
 
 setup:              ## 🔧 Interactive setup wizard (prerequisites, config, folders)
@@ -106,8 +106,8 @@ terminal-stop:      ## 🛑 Stop terminal-server (if orphaned)
 	@pkill -f "[d]ashboard/terminal-server/bin/server.js" 2>/dev/null && echo "✅ terminal-server stopped" || echo "ℹ terminal-server not running"
 	@rm -f /tmp/terminal-server.pid
 
-stop:               ## 🛑 Stop all EvoNexus services (dashboard + terminal-server)
-	@echo "Stopping EvoNexus services..."
+stop:               ## 🛑 Stop all WizzOS services (dashboard + terminal-server)
+	@echo "Stopping WizzOS services..."
 	@pkill -f "[d]ashboard/terminal-server/bin/server.js" 2>/dev/null || true
 	@pkill -f "[d]ashboard/backend.*app.py" 2>/dev/null || true
 	@pkill -f "[a]pp.py" 2>/dev/null || true
@@ -139,7 +139,7 @@ uninstall:          ## 🗑️  Full cleanup — stop services, remove nginx, da
 		rm -f config/workspace.yaml config/providers.json config/routines.yaml .env; \
 		rm -f CLAUDE.md; \
 		echo ""; \
-		echo "✅ EvoNexus uninstalled. Run 'make setup' to reinstall."; \
+		echo "✅ WizzOS uninstalled. Run 'make setup' to reinstall."; \
 	else \
 		echo "Aborted."; \
 	fi

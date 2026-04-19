@@ -235,7 +235,7 @@ export default function Triggers() {
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#161b22] border border-[#21262d] flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00FFA7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"/><path d="m6 7 3 5"/><path d="m12 6 1.97 3.44"/><path d="M22 17c0 2.21-1.79 4-4 4-1.29 0-2.44-.62-3.16-1.58"/><path d="M2 12c1.9-3.31 5.57-5 9.24-5a11.57 11.57 0 0 1 6.93 2.34"/><circle cx="18" cy="17" r="1"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF4500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"/><path d="m6 7 3 5"/><path d="m12 6 1.97 3.44"/><path d="M22 17c0 2.21-1.79 4-4 4-1.29 0-2.44-.62-3.16-1.58"/><path d="M2 12c1.9-3.31 5.57-5 9.24-5a11.57 11.57 0 0 1 6.93 2.34"/><circle cx="18" cy="17" r="1"/></svg>
           </div>
           <div>
             <h1 className="text-2xl font-bold text-[#e6edf3]">Triggers</h1>
@@ -244,7 +244,7 @@ export default function Triggers() {
         </div>
         {hasPermission('triggers', 'execute') && (
           <button onClick={openCreate}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors font-medium text-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors font-medium text-sm"
           >
             <Plus size={16} /> New Trigger
           </button>
@@ -258,7 +258,7 @@ export default function Triggers() {
             onClick={() => setFilter(f.value)}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border ${
               filter === f.value
-                ? 'bg-[#00FFA7]/10 border-[#00FFA7]/20 text-[#00FFA7]'
+                ? 'bg-[#FF4500]/10 border-[#FF4500]/20 text-[#FF4500]'
                 : 'bg-[#161b22] border-[#21262d] text-[#667085] hover:text-[#D0D5DD] hover:border-[#344054]'
             }`}
           >
@@ -302,7 +302,7 @@ export default function Triggers() {
                   </td>
                   <td className="p-4">
                     <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-medium border ${
-                      t.type === 'webhook' ? 'bg-[#00FFA7]/10 text-[#00FFA7] border-[#00FFA7]/20' : 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+                      t.type === 'webhook' ? 'bg-[#FF4500]/10 text-[#FF4500] border-[#FF4500]/20' : 'bg-purple-500/10 text-purple-400 border-purple-500/20'
                     }`}>
                       {t.type}
                     </span>
@@ -321,9 +321,9 @@ export default function Triggers() {
                   </td>
                   <td className="p-4 text-center">
                     <button onClick={() => handleToggle(t)} title={t.enabled ? 'Disable' : 'Enable'}
-                      className={`inline-block w-8 h-4 rounded-full relative cursor-pointer transition-colors ${t.enabled ? 'bg-[#00FFA7]/30' : 'bg-[#344054]'}`}
+                      className={`inline-block w-8 h-4 rounded-full relative cursor-pointer transition-colors ${t.enabled ? 'bg-[#FF4500]/30' : 'bg-[#344054]'}`}
                     >
-                      <span className={`absolute top-0.5 w-3 h-3 rounded-full transition-all ${t.enabled ? 'left-4 bg-[#00FFA7]' : 'left-0.5 bg-[#667085]'}`} />
+                      <span className={`absolute top-0.5 w-3 h-3 rounded-full transition-all ${t.enabled ? 'left-4 bg-[#FF4500]' : 'left-0.5 bg-[#667085]'}`} />
                     </button>
                   </td>
                   <td className="p-4 text-center">
@@ -337,7 +337,7 @@ export default function Triggers() {
                     <div className="flex items-center gap-1 justify-end">
                       {t.type === 'webhook' && (
                         <button onClick={() => copyWebhookUrl(t)}
-                          className={`p-1.5 rounded-lg transition-colors ${copied === t.id ? 'text-[#00FFA7]' : 'hover:bg-white/5 text-[#667085] hover:text-[#e6edf3]'}`}
+                          className={`p-1.5 rounded-lg transition-colors ${copied === t.id ? 'text-[#FF4500]' : 'hover:bg-white/5 text-[#667085] hover:text-[#e6edf3]'}`}
                           title="Copy webhook URL"
                         >
                           <Copy size={14} />
@@ -385,14 +385,14 @@ export default function Triggers() {
               <div>
                 <label className="block text-xs font-medium text-[#667085] mb-1.5">Name *</label>
                 <input type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Deploy Notification"
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#00FFA7]/50 focus:outline-none" />
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#FF4500]/50 focus:outline-none" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-medium text-[#667085] mb-1.5">Type *</label>
                   <select value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none">
+                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none">
                     <option value="webhook">Webhook</option>
                     <option value="event">Event</option>
                   </select>
@@ -400,7 +400,7 @@ export default function Triggers() {
                 <div>
                   <label className="block text-xs font-medium text-[#667085] mb-1.5">Source *</label>
                   <select value={form.source} onChange={e => setForm({ ...form, source: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none">
+                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none">
                     {SOURCES.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
@@ -410,21 +410,21 @@ export default function Triggers() {
                 <label className="block text-xs font-medium text-[#667085] mb-1.5">Event Filter (JSON)</label>
                 <textarea value={form.event_filter} onChange={e => setForm({ ...form, event_filter: e.target.value })}
                   placeholder='{"event": "push", "branch": "main"}' rows={3}
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#00FFA7]/50 focus:outline-none resize-none font-mono" />
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#FF4500]/50 focus:outline-none resize-none font-mono" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-medium text-[#667085] mb-1.5">Action Type *</label>
                   <select value={form.action_type} onChange={e => setForm({ ...form, action_type: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none">
+                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none">
                     {ACTION_TYPES.map(at => <option key={at} value={at}>{at}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-[#667085] mb-1.5">Agent</label>
                   <select value={form.agent} onChange={e => setForm({ ...form, agent: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#00FFA7]/50 focus:outline-none">
+                    className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] focus:border-[#FF4500]/50 focus:outline-none">
                     <option value="">None</option>
                     {AGENTS.map(a => <option key={a} value={a}>{a}</option>)}
                   </select>
@@ -435,12 +435,12 @@ export default function Triggers() {
                 <label className="block text-xs font-medium text-[#667085] mb-1.5">Action Payload *</label>
                 <textarea value={form.action_payload} onChange={e => setForm({ ...form, action_payload: e.target.value })}
                   placeholder="discord-send-message Deploy detectado na main" rows={2}
-                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#00FFA7]/50 focus:outline-none resize-none" />
+                  className="w-full px-3 py-2 bg-[#0d1117] border border-[#21262d] rounded-lg text-sm text-[#e6edf3] placeholder-[#667085] focus:border-[#FF4500]/50 focus:outline-none resize-none" />
               </div>
 
               <div className="flex items-center gap-2">
                 <input type="checkbox" checked={form.enabled} onChange={e => setForm({ ...form, enabled: e.target.checked })}
-                  className="rounded border-[#21262d] bg-[#0d1117] text-[#00FFA7] focus:ring-[#00FFA7]/50" />
+                  className="rounded border-[#21262d] bg-[#0d1117] text-[#FF4500] focus:ring-[#FF4500]/50" />
                 <label className="text-xs text-[#667085]">Enabled</label>
               </div>
             </div>
@@ -451,7 +451,7 @@ export default function Triggers() {
                 Cancel
               </button>
               <button onClick={handleSave} disabled={saving || !form.name || !form.action_payload}
-                className="px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed">
+                className="px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed">
                 {saving ? 'Saving...' : editingId ? 'Update' : 'Create'}
               </button>
             </div>
@@ -525,14 +525,14 @@ export default function Triggers() {
                   {newSecret.secret}
                 </code>
                 <button onClick={() => { navigator.clipboard.writeText(newSecret.secret); }}
-                  className="p-2 rounded-lg hover:bg-white/5 text-[#667085] hover:text-[#00FFA7] transition-colors" title="Copy">
+                  className="p-2 rounded-lg hover:bg-white/5 text-[#667085] hover:text-[#FF4500] transition-colors" title="Copy">
                   <Copy size={16} />
                 </button>
               </div>
             </div>
             <div className="flex justify-end px-6 py-4 border-t border-[#21262d]">
               <button onClick={() => setNewSecret(null)}
-                className="px-4 py-2 rounded-lg bg-[#00FFA7]/10 border border-[#00FFA7]/20 text-[#00FFA7] hover:bg-[#00FFA7]/20 transition-colors text-sm font-medium">
+                className="px-4 py-2 rounded-lg bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] hover:bg-[#FF4500]/20 transition-colors text-sm font-medium">
                 Done
               </button>
             </div>

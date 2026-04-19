@@ -1,12 +1,12 @@
-# Contributing to EvoNexus
+# Contributing to WizzOS
 
-Thank you for your interest in contributing to EvoNexus! This document provides guidelines for contributing.
+Thank you for your interest in contributing to WizzOS! This document provides guidelines for contributing.
 
 ## How to Contribute
 
 ### Reporting Issues
 
-- Use [GitHub Issues](https://github.com/EvolutionAPI/evo-nexus/issues) to report bugs or request features
+- Use [GitHub Issues](https://github.com/EvolutionAPI/wizz-os/issues) to report bugs or request features
 - Include steps to reproduce, expected behavior, and actual behavior
 - Include your OS, Python version, and Node.js version
 

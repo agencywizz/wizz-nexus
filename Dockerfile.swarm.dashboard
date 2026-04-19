@@ -1,5 +1,5 @@
 # ============================================================================
-# Dockerfile.swarm.dashboard — EvoNexus Dashboard para Docker Swarm
+# Dockerfile.swarm.dashboard — WizzOS Dashboard para Docker Swarm
 #
 # The upstream Dockerfile.dashboard is Python-only (Flask + React). That
 # is enough for local dev but the embedded terminal — a core feature —
@@ -104,9 +104,9 @@ COPY start-dashboard.sh /usr/local/bin/start-dashboard.sh
 RUN chmod +x /usr/local/bin/start-dashboard.sh
 
 # OCI metadata
-LABEL org.opencontainers.image.title="evo-nexus-dashboard" \
-      org.opencontainers.image.description="EvoNexus Dashboard for Swarm (Flask + React + embedded CLI terminal)" \
-      org.opencontainers.image.source="https://github.com/EvolutionAPI/evo-nexus" \
+LABEL org.opencontainers.image.title="wizz-os-dashboard" \
+      org.opencontainers.image.description="WizzOS Dashboard for Swarm (Flask + React + embedded CLI terminal)" \
+      org.opencontainers.image.source="https://github.com/EvolutionAPI/wizz-os" \
       org.opencontainers.image.licenses="MIT"
 
 ENV EVONEXUS_PORT=8080

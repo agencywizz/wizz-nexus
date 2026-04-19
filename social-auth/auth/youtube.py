@@ -37,7 +37,7 @@ def connect():
             <div style="text-align:center;color:#667085;font-size:12px;margin-bottom:16px;">— ou —</div>
 
             <form action="/save/youtube" method="POST">
-                <input name="label" type="text" placeholder="Nome da conta (ex: Evolution Foundation)" style="width:100%;padding:12px;background:#0C111D;border:1px solid #344054;border-radius:8px;color:#F9FAFB;font-size:14px;margin-bottom:12px;">
+                <input name="label" type="text" placeholder="Nome da conta (ex: Wizz! comms.)" style="width:100%;padding:12px;background:#0C111D;border:1px solid #344054;border-radius:8px;color:#F9FAFB;font-size:14px;margin-bottom:12px;">
                 <input name="api_key" type="text" placeholder="API Key (AIza...)" style="width:100%;padding:12px;background:#0C111D;border:1px solid #344054;border-radius:8px;color:#F9FAFB;font-size:14px;margin-bottom:12px;">
                 <input name="channel_id" type="text" placeholder="Channel ID (UC...)" style="width:100%;padding:12px;background:#0C111D;border:1px solid #344054;border-radius:8px;color:#F9FAFB;font-size:14px;margin-bottom:20px;">
                 <button type="submit" style="width:100%;padding:12px;background:rgba(0,255,167,0.15);color:#00FFA7;border:1px solid rgba(0,255,167,0.3);border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Salvar API Key</button>

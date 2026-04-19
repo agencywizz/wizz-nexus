@@ -4,7 +4,7 @@ interface StatusDotProps {
 
 export default function StatusDot({ status }: StatusDotProps) {
   const color = {
-    ok: 'bg-[#00FFA7]',
+    ok: 'bg-[#FF4500]',
     error: 'bg-red-400',
     pending: 'bg-yellow-400',
   }[status]
