@@ -6,7 +6,7 @@ Thank you for your interest in contributing to WizzOS! This document provides gu
 
 ### Reporting Issues
 
-- Use [GitHub Issues](https://github.com/EvolutionAPI/wizz-os/issues) to report bugs or request features
+- Use [GitHub Issues](https://github.com/agencywizz/wizz-nexus/issues) to report bugs or request features
 - Include steps to reproduce, expected behavior, and actual behavior
 - Include your OS, Python version, and Node.js version
 

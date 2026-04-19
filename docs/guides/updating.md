@@ -86,7 +86,7 @@ Returns:
   "current": "0.3.2",
   "latest": "0.4.0",
   "update_available": true,
-  "release_url": "https://github.com/EvolutionAPI/wizz-os/releases/tag/v0.4.0",
+  "release_url": "https://github.com/agencywizz/wizz-nexus/releases/tag/v0.4.0",
   "release_notes": "..."
 }
 ```
@@ -94,4 +94,4 @@ Returns:
 ## Changelog
 
 See all releases and changelogs on GitHub:
-https://github.com/EvolutionAPI/wizz-os/releases
+https://github.com/agencywizz/wizz-nexus/releases

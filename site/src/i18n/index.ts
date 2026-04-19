@@ -6,6 +6,16 @@ import en from "./en.json";
 import ptBR from "./pt-BR.json";
 import es from "./es.json";
 
+try {
+  const current = localStorage.getItem("wizzos-language");
+  const legacy = localStorage.getItem("evonexus-language");
+  if (!current && legacy) {
+    localStorage.setItem("wizzos-language", legacy);
+  }
+} catch {
+  // Ignore storage errors (SSR/private mode)
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -20,7 +30,7 @@ i18n
     detection: {
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
-      lookupLocalStorage: "evonexus-language",
+      lookupLocalStorage: "wizzos-language",
     },
     interpolation: {
       escapeValue: false,

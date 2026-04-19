@@ -14,12 +14,13 @@ export interface GlobalNotification {
   read: boolean
 }
 
-const STORAGE_KEY = 'evonexus.notifications.state'
+const STORAGE_KEY = 'wizzos.notifications.state'
+const LEGACY_STORAGE_KEY = 'evonexus.notifications.state'
 const MAX_STORED = 50
 
 function loadFromStorage(): GlobalNotification[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY)
     if (!raw) return []
     const parsed = JSON.parse(raw)
     if (!Array.isArray(parsed)) return []

@@ -135,4 +135,4 @@ evo.patch(f"/api/heartbeats/{hb_id}", {"enabled": True})
 evo.delete(f"/api/shares/{token}")
 ```
 
-URL resolution order: `EVONEXUS_API_URL` → `FLASK_PORT` → `localhost:8080`. Token comes from `DASHBOARD_API_TOKEN` in `.env`.
+URL resolution order: `WIZZOS_API_URL` → `EVONEXUS_API_URL` (legacy) → `FLASK_PORT` → `localhost:8080`. Token comes from `DASHBOARD_API_TOKEN` in `.env`.

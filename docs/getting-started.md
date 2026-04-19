@@ -12,7 +12,7 @@
 ### 1. Quick Install (recommended)
 
 ```bash
-npx @evoapi/wizz-os
+npx @agencywizz/wizz-os
 ```
 
 This downloads and runs the interactive setup wizard automatically.
@@ -20,7 +20,7 @@ This downloads and runs the interactive setup wizard automatically.
 ### Alternative: Manual Clone
 
 ```bash
-git clone --depth 1 https://github.com/EvolutionAPI/wizz-os.git
+git clone --depth 1 https://github.com/agencywizz/wizz-nexus.git
 cd wizz-os
 
 # Interactive setup wizard

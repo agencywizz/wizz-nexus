@@ -133,7 +133,7 @@ cat > /etc/systemd/system/${SERVICE_NAME}.service << SERVICEEOF
 [Unit]
 Description=WizzOS Dashboard + Scheduler + Terminal Server
 After=network.target
-Documentation=https://github.com/EvolutionAPI/wizz-os
+Documentation=https://github.com/agencywizz/wizz-nexus
 
 [Service]
 Type=oneshot

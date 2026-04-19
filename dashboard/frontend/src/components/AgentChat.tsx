@@ -213,12 +213,12 @@ export default function AgentChat({ agent, sessionId, accentColor = '#FF4500', e
                 document.hidden &&
                 typeof Notification !== 'undefined' &&
                 Notification.permission === 'granted' &&
-                localStorage.getItem('evonexus.notifications.enabled') !== 'false'
+                (localStorage.getItem('wizzos.notifications.enabled') ?? localStorage.getItem('evonexus.notifications.enabled')) !== 'false'
               ) {
                 try {
                   const n = new Notification(`Agent @${agent} is waiting for your approval`, {
                     body: msg.title || msg.toolName || 'Permission request',
-                    icon: '/favicon.ico',
+                    icon: '/wizz-icon-orange.svg',
                     tag: `approval-${msg.requestId}`,
                   })
                   n.onclick = () => { window.focus() }

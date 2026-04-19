@@ -1,17 +1,17 @@
-# @evoapi/wizz-os
+# @agencywizz/wizz-os
 
 Unofficial open source toolkit for Claude Code — AI-powered business operating system.
 
 ## Quick Start
 
 ```bash
-npx @evoapi/wizz-os
+npx @agencywizz/wizz-os
 ```
 
 This will:
 
 1. Check prerequisites (git, Claude Code, Node.js, Python)
-2. Clone the [WizzOS](https://github.com/EvolutionAPI/wizz-os) repository
+2. Clone the [WizzOS](https://github.com/agencywizz/wizz-nexus) repository
 3. Install Python and Node.js dependencies
 4. Run the interactive setup wizard
 5. Build the dashboard frontend
@@ -20,13 +20,13 @@ This will:
 
 ```bash
 # Install in default directory (evonexus/)
-npx @evoapi/wizz-os
+npx @agencywizz/wizz-os
 
 # Install in a custom directory
-npx @evoapi/wizz-os my-workspace
+npx @agencywizz/wizz-os my-workspace
 
 # Show help
-npx @evoapi/wizz-os --help
+npx @agencywizz/wizz-os --help
 ```
 
 ## Prerequisites
@@ -39,9 +39,9 @@ npx @evoapi/wizz-os --help
 
 ## Links
 
-- **Site:** https://evonexus.wizzcomms.com
-- **Docs:** https://evonexus.wizzcomms.com/docs
-- **GitHub:** https://github.com/EvolutionAPI/wizz-os
+- **Site:** https://wizzcomms.com
+- **Docs:** https://wizzcomms.com/docs
+- **GitHub:** https://github.com/agencywizz/wizz-nexus
 
 ## License
 

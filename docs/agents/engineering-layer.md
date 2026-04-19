@@ -1,12 +1,12 @@
 # Engineering Layer
 
-> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). WizzOS imports the agents and adapts them to the workspace conventions (themed names, WizzOS standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
+> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). WizzOS imports the agents and adapts them to the workspace conventions (themed names, WizzOS standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/agencywizz/wizz-nexus/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
 
 > **Native additions (v0.13.0):** `helm-conductor` and `mirror-retro` are native WizzOS agents, not derived from oh-my-claudecode. Helm orchestrates the engineering cycle and routes tasks to phase owners; Mirror runs blameless retrospectives at the end of features and sprints.
 
 ## What It Is
 
-The Engineering Layer is a complete software development team built into WizzOS. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
+The Engineering Layer is a complete software development team built into WizzOS. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/agencywizz/wizz-nexus/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
 
 It exists as a layer ortogonal to the Business Layer (Clawdia, Flux, Atlas, etc.). Business agents handle operations (emails, finance, community); engineering agents handle code (architecture, bugs, reviews, tests). Cross-layer handoffs are common — e.g., Nova writes a PRD → Apex reviews the architecture → Bolt implements → Lens reviews → Oath verifies → Mirror captures lessons.
 
@@ -67,7 +67,7 @@ Fast, parallel, low-token agents for high-volume work.
 
 ## The 6-Phase Workflow
 
-The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
+The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/agencywizz/wizz-nexus/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
 
 ```
 Discovery → Planning → Solutioning → Build → Verify → Retro
@@ -265,4 +265,4 @@ WizzOS modifications:
 - Removed runtime dependencies on OMC TypeScript `src/` (kept only the markdown definitions)
 - Discarded skills that overlapped with WizzOS builtins or were OMC meta-skills
 
-See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) for the complete attribution and modification list.
+See [NOTICE.md](https://github.com/agencywizz/wizz-nexus/blob/main/NOTICE.md) for the complete attribution and modification list.

@@ -22,7 +22,7 @@ dashboard:
 Or via environment variable:
 
 ```bash
-EVONEXUS_PORT=9090 make dashboard-app
+WIZZOS_PORT=9090 make dashboard-app
 ```
 
 ## First Run Setup

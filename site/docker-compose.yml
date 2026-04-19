@@ -1,5 +1,5 @@
 services:
-  evonexus-site:
+  wizzos-site:
     build: .
     ports:
       - "3000:80"

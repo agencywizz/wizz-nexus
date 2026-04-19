@@ -1,9 +1,10 @@
 """Internal SDK client for calling the dashboard API from skills/agents.
 
 Resolves base URL from environment in this order:
-  1. EVONEXUS_API_URL (full URL, e.g. https://evo.example.com)
-  2. http://localhost:$FLASK_PORT
-  3. http://localhost:8080
+  1. WIZZOS_API_URL (full URL, e.g. https://wizzos.example.com)
+  2. EVONEXUS_API_URL (legacy alias)
+  3. http://localhost:$FLASK_PORT
+  4. http://localhost:8080
 
 Auto-injects Authorization: Bearer $DASHBOARD_API_TOKEN when present.
 
@@ -23,7 +24,10 @@ import requests
 class EvoClient:
     def __init__(self) -> None:
         self._session = requests.Session()
-        url = os.environ.get("EVONEXUS_API_URL", "").strip()
+        url = (
+            os.environ.get("WIZZOS_API_URL", "").strip()
+            or os.environ.get("EVONEXUS_API_URL", "").strip()
+        )
         if not url:
             port = os.environ.get("FLASK_PORT", "8080").strip() or "8080"
             url = f"http://localhost:{port}"

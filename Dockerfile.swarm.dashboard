@@ -106,7 +106,7 @@ RUN chmod +x /usr/local/bin/start-dashboard.sh
 # OCI metadata
 LABEL org.opencontainers.image.title="wizz-os-dashboard" \
       org.opencontainers.image.description="WizzOS Dashboard for Swarm (Flask + React + embedded CLI terminal)" \
-      org.opencontainers.image.source="https://github.com/EvolutionAPI/wizz-os" \
+      org.opencontainers.image.source="https://github.com/agencywizz/wizz-nexus" \
       org.opencontainers.image.licenses="MIT"
 
 ENV EVONEXUS_PORT=8080

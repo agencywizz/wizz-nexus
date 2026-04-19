@@ -1,5 +1,5 @@
 {
-  "name": "@evoapi/wizz-os",
+  "name": "@agencywizz/wizz-os",
   "version": "0.24.0",
   "description": "Unofficial open source toolkit for Claude Code — AI-powered business operating system",
   "keywords": [
@@ -17,9 +17,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EvolutionAPI/wizz-os.git"
+    "url": "git+https://github.com/agencywizz/wizz-nexus.git"
   },
-  "homepage": "https://evonexus.wizzcomms.com",
+  "homepage": "https://wizzcomms.com",
   "author": "Wizz! comms. <contato@wizzcomms.com>",
   "engines": {
     "node": ">=18"

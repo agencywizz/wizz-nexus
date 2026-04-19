@@ -260,7 +260,7 @@ export default function ShareView() {
 function PoweredByFooter() {
   return (
     <a
-      href="https://evonexus.wizzcomms.com/"
+      href="https://wizzcomms.com/"
       target="_blank"
       rel="noopener noreferrer"
       style={{

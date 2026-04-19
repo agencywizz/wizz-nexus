@@ -153,7 +153,7 @@ The setup wizard asks which provider you want during `make setup`, and you can s
 ### Method 1 — One command (recommended)
 
 ```bash
-npx @evoapi/wizz-os
+npx @agencywizz/wizz-os
 ```
 
 This downloads and runs the interactive setup wizard automatically.
@@ -161,7 +161,7 @@ This downloads and runs the interactive setup wizard automatically.
 ### Method 2 — Manual clone
 
 ```bash
-git clone --depth 1 https://github.com/EvolutionAPI/wizz-os.git
+git clone --depth 1 https://github.com/agencywizz/wizz-nexus.git
 cd wizz-os
 
 # Interactive setup wizard — checks prerequisites, creates config files

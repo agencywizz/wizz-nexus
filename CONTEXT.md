@@ -78,9 +78,9 @@ Substituições globais (case-sensitive onde indicado):
 | `wizz_os` | `wizz_os` | todos os .py |
 | `Wizz! comms.` | `Wizz! comms.` | todos os arquivos |
 | `wizzcomms.com` | `wizzcomms.com` | todos os arquivos |
-| `EvolutionAPI/wizz-os` | `agencywizz/wizz-nexus` | README.md, docs/ |
-| `@evoapi/wizz-os` | `@agencywizz/wizz-os` | README.md, package.json |
-| `npx @evoapi/wizz-os` | `npx @agencywizz/wizz-os` | README.md, docs/ |
+| `agencywizz/wizz-nexus` | `agencywizz/wizz-nexus` | README.md, docs/ |
+| `@agencywizz/wizz-os` | `@agencywizz/wizz-os` | README.md, package.json |
+| `npx @agencywizz/wizz-os` | `npx @agencywizz/wizz-os` | README.md, docs/ |
 
 **Exceções — NÃO substituir:**
 - Referências a `Evolution API` (integração WhatsApp — é um produto externo, não o fork)
@@ -190,23 +190,23 @@ WizzOS é o cockpit de operação do founder. Cada produto tem seu próprio dash
 
 ## Estado atual
 
-### O que existe (após cp do fork)
+### O que está funcionando (Apr 19 2026)
 - ✅ 38 agentes em `.claude/agents/`
 - ✅ 175+ skills em `.claude/skills/`
-- ✅ Dashboard Flask + React funcional
-- ✅ Scheduler de rotinas
+- ✅ Branding Fase 1 aplicado — branch `wizz`, commit `2099857`
+- ✅ Design system Wizz no dashboard (Space Grotesk + `#FF4500` + `#0D0D0D`)
+- ✅ Logos e favicon oficial (`wizz-icon-orange.svg`) aplicados
+- ✅ `make setup` executado com defaults reais (`Wizz! comms.`, `wizzcomms.com`, `Europe/Dublin`)
+- ✅ `make dashboard-app` validado — dashboard em `http://localhost:8080` (HTTP 200)
 - ✅ Suporte a OpenRouter já nativo (via OpenClaude)
-- ✅ WizzChat (iframe multi-tenant) já integrado
-- ⬜ Branding Wizz aplicado (esta fase)
-- ⬜ `make setup` rodado com config real
-- ⬜ Deploy no VPS
 
 ### O que falta (próximas fases)
-- [ ] **Fase 2:** Configurar `.env` com chaves reais (n8n, Discord, Stripe, etc.)
-- [ ] **Fase 3:** `make setup` interativo para gerar `config/workspace.yaml`
-- [ ] **Fase 4:** `make dashboard-app` e teste local
-- [ ] **Fase 5:** Deploy VPS (systemd service via `install-service.sh`)
-- [ ] **Fase 6:** Definir os 3 tiers de SaaS e lógica de pricing
+- [ ] Criar conta admin em `http://localhost:8080`
+- [ ] Configurar `.env` com chaves reais (n8n, Discord, Stripe, etc.)
+- [ ] Deploy VPS (systemd via `install-service.sh`)
+- [ ] Definir 3 tiers de SaaS e pricing
+- [ ] Decidir estratégia de chat (WizzChat ou alternativa)
+- [ ] Decidir se integra n8n dos clientes via "Systems"
 
 ---
 

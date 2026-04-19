@@ -591,9 +591,13 @@ function ReferenceTab() {
 
 // ── Tab: Notifications ──────────────────────────────────────────────────────
 function NotificationsTab() {
-  const STORAGE_KEY = 'evonexus.notifications.enabled'
+  const STORAGE_KEY = 'wizzos.notifications.enabled'
+  const LEGACY_STORAGE_KEY = 'evonexus.notifications.enabled'
   const [enabled, setEnabled] = useState(() => {
-    try { return localStorage.getItem(STORAGE_KEY) !== 'false' } catch { return true }
+    try {
+      const value = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY)
+      return value !== 'false'
+    } catch { return true }
   })
   const [permission, setPermission] = useState<NotificationPermission | 'unsupported'>(() => {
     if (typeof Notification === 'undefined') return 'unsupported'

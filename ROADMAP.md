@@ -2,7 +2,7 @@
 
 > Unofficial toolkit for Claude Code — AI-powered business operating system.
 >
-> This roadmap is updated regularly. Want to vote or suggest? [Open a discussion](https://github.com/EvolutionAPI/wizz-os/discussions) or [create an issue](https://github.com/EvolutionAPI/wizz-os/issues).
+> This roadmap is updated regularly. Want to vote or suggest? [Open a discussion](https://github.com/agencywizz/wizz-nexus/discussions) or [create an issue](https://github.com/agencywizz/wizz-nexus/issues).
 
 ---
 
@@ -29,7 +29,7 @@
 
 ### Developer Experience
 
-- [x] 🔥 **CLI installer** — `npx @evoapi/wizz-os` — clones repo, installs deps, runs interactive setup wizard.
+- [x] 🔥 **CLI installer** — `npx @agencywizz/wizz-os` — clones repo, installs deps, runs interactive setup wizard.
 - [x] **Full Docker install** — `docker compose up dashboard` with multi-stage Dockerfile + GitHub Actions CI pushing to GHCR.
 - [x] **Update checker** — dashboard checks GitHub releases and shows upgrade notification.
 - [x] **settings.json** — project-level permissions (allow/deny), hooks configuration, thinking mode enabled.
@@ -111,7 +111,7 @@
 
 ### Community & Docs
 
-- [x] 🔥 **Public roadmap** — this file. Community input welcome via [discussions](https://github.com/EvolutionAPI/wizz-os/discussions).
+- [x] 🔥 **Public roadmap** — this file. Community input welcome via [discussions](https://github.com/agencywizz/wizz-nexus/discussions).
 - [x] **Telegram & Discord channels** — activate community channels, document in README and docs site.
 - [ ] **In-app tutorials** — contextual tutorials surfaced inside the dashboard, not just external docs.
 - [x] **Resume Claude sessions in chat** — list active/resumable Claude sessions in dashboard chat with `--resume` support.
@@ -126,9 +126,9 @@
 
 Want to help? Pick any `[ ]` item and:
 
-1. Check [open issues](https://github.com/EvolutionAPI/wizz-os/issues)
+1. Check [open issues](https://github.com/agencywizz/wizz-nexus/issues)
 2. Read [CONTRIBUTING.md](CONTRIBUTING.md)
-3. For `💡` items, open a [discussion](https://github.com/EvolutionAPI/wizz-os/discussions) first — design is still open
+3. For `💡` items, open a [discussion](https://github.com/agencywizz/wizz-nexus/discussions) first — design is still open
 
 ---
 

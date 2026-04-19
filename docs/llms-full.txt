@@ -416,13 +416,13 @@ Persistent memory at `.claude/agent-memory/dex/`. Stores project context, user p
 
 # Engineering Layer
 
-> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). WizzOS imports the agents and adapts them to the workspace conventions (themed names, WizzOS standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
+> **Attribution:** the Engineering Layer is derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) (MIT, by **Yeachan Heo**). WizzOS imports the agents and adapts them to the workspace conventions (themed names, WizzOS standard pattern, `workspace/development/` paths). See [NOTICE.md](https://github.com/agencywizz/wizz-nexus/blob/main/NOTICE.md) at the repo root for the full list of derived components and modifications.
 
 > **Native additions (v0.13.0):** `helm-conductor` and `mirror-retro` are native WizzOS agents, not derived from oh-my-claudecode. Helm orchestrates the engineering cycle and routes tasks to phase owners; Mirror runs blameless retrospectives at the end of features and sprints.
 
 ## What It Is
 
-The Engineering Layer is a complete software development team built into WizzOS. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
+The Engineering Layer is a complete software development team built into WizzOS. **21 specialized agents** (19 derived + 2 native) + **25 `dev-*` skills** + **15 templates** + a **canonical 6-phase workflow** ([`dev-phases.md`](https://github.com/agencywizz/wizz-nexus/blob/main/.claude/rules/dev-phases.md)) that cover the full dev lifecycle: discovery, planning, solutioning, build, verify, retro.
 
 It exists as a layer ortogonal to the Business Layer (Clawdia, Flux, Atlas, etc.). Business agents handle operations (emails, finance, community); engineering agents handle code (architecture, bugs, reviews, tests). Cross-layer handoffs are common — e.g., Nova writes a PRD → Apex reviews the architecture → Bolt implements → Lens reviews → Oath verifies → Mirror captures lessons.
 
@@ -483,7 +483,7 @@ Fast, parallel, low-token agents for high-volume work.
 
 ## The 6-Phase Workflow
 
-The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
+The engineering layer follows a canonical workflow documented in [`.claude/rules/dev-phases.md`](https://github.com/agencywizz/wizz-nexus/blob/main/.claude/rules/dev-phases.md). It is a **guide**, not a rigid gate — simple changes can skip phases, complex features should follow them in order.
 
 ```
 Discovery → Planning → Solutioning → Build → Verify → Retro
@@ -681,7 +681,7 @@ WizzOS modifications:
 - Removed runtime dependencies on OMC TypeScript `src/` (kept only the markdown definitions)
 - Discarded skills that overlapped with WizzOS builtins or were OMC meta-skills
 
-See [NOTICE.md](https://github.com/EvolutionAPI/wizz-os/blob/main/NOTICE.md) for the complete attribution and modification list.
+See [NOTICE.md](https://github.com/agencywizz/wizz-nexus/blob/main/NOTICE.md) for the complete attribution and modification list.
 
 
 ---
@@ -1519,7 +1519,7 @@ Persistent memory at `.claude/agent-memory/zara/`. Stores project context, user 
 
 WizzOS is a file-based, git-friendly framework. Everything is markdown, YAML, and Python scripts. No database required for the core framework (SQLite is used only by the dashboard).
 
-WizzOS organizes 38 agents in **two ortogonal layers**: a Business Layer (17 agents for ops/finance/community/learning retention/etc.) and an Engineering Layer (21 agents for software dev — 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode), MIT, by Yeachan Heo, plus 2 native: Helm and Mirror). The two layers share the same skill, memory, and integration infrastructure but stay out of each other's way: business tasks route to business agents, engineering tasks to engineering agents. Cross-layer handoffs are common (e.g., Nova writes a PRD → Apex reviews → Bolt implements → Mirror captures lessons). The engineering layer follows a canonical 6-phase workflow (Discovery → Planning → Solutioning → Build → Verify → Retro) documented in [`.claude/rules/dev-phases.md`](https://github.com/EvolutionAPI/wizz-os/blob/main/.claude/rules/dev-phases.md).
+WizzOS organizes 38 agents in **two ortogonal layers**: a Business Layer (17 agents for ops/finance/community/learning retention/etc.) and an Engineering Layer (21 agents for software dev — 19 derived from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode), MIT, by Yeachan Heo, plus 2 native: Helm and Mirror). The two layers share the same skill, memory, and integration infrastructure but stay out of each other's way: business tasks route to business agents, engineering tasks to engineering agents. Cross-layer handoffs are common (e.g., Nova writes a PRD → Apex reviews → Bolt implements → Mirror captures lessons). The engineering layer follows a canonical 6-phase workflow (Discovery → Planning → Solutioning → Build → Verify → Retro) documented in [`.claude/rules/dev-phases.md`](https://github.com/agencywizz/wizz-nexus/blob/main/.claude/rules/dev-phases.md).
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -1834,7 +1834,7 @@ dashboard:
 Or via environment variable:
 
 ```bash
-EVONEXUS_PORT=9090 make dashboard-app
+WIZZOS_PORT=9090 make dashboard-app
 ```
 
 ## First Run Setup
@@ -2221,7 +2221,7 @@ View the full audit log at **Audit Log** in the sidebar (requires `audit:view`).
 ### 1. Quick Install (recommended)
 
 ```bash
-npx @evoapi/wizz-os
+npx @agencywizz/wizz-os
 ```
 
 This downloads and runs the interactive setup wizard automatically.
@@ -2229,7 +2229,7 @@ This downloads and runs the interactive setup wizard automatically.
 ### Alternative: Manual Clone
 
 ```bash
-git clone --depth 1 https://github.com/EvolutionAPI/wizz-os.git
+git clone --depth 1 https://github.com/agencywizz/wizz-nexus.git
 cd wizz-os
 
 # Interactive setup wizard
@@ -3815,7 +3815,7 @@ Returns:
   "current": "0.3.2",
   "latest": "0.4.0",
   "update_available": true,
-  "release_url": "https://github.com/EvolutionAPI/wizz-os/releases/tag/v0.4.0",
+  "release_url": "https://github.com/agencywizz/wizz-nexus/releases/tag/v0.4.0",
   "release_notes": "..."
 }
 ```
@@ -3823,7 +3823,7 @@ Returns:
 ## Changelog
 
 See all releases and changelogs on GitHub:
-https://github.com/EvolutionAPI/wizz-os/releases
+https://github.com/agencywizz/wizz-nexus/releases
 
 
 ---
@@ -6009,7 +6009,7 @@ WizzOS runs on Anthropic's `claude` CLI by default, but can switch to any of 6 a
 
 ## Open Source
 
-WizzOS is MIT-licensed, built by [Wizz! comms.](https://wizzcomms.com). The source is at [github.com/EvolutionAPI/wizz-os](https://github.com/EvolutionAPI/wizz-os). This is an unofficial community project — not affiliated with or endorsed by Anthropic.
+WizzOS is MIT-licensed, built by [Wizz! comms.](https://wizzcomms.com). The source is at [github.com/agencywizz/wizz-nexus](https://github.com/agencywizz/wizz-nexus). This is an unofficial community project — not affiliated with or endorsed by Anthropic.
 
 It's designed to be forked and adapted. Add your own agents, skills, routines, and integrations. The architecture is markdown-first — no complex plugin systems, just files that Claude Code reads.
 

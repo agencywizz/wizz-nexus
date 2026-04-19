@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * @evoapi/wizz-os CLI
+ * @agencywizz/wizz-os CLI
  *
  * Usage:
- *   npx @evoapi/wizz-os          — clone + setup in current dir
- *   npx @evoapi/wizz-os my-workspace  — clone into my-workspace/
- *   npx @evoapi/wizz-os --help
+ *   npx @agencywizz/wizz-os          — clone + setup in current dir
+ *   npx @agencywizz/wizz-os my-workspace  — clone into my-workspace/
+ *   npx @agencywizz/wizz-os --help
  */
 
 import { execSync, spawn } from "child_process";
@@ -14,7 +14,7 @@ import { existsSync } from "fs";
 import { resolve, basename } from "path";
 import { createInterface } from "readline";
 
-const REPO = "https://github.com/EvolutionAPI/wizz-os.git";
+const REPO = "https://github.com/agencywizz/wizz-nexus.git";
 const GREEN = "\x1b[92m";
 const CYAN = "\x1b[96m";
 const YELLOW = "\x1b[93m";
@@ -60,7 +60,7 @@ async function main() {
 
   if (args.includes("--help") || args.includes("-h")) {
     console.log(`
-  Usage: npx @evoapi/wizz-os [directory]
+  Usage: npx @agencywizz/wizz-os [directory]
 
   Clones the WizzOS repository and runs the interactive setup wizard.
 
@@ -72,8 +72,8 @@ async function main() {
     --version    Show version
 
   Examples:
-    npx @evoapi/wizz-os
-    npx @evoapi/wizz-os my-workspace
+    npx @agencywizz/wizz-os
+    npx @agencywizz/wizz-os my-workspace
 `);
     process.exit(0);
   }
@@ -340,8 +340,8 @@ async function main() {
 `);
       }
 
-      console.log(`  ${DIM}Documentation: https://evonexus.wizzcomms.com/docs${RESET}`);
-      console.log(`  ${DIM}GitHub: https://github.com/EvolutionAPI/wizz-os${RESET}\n`);
+      console.log(`  ${DIM}Documentation: https://wizzcomms.com/docs${RESET}`);
+      console.log(`  ${DIM}GitHub: https://github.com/agencywizz/wizz-nexus${RESET}\n`);
     } else {
       console.log(`\n  ${RED}Setup failed (exit code ${code}).${RESET}`);
       console.log(`  ${DIM}Try running manually: cd ${targetDir} && make setup${RESET}\n`);

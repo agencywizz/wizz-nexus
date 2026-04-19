@@ -94,6 +94,6 @@ WizzOS runs on Anthropic's `claude` CLI by default, but can switch to any of 6 a
 
 ## Open Source
 
-WizzOS is MIT-licensed, built by [Wizz! comms.](https://wizzcomms.com). The source is at [github.com/EvolutionAPI/wizz-os](https://github.com/EvolutionAPI/wizz-os). This is an unofficial community project — not affiliated with or endorsed by Anthropic.
+WizzOS is MIT-licensed, built by [Wizz! comms.](https://wizzcomms.com). The source is at [github.com/agencywizz/wizz-nexus](https://github.com/agencywizz/wizz-nexus). This is an unofficial community project — not affiliated with or endorsed by Anthropic.
 
 It's designed to be forked and adapted. Add your own agents, skills, routines, and integrations. The architecture is markdown-first — no complex plugin systems, just files that Claude Code reads.

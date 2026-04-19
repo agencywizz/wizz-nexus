@@ -16,7 +16,7 @@ import {
 } from "react-icons/si";
 
 import MainLogo from "@assets/logo.webp";
-import WizzOSLogo from "@assets/EVO_NEXUS.webp";
+import WizzOSLogo from "@assets/WIZZOS.webp";
 import printOverview from "@assets/print-overview.webp";
 import printAgents from "@assets/print-agents.webp";
 import printIntegrations from "@assets/print-integrations.webp";
@@ -69,12 +69,12 @@ export default function Home() {
   }, [lightboxImg]);
 
   const copyCode = useCallback(() => {
-    navigator.clipboard.writeText(`npx @evoapi/wizz-os`);
+    navigator.clipboard.writeText(`npx @agencywizz/wizz-os`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, []);
 
-  const GITHUB_URL = "https://github.com/EvolutionAPI/wizz-os";
+  const GITHUB_URL = "https://github.com/agencywizz/wizz-nexus";
   const DOCS_URL = "/docs";
   const DISCORD_URL = "https://discord.gg/evolution-api";
   const EVOLUTION_URL = "https://wizzcomms.com";
@@ -277,7 +277,7 @@ export default function Home() {
                 <div className="mx-auto text-xs text-muted-foreground font-mono">bash</div>
               </div>
               <div className="p-6 pt-12 font-mono text-sm leading-relaxed text-gray-300">
-                <div className="flex gap-2"><span className="text-primary">$</span> <span>npx @evoapi/wizz-os</span></div>
+                <div className="flex gap-2"><span className="text-primary">$</span> <span>npx @agencywizz/wizz-os</span></div>
                 <div className="text-emerald-400 mt-2">&#10003; Claude Code CLI detected</div>
                 <div className="text-emerald-400">&#10003; Dependencies installed</div>
                 <div className="text-emerald-400">&#10003; Dashboard built</div>
@@ -397,7 +397,7 @@ export default function Home() {
               <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-border z-0"></div>
 
               {[
-                { step: 1, title: t("howItWorks.step1.title"), code: "npx @evoapi/wizz-os", desc: t("howItWorks.step1.desc") },
+                { step: 1, title: t("howItWorks.step1.title"), code: "npx @agencywizz/wizz-os", desc: t("howItWorks.step1.desc") },
                 { step: 2, title: t("howItWorks.step2.title"), code: "make dashboard-app", desc: t("howItWorks.step2.desc") },
                 { step: 3, title: t("howItWorks.step3.title"), code: t("howItWorks.step3.code"), desc: t("howItWorks.step3.desc") },
               ].map((item, i) => (
@@ -546,7 +546,7 @@ export default function Home() {
                 </Button>
               </div>
               <div className="p-6 md:p-8 font-mono text-base md:text-lg leading-loose">
-                <div className="flex gap-3"><span className="text-primary select-none">$</span> <span className="text-gray-300"><span className="text-blue-400">npx</span> @evoapi/wizz-os</span></div>
+                <div className="flex gap-3"><span className="text-primary select-none">$</span> <span className="text-gray-300"><span className="text-blue-400">npx</span> @agencywizz/wizz-os</span></div>
                 <div className="mt-4 text-muted-foreground text-sm">{t("quickstart.comment")}</div>
               </div>
             </div>

@@ -5,7 +5,7 @@ Generates workspace configuration, CLAUDE.md, .env, and folder structure.
 Usage: python setup.py  (or: make setup)
 
 This file also doubles as a setuptools build backend when invoked by pip
-(e.g. via `pip install -e .` or `npx @evoapi/wizz-os`). In that case the
+(e.g. via `pip install -e .` or `npx @agencywizz/wizz-os`). In that case the
 interactive wizard is skipped and only package metadata is produced — see
 `_IS_BUILD_BACKEND` below.
 """
@@ -831,7 +831,7 @@ def _setup_systemd_service(service_user, install_dir, logs_dir):
         f.write(f"""[Unit]
 Description=WizzOS Dashboard + Scheduler + Terminal Server
 After=network.target
-Documentation=https://github.com/EvolutionAPI/wizz-os
+Documentation=https://github.com/agencywizz/wizz-nexus
 
 [Service]
 Type=oneshot

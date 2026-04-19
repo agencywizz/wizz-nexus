@@ -77,7 +77,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 # OCI metadata
 LABEL org.opencontainers.image.title="wizz-os-runtime" \
       org.opencontainers.image.description="WizzOS runtime for Swarm (telegram/scheduler/ad-hoc routines)" \
-      org.opencontainers.image.source="https://github.com/EvolutionAPI/wizz-os" \
+      org.opencontainers.image.source="https://github.com/agencywizz/wizz-nexus" \
       org.opencontainers.image.licenses="MIT"
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
