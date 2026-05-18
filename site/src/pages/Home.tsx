@@ -569,7 +569,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <img src={MainLogo} alt="Wizz! comms." className="h-8" />
+                <img src={MainLogo} alt="Wizz! OS" className="h-8" />
               </div>
               <p className="text-muted-foreground text-sm">{t("footer.tagline")}</p>
             </div>

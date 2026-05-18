@@ -72,13 +72,13 @@ At minimum, you need:
 
 ### 4. Start the Dashboard
 
-**On a VPS (remote):** The setup wizard automatically creates a dedicated `evonexus` system user (Claude Code refuses `--dangerously-skip-permissions` as root) and installs a **systemd service** that starts on boot:
+**On a VPS (remote):** The installer (`install-service.sh`) sets up WizzOS at `/root/wizzos` and installs a **systemd service** that starts on boot. Claude Code is installed automatically during this step.
 
 ```bash
-systemctl status wizz-os      # check status
-systemctl restart wizz-os     # restart
-journalctl -u wizz-os -f      # follow logs
-su - evonexus                   # switch to service user
+systemctl status wizzos      # check status
+systemctl restart wizzos     # restart
+journalctl -u wizzos -f      # follow logs
+cd /root/wizzos              # navigate to installation
 ```
 
 You can also install the systemd service manually on an existing installation:

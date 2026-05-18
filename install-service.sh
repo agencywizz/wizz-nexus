@@ -1,9 +1,9 @@
 #!/bin/bash
-# WizzOS — Install as systemd service with dedicated user
+# WizzOS — Install as systemd service running as root
 # Usage: sudo bash install-service.sh [install_dir]
 #
-# Creates an 'evonexus' system user, copies/chowns the installation,
-# installs uv + claude-code for that user, and sets up a systemd service.
+# Installs WizzOS to /root/wizzos, installs uv + claude-code for root,
+# and sets up a systemd service.
 # Safe to re-run — skips steps that are already done.
 
 set -euo pipefail
@@ -23,27 +23,21 @@ fi
 
 INSTALL_DIR="${1:-$(pwd)}"
 if [ ! -f "$INSTALL_DIR/pyproject.toml" ]; then
-  echo -e "${RED}✗ Not an WizzOS installation: $INSTALL_DIR${RESET}"
-  echo "  Run from the wizz-os directory, or pass the path: sudo bash install-service.sh /path/to/wizz-os"
+  echo -e "${RED}✗ Not a WizzOS installation: $INSTALL_DIR${RESET}"
+  echo "  Run from the wizzos directory, or pass the path: sudo bash install-service.sh /path/to/wizzos"
   exit 1
 fi
 
-SERVICE_USER="evonexus"
-SERVICE_HOME="/home/$SERVICE_USER"
-SERVICE_DIR="$SERVICE_HOME/wizz-os"
-SERVICE_NAME="wizz-os"
+SERVICE_USER="root"
+SERVICE_HOME="/root"
+SERVICE_DIR="$SERVICE_HOME/wizzos"
+SERVICE_NAME="wizzos"
 
 echo -e "\n${GREEN}WizzOS — Service Installer${RESET}\n"
 
-# ── Step 1: Create user ──
+# ── Step 1: Verify running as root ──
 
-if id "$SERVICE_USER" &>/dev/null; then
-  echo -e "  ${DIM}✓ User '$SERVICE_USER' already exists${RESET}"
-else
-  echo -e "  Creating user '$SERVICE_USER'..."
-  useradd -m -s /bin/bash "$SERVICE_USER"
-  echo -e "  ${GREEN}✓${RESET} User '$SERVICE_USER' created"
-fi
+echo -e "  ${DIM}✓ Running as root — no user creation needed${RESET}"
 
 # ── Step 2: Copy installation to user home (if not already there) ──
 
@@ -99,30 +93,32 @@ chmod 755 "$SERVICE_DIR/start-services.sh"
 chown "$SERVICE_USER:$SERVICE_USER" "$SERVICE_DIR/start-services.sh"
 echo -e "  ${GREEN}✓${RESET} start-services.sh regenerated"
 
-# ── Step 3: Install uv for the user ──
+# ── Step 3: Install uv ──
 
-if su - "$SERVICE_USER" -c "command -v uv" &>/dev/null; then
+if command -v uv &>/dev/null; then
   echo -e "  ${DIM}✓ uv already installed${RESET}"
 else
   echo -e "  Installing uv..."
-  su - "$SERVICE_USER" -c "curl -LsSf https://astral.sh/uv/install.sh | sh" >/dev/null 2>&1
+  curl -LsSf https://astral.sh/uv/install.sh | sh >/dev/null 2>&1
+  export PATH="$HOME/.local/bin:$PATH"
   echo -e "  ${GREEN}✓${RESET} uv installed"
 fi
 
-# ── Step 4: Install Claude Code for the user ──
+# ── Step 4: Install Claude Code ──
 
-if su - "$SERVICE_USER" -c "export PATH=\$HOME/.local/bin:\$PATH && command -v claude" &>/dev/null; then
+if command -v claude &>/dev/null; then
   echo -e "  ${DIM}✓ Claude Code already installed${RESET}"
 else
   echo -e "  Installing Claude Code..."
-  su - "$SERVICE_USER" -c "npm install -g @anthropic-ai/claude-code --prefix ~/.local" >/dev/null 2>&1
+  npm install -g @anthropic-ai/claude-code --prefix ~/.local >/dev/null 2>&1
   echo -e "  ${GREEN}✓${RESET} Claude Code installed"
 fi
 
 # ── Step 5: Sync Python dependencies ──
 
 echo -e "  Syncing Python dependencies..."
-su - "$SERVICE_USER" -c "export PATH=\$HOME/.local/bin:\$PATH && cd $SERVICE_DIR && uv sync -q" 2>/dev/null
+export PATH="$HOME/.local/bin:$PATH"
+cd "$SERVICE_DIR" && uv sync -q 2>/dev/null
 echo -e "  ${GREEN}✓${RESET} Dependencies synced"
 
 # ── Step 6: Create systemd service ──
@@ -154,7 +150,7 @@ WantedBy=multi-user.target
 SERVICEEOF
 
 # Ensure logs dir exists
-su - "$SERVICE_USER" -c "mkdir -p $SERVICE_DIR/logs"
+mkdir -p "$SERVICE_DIR/logs"
 
 systemctl daemon-reload
 systemctl enable "$SERVICE_NAME" >/dev/null 2>&1
@@ -183,11 +179,10 @@ fi
 
 # ── Done ──
 
-echo -e "\n${GREEN}Done!${RESET} WizzOS is running as '$SERVICE_USER' via systemd.\n"
+echo -e "\n${GREEN}Done!${RESET} WizzOS is running as root via systemd.\n"
 echo -e "  Useful commands:"
 echo -e "    ${DIM}systemctl status $SERVICE_NAME${RESET}     — check status"
 echo -e "    ${DIM}systemctl restart $SERVICE_NAME${RESET}    — restart"
 echo -e "    ${DIM}journalctl -u $SERVICE_NAME -f${RESET}     — follow logs"
-echo -e "    ${DIM}su - $SERVICE_USER${RESET}                 — switch to service user"
-echo -e "    ${DIM}su - $SERVICE_USER -c 'cd ~/wizz-os && make run R=morning'${RESET} — run routine manually"
+echo -e "    ${DIM}cd /root/wizzos && make run R=morning${RESET} — run routine manually"
 echo ""

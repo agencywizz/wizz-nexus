@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://wizzcomms.com">
-    <img src="public/cover.webp" alt="Wizz! comms." height="60"/>
+    <img src="public/cover.webp" alt="WizzOS" height="60"/>
   </a>
 </p>
 

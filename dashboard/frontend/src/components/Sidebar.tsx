@@ -251,7 +251,7 @@ export default function Sidebar() {
       </nav>
 
       {user && (
-        <div className="px-4 py-4 border-t border-[#344054]">
+        <div className="px-4 py-4 border-t border-[#2A2A2A]">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-[#FF4500]/20 text-[#FF4500] flex items-center justify-center text-sm font-bold shrink-0">
               {(user.display_name || user.username).charAt(0).toUpperCase()}
@@ -275,7 +275,7 @@ export default function Sidebar() {
 
       {/* Version indicator */}
       {versionInfo && (
-        <div className="px-4 py-2 border-t border-[#344054]/50">
+        <div className="px-4 py-2 border-t border-[#2A2A2A]/50">
           <div className="flex items-center justify-between text-[11px]">
             <span className="text-[#667085]">v{versionInfo.current}</span>
             {versionInfo.update_available && versionInfo.release_url && (
@@ -295,14 +295,14 @@ export default function Sidebar() {
       )}
 
       {/* Credits */}
-      <div className="px-4 py-3 border-t border-[#344054]/50">
+      <div className="px-4 py-3 border-t border-[#2A2A2A]/50">
         <a
           href="https://wizzcomms.com"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-1.5 text-[10px] text-[#667085] hover:text-[#FF4500] transition-colors"
         >
-          by <span className="font-semibold text-[#FF4500]/60">Wizz! comms.</span>
+          Powered by <span className="font-semibold text-[#FF4500]/60">Wizz! comms.</span>
         </a>
       </div>
     </>
@@ -313,7 +313,7 @@ export default function Sidebar() {
       {/* Mobile hamburger */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-[#182230] border border-[#344054] text-[#D0D5DD] hover:text-[#FF4500] transition-colors"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] text-[#D0D5DD] hover:text-[#FF4500] transition-colors"
       >
         <Menu size={20} />
       </button>
@@ -325,7 +325,7 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed left-0 top-0 bottom-0 w-60 bg-[#0a0f1a] border-r border-[#344054] flex flex-col z-50
+        fixed left-0 top-0 bottom-0 w-60 bg-[#0D0D0D] border-r border-[#2A2A2A] flex flex-col z-50
         transition-transform duration-200 ease-in-out
         lg:translate-x-0
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
