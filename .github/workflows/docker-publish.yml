@@ -14,7 +14,7 @@ name: Build & Publish Docker Images (Swarm)
 #   * manual dispatch         -> builds without pushing (dry-run)
 on:
   push:
-    branches: [main]
+    branches: [main, wizz]
     tags: ['v*']
   workflow_dispatch:
 
@@ -33,9 +33,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - image: evo-nexus-runtime
+          - image: wizz-os-runtime
             dockerfile: Dockerfile.swarm
-          - image: evo-nexus-dashboard
+          - image: wizz-os-dashboard
             dockerfile: Dockerfile.swarm.dashboard
 
     steps:
