@@ -6,7 +6,7 @@
 ##                                    publishes the images (e.g. your fork,
 ##                                    or your org namespace).
 ##   * os.wizzcomms.com          → your public hostname (two places)
-##   * traefik-public               → the external Docker network shared
+##   * traefik_public               → the external Docker network shared
 ##                                    with your Traefik stack (some setups
 ##                                    call it `web`, `proxy`, etc.)
 ##
@@ -34,7 +34,7 @@ services:
       - wizz_os_codex_auth:/root/.codex
 
     networks:
-      - traefik-public
+      - traefik_public
 
     environment:
       ## Infrastructure-only env vars. Everything else (Anthropic, OpenAI,
@@ -56,7 +56,7 @@ services:
           memory: 1024M
       labels:
         - traefik.enable=1
-        - traefik.docker.network=traefik-public
+        - traefik.docker.network=traefik_public
 
         ## Primary router — Flask / SPA on port 8080
         - traefik.http.routers.wizz_os_dashboard.rule=Host(`os.wizzcomms.com`)
@@ -98,7 +98,7 @@ services:
       - wizz_os_codex_auth:/root/.codex
 
     networks:
-      - traefik-public
+      - traefik_public
 
     environment:
       ## The entrypoint waits in a 30s polling loop until ANTHROPIC_API_KEY
@@ -132,7 +132,7 @@ services:
       - wizz_os_codex_auth:/root/.codex
 
     networks:
-      - traefik-public
+      - traefik_public
 
     environment:
       - TZ=Europe/Dublin
@@ -157,6 +157,6 @@ volumes:
   wizz_os_codex_auth:
 
 networks:
-  traefik-public:
+  traefik_public:
     external: true
-    name: traefik-public
+    name: traefik_public
