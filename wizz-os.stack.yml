@@ -1,0 +1,162 @@
+## ============================================================================
+## WizzOS — Portainer / Docker Swarm deployment stack
+##
+## Before deploying, replace the placeholders below with your own values:
+##   * ghcr.io/OWNER/...            → the ghcr.io namespace where your CI
+##                                    publishes the images (e.g. your fork,
+##                                    or your org namespace).
+##   * os.wizzcomms.com          → your public hostname (two places)
+##   * traefik-public               → the external Docker network shared
+##                                    with your Traefik stack (some setups
+##                                    call it `web`, `proxy`, etc.)
+##
+## Images are published automatically by .github/workflows/docker-publish.yml
+## on every version tag and on pushes to `main`.
+##
+## Everything else (provider API keys, integration tokens, channel
+## credentials) is configured through the dashboard UI after the first
+## deploy. The stack intentionally ships with zero secrets.
+## ============================================================================
+version: "3.7"
+
+services:
+
+  wizz_os_dashboard:
+    image: ghcr.io/agencywizz/wizz-os-dashboard:latest  ## replace OWNER
+
+    volumes:
+      - wizz_os_config:/workspace/config
+      - wizz_os_workspace:/workspace/workspace
+      - wizz_os_dashboard_data:/workspace/dashboard/data
+      - wizz_os_memory:/workspace/memory
+      - wizz_os_adw_logs:/workspace/ADWs/logs
+      - wizz_os_agent_memory:/workspace/.claude/agent-memory
+      - wizz_os_codex_auth:/root/.codex
+
+    networks:
+      - traefik-public
+
+    environment:
+      ## Infrastructure-only env vars. Everything else (Anthropic, OpenAI,
+      ## Codex, Telegram, Stripe, Omie, Bling, Asaas, etc.) is configured
+      ## through the dashboard UI after the first boot. The entrypoint
+      ## generates WIZZ_OS_SECRET_KEY automatically on first boot.
+      - TZ=Europe/Dublin
+      - WIZZ_OS_PORT=8080
+      - TERMINAL_SERVER_PORT=32352
+      - FORWARDED_ALLOW_IPS=*
+
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+      labels:
+        - traefik.enable=1
+        - traefik.docker.network=traefik-public
+
+        ## Primary router — Flask / SPA on port 8080
+        - traefik.http.routers.wizz_os_dashboard.rule=Host(`os.wizzcomms.com`)
+        - traefik.http.routers.wizz_os_dashboard.entrypoints=websecure
+        - traefik.http.routers.wizz_os_dashboard.priority=1
+        - traefik.http.routers.wizz_os_dashboard.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.wizz_os_dashboard.service=wizz_os_dashboard
+        - traefik.http.services.wizz_os_dashboard.loadbalancer.server.port=8080
+        - traefik.http.services.wizz_os_dashboard.loadbalancer.passHostHeader=true
+
+        ## Terminal-server router — Node PTY (HTTP + WebSocket) on port 32352.
+        ## Higher priority (10) so /terminal/* wins over the primary router.
+        ## The stripprefix middleware removes /terminal before forwarding
+        ## because the terminal-server exposes /api/... at its root.
+        - traefik.http.routers.wizz_os_terminal.rule=Host(`os.wizzcomms.com`) && PathPrefix(`/terminal`)
+        - traefik.http.routers.wizz_os_terminal.entrypoints=websecure
+        - traefik.http.routers.wizz_os_terminal.priority=10
+        - traefik.http.routers.wizz_os_terminal.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.wizz_os_terminal.service=wizz_os_terminal
+        - traefik.http.routers.wizz_os_terminal.middlewares=wizz_os_terminal_strip
+        - traefik.http.middlewares.wizz_os_terminal_strip.stripprefix.prefixes=/terminal
+        - traefik.http.services.wizz_os_terminal.loadbalancer.server.port=32352
+        - traefik.http.services.wizz_os_terminal.loadbalancer.passHostHeader=true
+
+  wizz_os_telegram:
+    image: ghcr.io/agencywizz/wizz-os-runtime:latest  ## replace OWNER
+    command:
+      - "claude"
+      - "--channels"
+      - "plugin:telegram@claude-plugins-official"
+      - "--dangerously-skip-permissions"
+
+    volumes:
+      - wizz_os_config:/workspace/config
+      - wizz_os_workspace:/workspace/workspace
+      - wizz_os_memory:/workspace/memory
+      - wizz_os_adw_logs:/workspace/ADWs/logs
+      - wizz_os_agent_memory:/workspace/.claude/agent-memory
+      - wizz_os_codex_auth:/root/.codex
+
+    networks:
+      - traefik-public
+
+    environment:
+      ## The entrypoint waits in a 30s polling loop until ANTHROPIC_API_KEY
+      ## appears in the .env file (i.e. until you configure the provider in
+      ## the dashboard). No crash-loop while the user is still onboarding.
+      - TZ=Europe/Dublin
+      - REQUIRE_ANTHROPIC_KEY=1
+
+    stdin_open: true
+    tty: true
+
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+
+  wizz_os_scheduler:
+    image: ghcr.io/agencywizz/wizz-os-runtime:latest  ## replace OWNER
+    command: ["uv", "run", "python", "scheduler.py"]
+
+    volumes:
+      - wizz_os_config:/workspace/config
+      - wizz_os_workspace:/workspace/workspace
+      - wizz_os_memory:/workspace/memory
+      - wizz_os_adw_logs:/workspace/ADWs/logs
+      - wizz_os_agent_memory:/workspace/.claude/agent-memory
+      - wizz_os_codex_auth:/root/.codex
+
+    networks:
+      - traefik-public
+
+    environment:
+      - TZ=Europe/Dublin
+      - REQUIRE_ANTHROPIC_KEY=1
+
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+
+volumes:
+  wizz_os_config:
+  wizz_os_workspace:
+  wizz_os_dashboard_data:
+  wizz_os_memory:
+  wizz_os_adw_logs:
+  wizz_os_agent_memory:
+  wizz_os_codex_auth:
+
+networks:
+  traefik-public:
+    external: true
+    name: traefik-public
